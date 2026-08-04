@@ -45,17 +45,40 @@ export function Highlights() {
                   style={{ background: "linear-gradient(135deg, #fce8f0 0%, #fdf4f8 100%)" }}
                 />
 
+                {/* Decorative blobs */}
+                <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                  {/* Top right mint blob */}
+                  <div className="absolute -top-12 -right-12 size-32 rounded-full bg-mint/30 blur-2xl transition-all duration-500 group-hover:scale-150 group-hover:bg-mint/40" />
+                  {/* Bottom left coral blob */}
+                  <div className="absolute -bottom-8 -left-8 size-24 rounded-full bg-coral-light/25 blur-xl transition-all duration-500 group-hover:scale-125 group-hover:bg-coral-light/35" />
+                  {/* Small accent dot */}
+                  <div className="absolute top-6 right-6 size-2 rounded-full bg-pink-300 opacity-0 transition-all duration-300 group-hover:opacity-60" />
+                  <div className="absolute bottom-8 right-8 size-1.5 rounded-full bg-mint-deep opacity-0 transition-all duration-300 group-hover:opacity-50" />
+                </div>
+
                 {/* Shine sweep effect */}
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
 
                 <div className="relative">
-                  <div className="flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-mint-deep text-primary-foreground shadow-md shadow-primary/25 transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/30">
-                    <item.icon className="size-6 transition-transform duration-300 group-hover:scale-110" strokeWidth={2} />
+                  {/* Icon with decorative ring */}
+                  <div className="relative inline-flex">
+                    {/* Decorative ring behind icon */}
+                    <div className="absolute inset-0 -m-1 rounded-2xl border-2 border-primary/20 opacity-0 transition-all duration-300 group-hover:scale-125 group-hover:opacity-100 group-hover:border-primary/30" />
+                    
+                    <div className="flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-mint-deep text-primary-foreground shadow-md shadow-primary/25 transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/30 group-hover:rotate-3">
+                      <item.icon className="size-6 transition-transform duration-300 group-hover:scale-110" strokeWidth={2} />
+                    </div>
                   </div>
-                  <h3 className="mt-5 text-lg font-semibold transition-colors duration-300 group-hover:text-primary">{item.title}</h3>
+                  
+                  <h3 className="mt-5 text-lg font-semibold transition-colors duration-300 group-hover:text-primary">
+                    {item.title}
+                  </h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     {item.description}
                   </p>
+
+                  {/* Decorative bottom accent line */}
+                  <div className="mt-4 h-1 w-12 rounded-full bg-gradient-to-r from-primary to-coral-light opacity-0 transition-all duration-500 group-hover:w-20 group-hover:opacity-100" />
                 </div>
               </div>
             </FadeIn>

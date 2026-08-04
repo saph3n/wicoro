@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 import { FadeIn } from "@/components/common/fade-in"
 import { Button } from "@/components/ui/button"
@@ -20,12 +20,7 @@ export default function Home() {
 
         <Container className="relative grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-2 lg:gap-12 lg:py-28">
           <FadeIn className="max-w-xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold tracking-wide text-primary">
-              <Sparkles className="size-3.5" aria-hidden="true" />
-              Platform Pendidikan Bahasa Isyarat (BISINDO)
-            </span>
-
-            <h1 className="mt-6 text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
               Belajar Bahasa Isyarat,{" "}
               <span className="bg-gradient-to-r from-primary via-mint-deep to-[#cf6f95] bg-clip-text text-transparent">
                 Terhubung Tanpa Kata
