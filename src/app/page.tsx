@@ -12,7 +12,7 @@ export default function Home() {
       <section id="home" className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0" aria-hidden="true">
           <div className="absolute top-0 right-[-10%] size-[30rem] rounded-full bg-mint/40 blur-3xl" />
-          <div className="absolute top-1/2 left-[-14%] size-[26rem] rounded-full bg-coral-light/30 blur-3xl" />
+          <div className="absolute top-1/2 left-[-14%] size-[26rem] rounded-full bg-coral-light/15 blur-3xl" />
           <div className="absolute right-8 bottom-16 size-16 rounded-full border border-primary/20" />
           <div className="absolute top-40 left-[8%] size-4 rounded-full bg-coral/30" />
           <div className="absolute right-[18%] bottom-24 size-3 rounded-full bg-mint-deep/50" />
