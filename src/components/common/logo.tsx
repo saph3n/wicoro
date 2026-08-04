@@ -1,4 +1,4 @@
-import { Hand } from "lucide-react"
+import Image from "next/image"
 
 import { cn } from "@/lib/utils"
 
@@ -9,12 +9,16 @@ interface LogoProps {
 export function Logo({ className }: LogoProps) {
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
-      <span
-        aria-hidden="true"
-        className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm shadow-primary/30"
-      >
-        <Hand className="size-5" strokeWidth={2.25} />
-      </span>
+      <Image
+        src="/Frame 1.png"
+        alt="Wicoro"
+        width={36}
+        height={36}
+        sizes="36px"
+        quality={100}
+        className="size-9 rounded-xl object-contain"
+        priority
+      />
       <span className="text-lg font-semibold tracking-tight">Wicoro</span>
     </span>
   )
