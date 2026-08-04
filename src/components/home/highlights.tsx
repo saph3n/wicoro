@@ -38,14 +38,25 @@ export function Highlights() {
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {highlights.map((item, index) => (
             <FadeIn key={item.title} delay={index * 0.08}>
-              <div className="group h-full rounded-3xl border bg-card p-7 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10">
-                <div className="flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-mint-deep text-primary-foreground shadow-md shadow-primary/25">
-                  <item.icon className="size-6" strokeWidth={2} />
+              <div className="group relative h-full overflow-hidden rounded-3xl border bg-card p-7 shadow-md shadow-black/8 transition-all duration-300 hover:-translate-y-2 hover:border-pink-200 hover:shadow-xl hover:shadow-pink-200/50">
+                {/* Pink pastel background on hover */}
+                <div
+                  className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  style={{ background: "linear-gradient(135deg, #fce8f0 0%, #fdf4f8 100%)" }}
+                />
+
+                {/* Shine sweep effect */}
+                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+
+                <div className="relative">
+                  <div className="flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-mint-deep text-primary-foreground shadow-md shadow-primary/25 transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/30">
+                    <item.icon className="size-6 transition-transform duration-300 group-hover:scale-110" strokeWidth={2} />
+                  </div>
+                  <h3 className="mt-5 text-lg font-semibold transition-colors duration-300 group-hover:text-primary">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="mt-5 text-lg font-semibold">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {item.description}
-                </p>
               </div>
             </FadeIn>
           ))}

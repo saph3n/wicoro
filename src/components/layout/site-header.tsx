@@ -20,15 +20,16 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <Container className="flex h-16 items-center justify-between gap-4">
-        <a href="#home" aria-label="Wicoro home" className="shrink-0">
+        <a href="#home" aria-label="Wicoro home" className="inline-flex items-center gap-2.5 shrink-0">
           <Image
             src="/Frame 1.png"
-            alt="Wicoro"
-            width={120}
+            alt="Wicoro logo"
+            width={36}
             height={36}
-            className="h-9 w-auto object-contain"
+            className="size-9 object-contain"
             priority
           />
+          <span className="text-lg font-semibold tracking-tight">Wicoro</span>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
