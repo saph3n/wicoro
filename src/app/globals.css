@@ -7,6 +7,7 @@
 @theme {
   --animate-float: float 6s ease-in-out infinite;
   --animate-float-slow: float 8s ease-in-out 1.6s infinite;
+  --animate-wave: wave 6s linear infinite;
 
   @keyframes float {
     0%,
@@ -15,6 +16,15 @@
     }
     50% {
       transform: translateY(-12px);
+    }
+  }
+
+  @keyframes wave {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
     }
   }
 }
