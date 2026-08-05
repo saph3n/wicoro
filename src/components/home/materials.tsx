@@ -141,11 +141,8 @@ export function Materials() {
 
       <Container className="relative">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-block text-sm font-bold tracking-wide text-primary bg-primary/10 border border-primary/25 px-5 py-2 rounded-full shadow-md">
-            📚 Materi BISINDO
-          </span>
           <FadeIn delay={0.2}>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-balance sm:text-4xl">
               Materi yang Akan Kamu Pelajari
             </h2>
           </FadeIn>
