@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Container } from "@/components/common/container"
 import { HeroIllustration } from "@/components/home/hero-illustration"
 import { Highlights } from "@/components/home/highlights"
+import { Materials } from "@/components/home/materials"
 
 export default function Home() {
   return (
@@ -46,6 +47,8 @@ export default function Home() {
       </section>
 
       <Highlights />
+
+      <Materials />
     </>
   )
 }
