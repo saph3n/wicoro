@@ -18,7 +18,7 @@ const materials = [
     icon: Hash,
     title: "Angka",
     description:
-      "Pelajari isyarat angka dari satuan hingga bilangan besar untuk kebutuhan sehari-hari.",
+      "Pelajari isyarat angka dari bilangan satuan hingga bilangan besar untuk kebutuhan sehari-hari.",
   },
   {
     icon: Hand,
@@ -131,7 +131,7 @@ function MilestoneIcon({
 
 export function Materials() {
   return (
-    <section className="relative pb-20 sm:pb-28" aria-label="Materi yang Akan Kamu Pelajari">
+    <section className="relative pt-6 pb-20 sm:pt-8 sm:pb-28" aria-label="Materi yang Akan Kamu Pelajari">
       {/* Decorative background blobs */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -left-16 top-16 size-48 rounded-full bg-mint/30 blur-3xl" />
@@ -158,7 +158,7 @@ export function Materials() {
         </div>
 
         {/* Desktop: zigzag learning journey */}
-        <div className="relative mt-16 hidden lg:block">
+        <div className="relative mt-4 hidden lg:block">
           <svg
             className="absolute inset-x-0 top-0 h-32 w-full"
             viewBox="0 0 100 100"
@@ -216,7 +216,7 @@ export function Materials() {
         </div>
 
         {/* Mobile: vertical learning journey */}
-        <div className="relative mt-14 lg:hidden">
+        <div className="relative mt-4 lg:hidden">
           <svg
             className="absolute left-0 top-0 h-full w-12"
             viewBox="0 0 100 100"
