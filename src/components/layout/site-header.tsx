@@ -1,11 +1,10 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
-import { Menu, X } from "lucide-react"
 
 import { Container } from "@/components/common/container"
-import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
 const navItems = [
   { label: "Beranda", href: "#home" },
@@ -15,70 +14,82 @@ const navItems = [
 ]
 
 export function SiteHeader() {
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [active, setActive] = useState("#home")
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  useEffect(() => {
+    const ids = navItems.map((i) => i.href.replace("#", ""))
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(`#${e.target.id}`)
+        })
+      },
+      { threshold: 0.5 }
+    )
+    ids.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <Container className="flex h-16 items-center justify-between gap-4">
-        <a href="#home" aria-label="Wicoro home" className="inline-flex items-center gap-2.5 shrink-0">
+    <header className="sticky top-0 z-50 flex justify-center px-4 pt-4 pb-2">
+      <div
+        className={cn(
+          "flex w-full max-w-3xl items-center justify-between gap-4 rounded-2xl px-4 py-2.5 transition-all duration-500",
+          scrolled
+            ? "bg-background/80 shadow-lg shadow-black/8 backdrop-blur-md border border-border/50"
+            : "bg-background/60 backdrop-blur-sm border border-transparent"
+        )}
+      >
+        {/* Logo */}
+        <a href="#home" aria-label="Wicoro home" className="inline-flex items-center gap-2 shrink-0">
           <Image
             src="/Frame 1.png"
             alt="Wicoro logo"
-            width={36}
-            height={36}
-            className="size-9 object-contain"
+            width={32}
+            height={32}
+            className="size-8 object-contain"
             priority
           />
-          <span className="text-lg font-semibold tracking-tight">Wicoro</span>
+          <span className="text-base font-semibold tracking-tight">Wicoro</span>
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-2">
-          <Button className="hidden h-9 rounded-full px-5 sm:inline-flex">
-            Mulai Belajar
-          </Button>
-          <button
-            type="button"
-            className="inline-flex size-9 items-center justify-center rounded-lg border bg-background text-muted-foreground transition-colors hover:text-foreground md:hidden"
-            aria-expanded={menuOpen}
-            aria-label="Toggle navigation menu"
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            {menuOpen ? <X className="size-4" /> : <Menu className="size-4" />}
-          </button>
-        </div>
-      </Container>
-
-      {menuOpen && (
-        <div className="border-t bg-background/95 backdrop-blur md:hidden">
-          <Container className="flex flex-col gap-1 py-4">
-            {navItems.map((item) => (
+        {/* Nav links — desktop */}
+        <nav className="hidden items-center gap-1 md:flex" aria-label="Main navigation">
+          {navItems.map((item) => {
+            const isActive = active === item.href
+            return (
               <a
                 key={item.label}
                 href={item.href}
-                className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                onClick={() => setMenuOpen(false)}
+                onClick={() => setActive(item.href)}
+                className={cn(
+                  "relative px-3.5 py-1.5 text-sm font-medium rounded-xl transition-all duration-200",
+                  isActive
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+                )}
               >
-                {item.label}
+                {isActive && (
+                  <span className="absolute inset-0 rounded-xl bg-primary/10" />
+                )}
+                <span className="relative">{item.label}</span>
               </a>
-            ))}
-            <Button className="mt-2 h-10 rounded-full">
-              Mulai Belajar
-            </Button>
-          </Container>
-        </div>
-      )}
+            )
+          })}
+        </nav>
+
+        {/* CTA — hidden, navigation via bottom nav on mobile */}
+      </div>
     </header>
   )
 }
