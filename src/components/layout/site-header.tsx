@@ -2,18 +2,20 @@
 
 import { useEffect, useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
-import { Container } from "@/components/common/container"
 import { cn } from "@/lib/utils"
 
 const navItems = [
-  { label: "Beranda", href: "#home" },
-  { label: "Tentang", href: "#about" },
-  { label: "Belajar", href: "#learn" },
-  { label: "Kontak", href: "#contact" },
+  { label: "Beranda", href: "/#home" },
+  { label: "Tentang", href: "/about" },
+  { label: "Belajar", href: "/#learn" },
+  { label: "Kontak", href: "/#contact" },
 ]
 
 export function SiteHeader() {
+  const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [active, setActive] = useState("#home")
 
@@ -24,7 +26,13 @@ export function SiteHeader() {
   }, [])
 
   useEffect(() => {
-    const ids = navItems.map((i) => i.href.replace("#", ""))
+    setActive(pathname === "/about" ? "/about" : "#home")
+  }, [pathname])
+
+  useEffect(() => {
+    const ids = navItems
+      .filter((i) => i.href.includes("#"))
+      .map((i) => i.href.split("#")[1])
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -46,12 +54,12 @@ export function SiteHeader() {
         className={cn(
           "flex w-full max-w-3xl items-center justify-between gap-4 rounded-2xl px-4 py-2.5 transition-all duration-500",
           scrolled
-            ? "bg-background/80 shadow-lg shadow-black/8 backdrop-blur-md border border-border/50"
+            ? "bg-gradient-to-r from-mint/60 via-cream/50 to-coral/60 shadow-lg shadow-black/8 backdrop-blur-md border border-border/50"
             : "bg-background/60 backdrop-blur-sm border border-transparent"
         )}
       >
         {/* Logo */}
-        <a href="#home" aria-label="Wicoro home" className="inline-flex items-center gap-2 shrink-0">
+        <Link href="/#home" aria-label="Wicoro home" className="inline-flex items-center gap-2 shrink-0">
           <Image
             src="/Frame 1.png"
             alt="Wicoro logo"
@@ -61,14 +69,14 @@ export function SiteHeader() {
             priority
           />
           <span className="text-base font-semibold tracking-tight">Wicoro</span>
-        </a>
+        </Link>
 
         {/* Nav links — desktop */}
         <nav className="hidden items-center gap-1 md:flex" aria-label="Main navigation">
           {navItems.map((item) => {
             const isActive = active === item.href
             return (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 onClick={() => setActive(item.href)}
@@ -83,7 +91,7 @@ export function SiteHeader() {
                   <span className="absolute inset-0 rounded-xl bg-primary/10" />
                 )}
                 <span className="relative">{item.label}</span>
-              </a>
+              </Link>
             )
           })}
         </nav>

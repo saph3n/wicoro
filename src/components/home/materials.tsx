@@ -131,7 +131,7 @@ function MilestoneIcon({
 
 export function Materials() {
   return (
-    <section className="relative pt-6 pb-20 sm:pt-8 sm:pb-28" aria-label="Materi yang Akan Kamu Pelajari">
+    <section id="learn" className="relative pt-6 pb-20 sm:pt-8 sm:pb-28" aria-label="Materi yang Akan Kamu Pelajari">
       {/* Decorative background blobs */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -left-16 top-16 size-48 rounded-full bg-mint/30 blur-3xl" />

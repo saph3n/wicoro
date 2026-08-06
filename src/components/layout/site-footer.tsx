@@ -19,7 +19,7 @@ const socialLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="text-white">
+    <footer id="contact" className="text-white">
       {/* Animated wave */}
       <div className="bg-background leading-none overflow-hidden">
         <div className="relative h-6 sm:h-8 w-full">

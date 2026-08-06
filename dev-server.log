@@ -1,0 +1,41 @@
+
+> wicoro@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.22
+   - Local:        http://localhost:3000
+   - Network:      http://172.100.32.233:3000
+
+ ✓ Starting...
+ ✓ Ready in 1737ms
+ ○ Compiling / ...
+ ✓ Compiled /about in 7.5s (1812 modules)
+ GET / 200 in 4696ms
+ GET / 200 in 8940ms
+ GET /about 200 in 7420ms
+ GET /about 200 in 344ms
+ GET /about 200 in 303ms
+ GET /about 200 in 511ms
+ GET /about 200 in 487ms
+ GET /about 200 in 400ms
+ GET /about 200 in 101ms
+ GET / 200 in 88ms
+ GET /about 200 in 95ms
+ GET / 200 in 71ms
+ GET / 200 in 72ms
+ GET / 200 in 67ms
+ GET / 200 in 76ms
+ GET /about 200 in 120ms
+ GET / 200 in 66ms
+ GET / 200 in 56ms
+ GET / 200 in 98ms
+ ✓ Compiled in 5.5s (802 modules)
+ ✓ Compiled in 740ms (802 modules)
+ ✓ Compiled in 276ms (802 modules)
+ ✓ Compiled in 353ms (802 modules)
+ ✓ Compiled in 353ms (802 modules)
+ ✓ Compiled in 235ms (802 modules)
+ ✓ Compiled in 247ms (802 modules)
+ ○ Compiling /about ...
+ ✓ Compiled /about in 1363ms (1663 modules)
+ GET /about 200 in 2162ms
