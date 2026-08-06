@@ -12,7 +12,6 @@ import Link from "next/link"
 
 import { FadeIn } from "@/components/common/fade-in"
 import { Container } from "@/components/common/container"
-import { CountUp } from "@/components/about/count-up"
 import { ValueCard } from "@/components/about/value-card"
 import { Marquee } from "@/components/about/marquee"
 import { Faq } from "@/components/about/faq"
@@ -56,13 +55,6 @@ const values = [
   },
 ]
 
-const stats = [
-  { value: 2024, suffix: "", label: "Wicoro lahir dari sebuah misi sederhana" },
-  { value: 60, suffix: "+", label: "Materi isyarat yang terkurasi" },
-  { value: 1000, suffix: "+", label: "Pembelajar yang bergabung" },
-  { value: 100, suffix: "%", label: "Gratis untuk semua orang" },
-]
-
 export default function AboutPage() {
   return (
     <div className="relative overflow-hidden">
@@ -88,10 +80,14 @@ export default function AboutPage() {
             </FadeIn>
 
             <FadeIn delay={0.3}>
-              <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                Wicoro adalah platform interaktif untuk belajar Bahasa Isyarat
-                Indonesia (BISINDO). Kami percaya setiap orang berhak
-                berkomunikasi — dan bahasa isyarat adalah jembatannya.
+              <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+                Semuanya berawal dari satu pertanyaan sederhana:{" "}
+                <span className="font-semibold text-foreground">
+                  &ldquo;Bagaimana jika semua orang bisa bercakap dengan
+                  bahasa isyarat?&rdquo;
+                </span>{" "}
+                Dari sana, Wicoro tumbuh menjadi rumah belajar yang hangat
+                bagi siapa saja yang ingin memahami Bahasa Isyarat Indonesia (BISINDO).
               </p>
             </FadeIn>
           </div>
@@ -101,63 +97,8 @@ export default function AboutPage() {
       {/* Marquee */}
       <Marquee />
 
-      {/* Story */}
-      <section className="relative py-12 sm:py-16">
-        <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <FadeIn className="order-2 lg:order-1">
-              <div className="relative">
-                <div className="absolute -inset-4 -z-10 rounded-[2.5rem] bg-gradient-to-br from-mint/40 via-transparent to-coral-light/50 blur-2xl" />
-                <div className="rounded-[2.5rem] border bg-card/80 p-8 shadow-xl shadow-black/8 backdrop-blur-sm sm:p-12">
-                  <span className="inline-flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-mint-deep text-primary-foreground shadow-lg shadow-primary/25">
-                    <Hand className="size-7" strokeWidth={2} />
-                  </span>
-                  <h2 className="mt-6 text-2xl font-bold tracking-tight text-balance sm:text-3xl">
-                    Kisah Kami
-                  </h2>
-                  <div className="mt-4 space-y-4 text-base leading-relaxed text-muted-foreground">
-                    <p>
-                      Semuanya berawal dari satu pertanyaan sederhana:{" "}
-                      <span className="font-semibold text-foreground">
-                        &ldquo;Bagaimana jika semua orang bisa bercakap dengan
-                        bahasa isyarat?&rdquo;
-                      </span>{" "}
-                      Dari sana, Wicoro tumbuh menjadi rumah belajar yang hangat
-                      bagi siapa saja yang ingin memahami BISINDO.
-                    </p>
-                    <p>
-                      Kami merancang setiap pelajaran dengan cinta — dari
-                      alfabet, angka, hingga percakapan sehari-hari — agar
-                      belajar terasa ringan, seru, dan mudah diingat.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.15} className="order-1 lg:order-2">
-              <div className="grid grid-cols-2 gap-4 sm:gap-5">
-                {stats.map((item) => (
-                  <div
-                    key={item.label}
-                    className="group rounded-3xl border bg-card p-6 shadow-md shadow-black/8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-mint-deep/20"
-                  >
-                    <div className="bg-gradient-to-r from-primary to-[#cf6f95] bg-clip-text text-3xl font-extrabold text-transparent sm:text-4xl">
-                      <CountUp value={item.value} suffix={item.suffix} />
-                    </div>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground transition-colors group-hover:text-foreground">
-                      {item.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </FadeIn>
-          </div>
-        </Container>
-      </section>
-
       {/* Values */}
-      <section className="relative py-12 sm:py-16">
+      <section className="relative py-8 sm:py-12">
         <Container>
           <div className="mx-auto max-w-2xl text-center">
             <FadeIn>
@@ -165,14 +106,9 @@ export default function AboutPage() {
                 Nilai yang Kami Pegang
               </h2>
             </FadeIn>
-            <FadeIn delay={0.15}>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                Arahkan kursor ke kartu untuk merasakan sentuhan hangat Wicoro.
-              </p>
-            </FadeIn>
           </div>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {values.map((item, index) => (
               <FadeIn key={item.title} delay={index * 0.1} className={item.span}>
                 <ValueCard

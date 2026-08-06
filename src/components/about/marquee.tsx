@@ -4,14 +4,14 @@ import { Sparkles } from "lucide-react"
 import { motion } from "framer-motion"
 
 const words = [
-  "Inklusif",
-  "Visual",
-  "Interaktif",
-  "Menyenangkan",
-  "Untuk Semua",
-  "BISINDO",
-  "Tanpa Batas",
-  "Berkomunitas",
+  "Satu Isyarat, Seribu Makna",
+  "Belajar dengan Hati",
+  "Tangan Berbicara, Dunia Mendengar",
+  "Inklusif & Hangat",
+  "BISINDO untuk Semua",
+  "Dari Tangan ke Hati",
+  "Komunikasi Tanpa Batas",
+  "Berisyarat dengan Percaya Diri",
 ]
 
 const MASK = {
@@ -23,21 +23,23 @@ const MASK = {
 
 export function Marquee() {
   return (
-    <div className="relative overflow-hidden border-y border-border/60 bg-mint/10 py-5" style={MASK}>
+    <div className="relative overflow-hidden border-y border-border/60 bg-mint/10 py-6" style={MASK}>
       <motion.div
-        className="flex w-max items-center gap-10 whitespace-nowrap"
+        className="flex w-max items-center gap-8 whitespace-nowrap"
         animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
       >
         {[0, 1].map((dup) => (
-          <div key={dup} className="flex items-center gap-10" aria-hidden={dup === 1}>
+          <div key={dup} className="flex items-center gap-8" aria-hidden={dup === 1}>
             {words.map((word) => (
               <span
                 key={`${dup}-${word}`}
-                className="inline-flex items-center gap-10 text-lg font-bold tracking-wide text-primary/80"
+                className="inline-flex items-center gap-8"
               >
-                {word}
-                <Sparkles className="size-4 text-coral" aria-hidden="true" />
+                <span className="text-base font-semibold italic tracking-wide text-primary/60">
+                  {word}
+                </span>
+                <Sparkles className="size-5 text-coral animate-pulse" aria-hidden="true" />
               </span>
             ))}
           </div>

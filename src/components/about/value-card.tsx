@@ -160,24 +160,7 @@ export function ValueCard({
         )}
         style={{ transform: "translateZ(24px)" }}
       >
-        <div className="relative inline-flex shrink-0">
-          <div
-            className={cn(
-              "absolute inset-0 -m-1.5 rounded-2xl border-2 opacity-0 transition-all duration-300 group-hover:scale-125 group-hover:opacity-100",
-              a.iconRing
-            )}
-          />
-          <div
-            className={cn(
-              "flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:-translate-y-1",
-              a.icon
-            )}
-          >
-            {icon}
-          </div>
-        </div>
-
-        <div className={cn("flex-1", !horizontal && "mt-5")}>
+        <div className={cn("flex-1")}>
           <h3 className="text-lg font-bold tracking-tight transition-colors duration-300 group-hover:text-primary">
             {title}
           </h3>
