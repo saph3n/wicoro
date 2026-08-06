@@ -27,45 +27,65 @@ interface ValueCardProps {
 const accents: Record<
   ValueAccent,
   {
-    icon: string
-    iconRing: string
-    blob: string
+    blob1: string
+    blob2: string
     shadow: string
     ghost: string
     line: string
+    hoverTitle: string
+    hoverDesc: string
+    glow: string
+    border: string
+    icon: string
   }
 > = {
   primary: {
-    icon: "from-primary to-mint-deep text-primary-foreground shadow-primary/25",
-    iconRing: "border-primary/30",
-    blob: "bg-mint/30 group-hover:bg-mint/50",
-    shadow: "hover:shadow-primary/25",
-    ghost: "text-primary/15",
+    blob1: "bg-mint/30 group-hover:bg-mint/50",
+    blob2: "bg-mint-deep/20 group-hover:bg-mint-deep/30",
+    shadow: "hover:shadow-primary/20",
+    ghost: "text-primary/12",
     line: "from-primary to-mint-deep",
+    hoverTitle: "group-hover:text-primary",
+    hoverDesc: "group-hover:text-foreground",
+    glow: "rgba(87, 181, 133, 0.18)",
+    border: "hover:border-primary/30",
+    icon: "from-primary to-mint-deep text-primary-foreground shadow-primary/25",
   },
   coral: {
-    icon: "from-[#f08aa8] to-[#cf6f95] text-white shadow-[#cf6f95]/30",
-    iconRing: "border-[#cf6f95]/30",
-    blob: "bg-coral-light/40 group-hover:bg-coral/30",
-    shadow: "hover:shadow-[#cf6f95]/25",
-    ghost: "text-[#cf6f95]/15",
+    blob1: "bg-coral/20 group-hover:bg-coral/35",
+    blob2: "bg-coral-light/30 group-hover:bg-coral-light/50",
+    shadow: "hover:shadow-[#cf6f95]/20",
+    ghost: "text-[#cf6f95]/12",
     line: "from-[#f08aa8] to-[#cf6f95]",
+    hoverTitle: "group-hover:text-[#cf6f95]",
+    hoverDesc: "group-hover:text-foreground",
+    glow: "rgba(207, 111, 149, 0.15)",
+    border: "hover:border-[#cf6f95]/30",
+    icon: "from-[#f08aa8] to-[#cf6f95] text-white shadow-[#cf6f95]/30",
   },
   peach: {
-    icon: "from-peach to-coral-light text-[#cf6f95] shadow-[#cf6f95]/20",
-    iconRing: "border-coral/30",
-    blob: "bg-coral/15 group-hover:bg-coral/25",
-    shadow: "hover:shadow-peach",
-    ghost: "text-coral/20",
-    line: "from-coral to-coral-light",
+    blob1: "bg-coral-light/35 group-hover:bg-coral-light/55",
+    blob2: "bg-coral/15 group-hover:bg-coral/25",
+    shadow: "hover:shadow-[#f08aa8]/20",
+    ghost: "text-[#f08aa8]/15",
+    line: "from-[#f08aa8] to-coral-light",
+    hoverTitle: "group-hover:text-[#f08aa8]",
+    hoverDesc: "group-hover:text-foreground",
+    glow: "rgba(240, 138, 168, 0.15)",
+    border: "hover:border-[#f08aa8]/30",
+    icon: "from-coral-light to-peach text-[#cf6f95] shadow-[#cf6f95]/20",
   },
   mint: {
-    icon: "from-mint to-mint-deep text-mint-deep shadow-mint-deep/25",
-    iconRing: "border-mint-deep/30",
-    blob: "bg-mint/40 group-hover:bg-mint-deep/30",
-    shadow: "hover:shadow-mint-deep/25",
+    blob1: "bg-mint/40 group-hover:bg-mint/60",
+    blob2: "bg-mint-deep/20 group-hover:bg-mint-deep/35",
+    shadow: "hover:shadow-mint-deep/20",
     ghost: "text-mint-deep/15",
-    line: "from-mint to-mint-deep",
+    line: "from-mint-deep to-mint",
+    hoverTitle: "group-hover:text-mint-deep",
+    hoverDesc: "group-hover:text-foreground",
+    glow: "rgba(87, 181, 133, 0.15)",
+    border: "hover:border-mint-deep/30",
+    icon: "from-mint to-mint-deep text-mint-deep shadow-mint-deep/25",
   },
 }
 
@@ -94,7 +114,7 @@ export function ValueCard({
 
   const glowX = useTransform(mx, [-0.5, 0.5], ["30%", "70%"])
   const glowY = useTransform(my, [-0.5, 0.5], ["30%", "70%"])
-  const glow = useMotionTemplate`radial-gradient(220px circle at ${glowX} ${glowY}, rgba(87, 181, 133, 0.16), transparent 65%)`
+  const glow = useMotionTemplate`radial-gradient(220px circle at ${glowX} ${glowY}, ${a.glow}, transparent 65%)`
 
   function handleMove(e: React.MouseEvent<HTMLDivElement>) {
     const rect = ref.current?.getBoundingClientRect()
@@ -115,8 +135,9 @@ export function ValueCard({
       onMouseLeave={reset}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d", perspective: 800 }}
       className={cn(
-        "group relative h-full overflow-hidden rounded-[2rem] border bg-card p-7 shadow-md shadow-black/8 transition-shadow duration-300 hover:shadow-2xl sm:p-8",
+        "group relative h-full overflow-hidden rounded-[2rem] border bg-card p-7 shadow-md shadow-black/8 transition-all duration-300 hover:shadow-2xl",
         a.shadow,
+        a.border,
         className
       )}
     >
@@ -129,21 +150,13 @@ export function ValueCard({
 
       {/* Decorative blobs */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div
-          className={cn(
-            "absolute -top-14 -right-14 size-40 rounded-full blur-2xl transition-all duration-500 group-hover:scale-150",
-            a.blob
-          )}
-        />
-        <div className="absolute -bottom-10 -left-10 size-28 rounded-full bg-coral-light/25 blur-xl transition-all duration-500 group-hover:scale-125" />
+        <div className={cn("absolute -top-14 -right-14 size-40 rounded-full blur-2xl transition-all duration-500 group-hover:scale-150", a.blob1)} />
+        <div className={cn("absolute -bottom-10 -left-10 size-28 rounded-full blur-xl transition-all duration-500 group-hover:scale-125", a.blob2)} />
       </div>
 
       {/* Ghost number */}
       <span
-        className={cn(
-          "pointer-events-none absolute -top-4 right-2 select-none text-[7rem] font-extrabold leading-none tracking-tighter",
-          a.ghost
-        )}
+        className={cn("pointer-events-none absolute -top-4 right-2 select-none text-[7rem] font-extrabold leading-none tracking-tighter", a.ghost)}
         aria-hidden="true"
       >
         {number}
@@ -160,19 +173,17 @@ export function ValueCard({
         )}
         style={{ transform: "translateZ(24px)" }}
       >
-        <div className={cn("flex-1")}>
-          <h3 className="text-lg font-bold tracking-tight transition-colors duration-300 group-hover:text-primary">
+        <div className={cn("flex size-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6", a.icon)}>
+          {icon}
+        </div>
+        <div className="flex-1">
+          <h3 className={cn("text-lg font-bold tracking-tight transition-colors duration-300", a.hoverTitle)}>
             {title}
           </h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+          <p className={cn("mt-2 text-sm leading-relaxed text-muted-foreground transition-colors duration-300", a.hoverDesc)}>
             {description}
           </p>
-          <div
-            className={cn(
-              "mt-4 h-1 w-12 rounded-full bg-gradient-to-r opacity-0 transition-all duration-500 group-hover:w-24 group-hover:opacity-100",
-              a.line
-            )}
-          />
+
         </div>
       </div>
     </motion.div>

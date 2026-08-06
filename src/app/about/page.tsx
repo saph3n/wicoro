@@ -1,8 +1,6 @@
 import {
-  Accessibility,
   BookOpen,
   Eye,
-  Hand,
   Heart,
   HeartHandshake,
   Lightbulb,
@@ -15,6 +13,7 @@ import { Container } from "@/components/common/container"
 import { ValueCard } from "@/components/about/value-card"
 import { Marquee } from "@/components/about/marquee"
 import { Faq } from "@/components/about/faq"
+import { HeroTitle } from "@/components/about/hero-title"
 
 const values = [
   {
@@ -61,8 +60,7 @@ export default function AboutPage() {
       {/* Decorative background blobs */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute -top-20 left-1/4 size-72 rounded-full bg-mint/30 blur-3xl" />
-        <div className="absolute top-40 -right-24 size-80 rounded-full bg-coral-light/40 blur-3xl" />
-        <div className="absolute bottom-0 -left-24 size-96 rounded-full bg-coral/20 blur-3xl" />
+        <div className="absolute top-40 -right-24 size-80 rounded-full bg-mint-deep/15 blur-3xl" />
         <div className="absolute bottom-1/4 left-1/2 size-56 rounded-full bg-mint-deep/15 blur-3xl" />
       </div>
 
@@ -70,14 +68,7 @@ export default function AboutPage() {
       <section className="relative pt-16 pb-12 sm:pt-24 sm:pb-16">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <FadeIn delay={0.15}>
-              <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
-                Dari Tangan, Lahir{" "}
-                <span className="bg-gradient-to-r from-primary via-mint-deep to-[#cf6f95] bg-clip-text text-transparent">
-                  Percakapan
-                </span>
-              </h1>
-            </FadeIn>
+            <HeroTitle />
 
             <FadeIn delay={0.3}>
               <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
@@ -182,23 +173,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Accesibility note */}
-      <section className="relative py-8 pb-16 sm:pb-20">
-        <Container>
-          <FadeIn>
-            <div className="mx-auto flex max-w-2xl items-center gap-4 rounded-3xl border border-mint-deep/20 bg-mint/10 px-6 py-5">
-              <span className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-mint text-mint-deep shadow-md shadow-mint-deep/20">
-                <Accessibility className="size-5" aria-hidden="true" />
-              </span>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                <span className="font-semibold text-foreground">Wicoro</span>{" "}
-                berkomitmen membangun dunia yang lebih inklusif — satu isyarat
-                pada satu waktu. Bersama, kita bisa saling memahami tanpa kata.
-              </p>
-            </div>
-          </FadeIn>
-        </Container>
-      </section>
+
     </div>
   )
 }
