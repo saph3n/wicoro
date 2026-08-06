@@ -22,7 +22,7 @@ export function SiteFooter() {
     <footer className="text-white">
       {/* Animated wave */}
       <div className="bg-background leading-none overflow-hidden">
-        <div className="relative h-8 sm:h-12 w-full">
+        <div className="relative h-6 sm:h-8 w-full">
           {/* Wave layer 1 — faster */}
           <svg
             viewBox="0 0 1440 80"
@@ -61,64 +61,65 @@ export function SiteFooter() {
       </div>
 
       <div className="bg-[#1c3b2c]">
-        <Container className="mx-auto max-w-4xl px-6 sm:px-10 lg:px-16">
-          <div className="grid gap-10 pt-8 pb-10 grid-cols-1 sm:grid-cols-2 sm:gap-x-16 lg:gap-x-20 items-start justify-center">
-          {/* Kolom 1: Logo Wicoro + Deskripsi + Social Media */}
-          <div className="flex flex-col">
-            <a href="#home" className="group inline-flex items-center gap-2.5 transition-transform hover:scale-105" aria-label="Wicoro home">
-              <Image
-                src="/Frame 1.png"
-                alt="Wicoro logo"
-                width={40}
-                height={40}
-                className="size-[40px] object-contain transition-transform group-hover:rotate-3"
-              />
-              <span className="text-lg font-bold tracking-tight">Wicoro</span>
-            </a>
-            
-            <p className="mt-4 text-xs leading-[1.7] text-white/70">
-              Platform interaktif untuk belajar<br />
-              Bahasa Isyarat Indonesia (BISINDO)<br />
-              dengan cara yang mudah dan seru.
-            </p>
-            
-            <div className="mt-4 flex items-center gap-2.5">
-              {socialLinks.map(({ label, href, Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="group inline-flex size-8 items-center justify-center rounded-full border border-white/25 bg-white/5 text-white/70 transition-all hover:scale-110 hover:border-white/50 hover:bg-white/10 hover:text-white hover:shadow-lg hover:shadow-white/10"
-                >
-                  <Icon className="size-3.5 transition-transform group-hover:scale-110" aria-hidden="true" />
-                </a>
-              ))}
+        <Container className="mx-auto max-w-4xl">
+          <div className="flex flex-col gap-8 py-7 sm:py-6 lg:flex-row lg:items-center lg:justify-between">
+            {/* Brand */}
+            <div className="flex flex-col gap-2.5">
+              <a href="#home" className="group inline-flex items-center gap-2.5 transition-transform hover:scale-105" aria-label="Wicoro home">
+                <Image
+                  src="/Frame 1.png"
+                  alt="Wicoro logo"
+                  width={32}
+                  height={32}
+                  className="size-8 object-contain transition-transform group-hover:rotate-3"
+                />
+                <span className="text-base font-bold tracking-tight">Wicoro</span>
+              </a>
+              <p className="max-w-xs text-xs leading-relaxed text-white/60">
+                Platform interaktif untuk belajar Bahasa Isyarat Indonesia (BISINDO) dengan cara yang mudah dan seru.
+              </p>
             </div>
-          </div>
 
-          {/* Kolom 2: Kontak */}
-          <div className="flex flex-col">
-            <h3 className="text-[11px] font-bold uppercase tracking-wider text-white/50 mb-3">Kontak</h3>
-            <ul className="space-y-2.5">
-              {contactLinks.map(({ label, href, Icon }) => (
-                <li key={label}>
+            {/* Kontak + Social */}
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-10">
+              <div className="flex flex-col">
+                <h3 className="mb-2.5 text-[11px] font-bold uppercase tracking-wider text-white/50">Kontak</h3>
+                <ul className="space-y-2">
+                  {contactLinks.map(({ label, href, Icon }) => (
+                    <li key={label}>
+                      <a
+                        href={href}
+                        className="group inline-flex items-center gap-2.5 text-xs text-white/70 transition-all hover:text-white hover:translate-x-0.5"
+                      >
+                        <Icon className="size-3.5 shrink-0 transition-colors group-hover:text-mint" aria-hidden="true" />
+                        <span className="transition-colors">{label}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="hidden h-8 w-px bg-white/10 sm:block" aria-hidden="true" />
+
+              <div className="flex items-center gap-2.5">
+                {socialLinks.map(({ label, href, Icon }) => (
                   <a
+                    key={label}
                     href={href}
-                    className="group inline-flex items-center gap-2.5 text-xs text-white/70 transition-all hover:text-white hover:translate-x-0.5"
+                    aria-label={label}
+                    className="group inline-flex size-8 items-center justify-center rounded-full border border-white/25 bg-white/5 text-white/70 transition-all hover:scale-110 hover:border-white/50 hover:bg-white/10 hover:text-white hover:shadow-lg hover:shadow-white/10"
                   >
-                    <Icon className="size-3.5 shrink-0 transition-colors group-hover:text-mint" aria-hidden="true" />
-                    <span className="transition-colors">{label}</span>
+                    <Icon className="size-3.5 transition-transform group-hover:scale-110" aria-hidden="true" />
                   </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+                ))}
+              </div>
+            </div>
           </div>
         </Container>
 
         <div className="border-t border-white/10">
-          <Container className="flex max-w-4xl items-center justify-start px-6 sm:px-10 lg:px-16 py-4">
-            <p className="text-[10px] text-white/50">© 2026 Wicoro. Semua hak dilindungi.</p>
+          <Container className="flex max-w-4xl items-center justify-start py-3.5">
+            <p className="text-[11px] text-white/50">© 2026 Wicoro. Semua hak dilindungi.</p>
           </Container>
         </div>
       </div>
