@@ -6,8 +6,6 @@ import {
   Heart,
   HeartHandshake,
   Lightbulb,
-  MousePointer2,
-  Sparkles,
   Users,
 } from "lucide-react"
 import Link from "next/link"
@@ -25,24 +23,36 @@ const values = [
     title: "Inklusif untuk Semua",
     description:
       "Wicoro lahir dari keyakinan bahwa komunikasi adalah hak setiap orang. Kami menghapus batasan antara komunitas Tuli dan pendengar.",
+    number: "01",
+    accent: "primary" as const,
+    span: "lg:col-span-2",
+    horizontal: true,
   },
   {
     icon: <Eye className="size-6" strokeWidth={2} />,
     title: "Visual & Mudah Diingat",
     description:
       "Bahasa isyarat adalah bahasa visual. Setiap pelajaran kami rancang dengan pendekatan visual yang alami dan menyenangkan.",
+    number: "02",
+    accent: "coral" as const,
   },
   {
     icon: <Lightbulb className="size-6" strokeWidth={2} />,
     title: "Belajar Sambil Bermain",
     description:
       "Kami percaya belajar paling efektif saat terasa seperti bermain. Pelajaran interaktif dan kuis membuatmu terus penasaran.",
+    number: "03",
+    accent: "peach" as const,
   },
   {
     icon: <Users className="size-6" strokeWidth={2} />,
     title: "Komunitas yang Hangat",
     description:
       "Kamu tidak belajar sendirian. Kami membangun komunitas tempat semua orang bisa berlatih, berbagi, dan saling mendukung.",
+    number: "04",
+    accent: "mint" as const,
+    span: "lg:col-span-2",
+    horizontal: true,
   },
 ]
 
@@ -68,15 +78,8 @@ export default function AboutPage() {
       <section className="relative pt-16 pb-12 sm:pt-24 sm:pb-16">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <FadeIn>
-              <span className="inline-flex items-center gap-2 rounded-full border border-mint-deep/25 bg-mint/20 px-5 py-2 text-sm font-bold tracking-wide text-primary shadow-sm">
-                <Sparkles className="size-4" aria-hidden="true" />
-                Tentang Wicoro
-              </span>
-            </FadeIn>
-
             <FadeIn delay={0.15}>
-              <h1 className="mt-6 text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
+              <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
                 Dari Tangan, Lahir{" "}
                 <span className="bg-gradient-to-r from-primary via-mint-deep to-[#cf6f95] bg-clip-text text-transparent">
                   Percakapan
@@ -90,15 +93,6 @@ export default function AboutPage() {
                 Indonesia (BISINDO). Kami percaya setiap orang berhak
                 berkomunikasi — dan bahasa isyarat adalah jembatannya.
               </p>
-            </FadeIn>
-
-            <FadeIn delay={0.45}>
-              <div className="mt-10 inline-flex flex-col items-center gap-2 text-muted-foreground">
-                <span className="text-xs font-medium uppercase tracking-widest">Scroll untuk menjelajah</span>
-                <span className="flex size-9 animate-bounce items-center justify-center rounded-full border border-mint-deep/30 bg-mint/20 text-primary">
-                  <MousePointer2 className="size-4 rotate-90" aria-hidden="true" />
-                </span>
-              </div>
             </FadeIn>
           </div>
         </Container>
@@ -178,10 +172,17 @@ export default function AboutPage() {
             </FadeIn>
           </div>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {values.map((item, index) => (
-              <FadeIn key={item.title} delay={index * 0.1}>
-                <ValueCard icon={item.icon} title={item.title} description={item.description} />
+              <FadeIn key={item.title} delay={index * 0.1} className={item.span}>
+                <ValueCard
+                  icon={item.icon}
+                  title={item.title}
+                  description={item.description}
+                  number={item.number}
+                  accent={item.accent}
+                  horizontal={item.horizontal}
+                />
               </FadeIn>
             ))}
           </div>

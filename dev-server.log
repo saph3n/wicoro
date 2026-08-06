@@ -39,3 +39,67 @@
  ○ Compiling /about ...
  ✓ Compiled /about in 1363ms (1663 modules)
  GET /about 200 in 2162ms
+ ⨯ Error: Could not find the module "D:\wicoro\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '3346425255'
+}
+ GET /about 200 in 684ms
+ ⨯ Error: Could not find the module "D:\wicoro\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '3346425255'
+}
+ ⨯ Error: Could not find the module "D:\wicoro\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '4098108139'
+}
+ ⨯ Error: Could not find the module "D:\wicoro\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '4098108139'
+}
+ ⨯ Error: Could not find the module "D:\wicoro\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '4098108139'
+}
+ ⨯ Error: Could not find the module "D:\wicoro\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '3346425255'
+}
+ ⨯ Error: Could not find the module "D:\wicoro\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '3346425255'
+}
+ ⨯ [TypeError: __webpack_modules__[moduleId] is not a function] {
+  digest: '3647285739'
+}
+ ⨯ Error: Could not find the module "D:\wicoro\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '3346425255'
+}
+[TypeError: __webpack_modules__[moduleId] is not a function]
+ ⨯ [TypeError: __webpack_modules__[moduleId] is not a function]
+ ⨯ [TypeError: __webpack_modules__[moduleId] is not a function] {
+  page: '/about'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 4s (2010 modules)
+ GET /about 500 in 9309ms
+ ○ Compiling / ...
+ ✓ Compiled / in 627ms (1232 modules)
+ GET / 200 in 1833ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1945ms (2187 modules)
+ GET / 404 in 2444ms
+ ✓ Compiled in 964ms (1167 modules)
+ ✓ Compiled in 525ms (964 modules)
+ ✓ Compiled in 659ms (964 modules)
+ ✓ Compiled in 343ms (964 modules)
+ ✓ Compiled in 1033ms (964 modules)
+ ✓ Compiled in 892ms (964 modules)
+ ✓ Compiled in 268ms (964 modules)
+ ✓ Compiled in 301ms (964 modules)
