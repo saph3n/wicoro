@@ -133,8 +133,7 @@ export default function AboutPage() {
               <div className="pointer-events-none absolute inset-0" aria-hidden="true">
                 <div className="absolute -top-16 -left-16 size-56 rounded-full bg-white/10 blur-3xl" />
                 <div className="absolute -bottom-20 -right-10 size-64 rounded-full bg-white/10 blur-3xl" />
-                <div className="absolute top-1/3 right-1/4 size-3 rounded-full bg-white/60" />
-                <div className="absolute bottom-1/4 left-1/4 size-2 rounded-full bg-white/50" />
+
               </div>
               <div className="relative">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-5 py-2 text-sm font-bold tracking-wide backdrop-blur-sm">
