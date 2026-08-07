@@ -1,7 +1,6 @@
 "use client"
 
 import { useRef } from "react"
-import type { ReactNode } from "react"
 import {
   motion,
   useMotionTemplate,
@@ -15,7 +14,6 @@ import { cn } from "@/lib/utils"
 export type ValueAccent = "primary" | "coral" | "peach" | "mint"
 
 interface ValueCardProps {
-  icon: ReactNode
   title: string
   description: string
   number: string
@@ -36,7 +34,6 @@ const accents: Record<
     hoverDesc: string
     glow: string
     border: string
-    icon: string
   }
 > = {
   primary: {
@@ -49,7 +46,6 @@ const accents: Record<
     hoverDesc: "group-hover:text-foreground",
     glow: "rgba(87, 181, 133, 0.18)",
     border: "hover:border-primary/30",
-    icon: "from-primary to-mint-deep text-primary-foreground shadow-primary/25",
   },
   coral: {
     blob1: "bg-coral/20 group-hover:bg-coral/35",
@@ -61,7 +57,6 @@ const accents: Record<
     hoverDesc: "group-hover:text-foreground",
     glow: "rgba(207, 111, 149, 0.15)",
     border: "hover:border-[#cf6f95]/30",
-    icon: "from-[#f08aa8] to-[#cf6f95] text-white shadow-[#cf6f95]/30",
   },
   peach: {
     blob1: "bg-coral-light/35 group-hover:bg-coral-light/55",
@@ -73,7 +68,6 @@ const accents: Record<
     hoverDesc: "group-hover:text-foreground",
     glow: "rgba(240, 138, 168, 0.15)",
     border: "hover:border-[#f08aa8]/30",
-    icon: "from-coral-light to-peach text-[#cf6f95] shadow-[#cf6f95]/20",
   },
   mint: {
     blob1: "bg-mint/40 group-hover:bg-mint/60",
@@ -85,12 +79,10 @@ const accents: Record<
     hoverDesc: "group-hover:text-foreground",
     glow: "rgba(87, 181, 133, 0.15)",
     border: "hover:border-mint-deep/30",
-    icon: "from-mint to-mint-deep text-mint-deep shadow-mint-deep/25",
   },
 }
 
 export function ValueCard({
-  icon,
   title,
   description,
   number,
@@ -173,9 +165,6 @@ export function ValueCard({
         )}
         style={{ transform: "translateZ(24px)" }}
       >
-        <div className={cn("flex size-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6", a.icon)}>
-          {icon}
-        </div>
         <div className="flex-1">
           <h3 className={cn("text-lg font-bold tracking-tight transition-colors duration-300", a.hoverTitle)}>
             {title}
