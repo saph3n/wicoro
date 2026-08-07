@@ -1,11 +1,4 @@
-import {
-  BookOpen,
-  Eye,
-  Heart,
-  HeartHandshake,
-  Lightbulb,
-  Users,
-} from "lucide-react"
+import { BookOpen, Heart } from "lucide-react"
 import Link from "next/link"
 
 import { FadeIn } from "@/components/common/fade-in"
@@ -17,7 +10,6 @@ import { HeroTitle } from "@/components/about/hero-title"
 
 const values = [
   {
-    icon: <HeartHandshake className="size-6" strokeWidth={2} />,
     title: "Inklusif untuk Semua",
     description:
       "Wicoro lahir dari keyakinan bahwa komunikasi adalah hak setiap orang. Kami menghapus batasan antara komunitas Tuli dan pendengar.",
@@ -27,7 +19,6 @@ const values = [
     horizontal: true,
   },
   {
-    icon: <Eye className="size-6" strokeWidth={2} />,
     title: "Visual & Mudah Diingat",
     description:
       "Bahasa isyarat adalah bahasa visual. Setiap pelajaran kami rancang dengan pendekatan visual yang alami dan menyenangkan.",
@@ -35,7 +26,6 @@ const values = [
     accent: "coral" as const,
   },
   {
-    icon: <Lightbulb className="size-6" strokeWidth={2} />,
     title: "Belajar Sambil Bermain",
     description:
       "Kami percaya belajar paling efektif saat terasa seperti bermain. Pelajaran interaktif dan kuis membuatmu terus penasaran.",
@@ -43,7 +33,6 @@ const values = [
     accent: "peach" as const,
   },
   {
-    icon: <Users className="size-6" strokeWidth={2} />,
     title: "Komunitas yang Hangat",
     description:
       "Kamu tidak belajar sendirian. Kami membangun komunitas tempat semua orang bisa berlatih, berbagi, dan saling mendukung.",
@@ -103,7 +92,6 @@ export default function AboutPage() {
             {values.map((item, index) => (
               <FadeIn key={item.title} delay={index * 0.1} className={item.span}>
                 <ValueCard
-                  icon={item.icon}
                   title={item.title}
                   description={item.description}
                   number={item.number}
@@ -145,8 +133,7 @@ export default function AboutPage() {
               <div className="pointer-events-none absolute inset-0" aria-hidden="true">
                 <div className="absolute -top-16 -left-16 size-56 rounded-full bg-white/10 blur-3xl" />
                 <div className="absolute -bottom-20 -right-10 size-64 rounded-full bg-white/10 blur-3xl" />
-                <div className="absolute top-1/3 right-1/4 size-3 rounded-full bg-white/60" />
-                <div className="absolute bottom-1/4 left-1/4 size-2 rounded-full bg-white/50" />
+
               </div>
               <div className="relative">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-5 py-2 text-sm font-bold tracking-wide backdrop-blur-sm">
