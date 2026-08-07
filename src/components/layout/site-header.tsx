@@ -4,13 +4,25 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { ChevronDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
 const navItems = [
   { label: "Beranda", href: "/#home" },
   { label: "Tentang", href: "/about" },
-  { label: "Belajar", href: "/#learn" },
+  { 
+    label: "Belajar", 
+    href: "/#learn",
+    dropdown: [
+      { label: "Huruf & Alfabet", href: "/belajar/materi-1" },
+      { label: "Angka", href: "/belajar/materi-2" },
+      { label: "Salam Sehari-hari", href: "/belajar/materi-3" },
+      { label: "Ekspresi Dasar", href: "/belajar/materi-4" },
+      { label: "Percakapan", href: "/belajar/materi-5" },
+      { label: "Kuis Interaktif", href: "/belajar/materi-6" },
+    ]
+  },
   { label: "Kontak", href: "/#contact" },
 ]
 
@@ -18,6 +30,7 @@ export function SiteHeader() {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [active, setActive] = useState("#home")
+  const [dropdownOpen, setDropdownOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -26,7 +39,11 @@ export function SiteHeader() {
   }, [])
 
   useEffect(() => {
-    setActive(pathname === "/about" ? "/about" : "#home")
+    if (pathname.startsWith("/belajar")) {
+      setActive("/belajar")
+    } else {
+      setActive(pathname === "/about" ? "/about" : "#home")
+    }
   }, [pathname])
 
   useEffect(() => {
@@ -54,7 +71,7 @@ export function SiteHeader() {
         className={cn(
           "flex w-full max-w-3xl items-center justify-between gap-4 rounded-2xl px-4 py-2.5 transition-all duration-500",
           scrolled
-            ? "bg-gradient-to-r from-mint/60 via-cream/50 to-coral/60 shadow-lg shadow-black/8 backdrop-blur-md border border-border/50"
+            ? "bg-background/80 shadow-lg shadow-black/8 backdrop-blur-md border border-border/50"
             : "bg-background/60 backdrop-blur-sm border border-transparent"
         )}
       >
@@ -74,7 +91,51 @@ export function SiteHeader() {
         {/* Nav links — desktop */}
         <nav className="hidden items-center gap-1 md:flex" aria-label="Main navigation">
           {navItems.map((item) => {
-            const isActive = active === item.href
+            const isActive = active === item.href || (item.href === "/#learn" && pathname.startsWith("/belajar"))
+            
+            if (item.dropdown) {
+              return (
+                <div
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() => setDropdownOpen(true)}
+                  onMouseLeave={() => setDropdownOpen(false)}
+                >
+                  <button
+                    className={cn(
+                      "relative inline-flex items-center gap-1 px-3.5 py-1.5 text-sm font-medium rounded-xl transition-all duration-200",
+                      isActive
+                        ? "text-primary"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+                    )}
+                  >
+                    {isActive && (
+                      <span className="absolute inset-0 rounded-xl bg-primary/10" />
+                    )}
+                    <span className="relative">{item.label}</span>
+                    <ChevronDown className={cn("relative size-3.5 transition-transform duration-200", dropdownOpen && "rotate-180")} />
+                  </button>
+
+                  {/* Dropdown */}
+                  {dropdownOpen && (
+                    <div className="absolute top-full left-0 pt-2 w-56">
+                      <div className="rounded-2xl border bg-background/95 backdrop-blur-md shadow-xl py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                        {item.dropdown.map((subItem) => (
+                          <Link
+                            key={subItem.href}
+                            href={subItem.href}
+                            className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-colors"
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )
+            }
+
             return (
               <Link
                 key={item.label}
