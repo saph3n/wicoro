@@ -40,40 +40,21 @@ export default function Materi1() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <Container>
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-coral-light px-6 pt-10 pb-8 sm:px-12 sm:pt-14 sm:pb-10">
-          <FadeIn>
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-1.5 text-sm font-semibold shadow-sm">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#cf6f95] opacity-75" />
-                <span className="relative inline-flex size-2 rounded-full bg-[#cf6f95]" />
-              </span>
-              Mulai Perjalanan · Materi 1 dari 6
-            </div>
-
-            <h1 className="mt-5 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
-              Huruf &{" "}
-              <span className="bg-gradient-to-r from-primary via-mint-deep to-[#cf6f95] bg-clip-text text-transparent">
-                Alfabet
-              </span>
-            </h1>
-
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Selamat datang di langkah pertamamu! Di sini kamu akan bertemu{" "}
-              <span className="font-semibold text-foreground">
-                26 bentuk tangan BISINDO
-              </span>{" "}
-              — dari A sampai Z — satu per satu, pelan dan pasti. Pahami tiap
-              huruf, dan kamu sedang membangun jembatan pertamamu menuju
-              percakapan isyarat yang sesungguhnya.
-            </p>
-          </FadeIn>
-        </div>
-
-        <LessonSection
-          eyebrow="Alfabet A–Z"
-          title="Bentuk Tangan untuk Setiap Huruf"
-          description="Arahkan telapak menghadap lawan bicara dan pastikan gerakan terlihat jelas. Berikut bentuk tangan alfabet dalam BISINDO:"
-        >
+        <FadeIn className="pt-10 pb-2 sm:pt-14">
+          <div className="inline-flex items-center gap-2 rounded-full bg-coral-light px-4 py-1.5 text-sm font-semibold text-[#cf6f95]">
+            <span className="relative flex size-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#cf6f95] opacity-75" />
+              <span className="relative inline-flex size-2 rounded-full bg-[#cf6f95]" />
+            </span>
+            Materi 1
+          </div>
+          <h1 className="mt-4 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
+            <span className="bg-gradient-to-r from-primary via-mint-deep to-[#cf6f95] bg-clip-text text-transparent">
+              Huruf & Alfabet
+            </span>
+          </h1>
+        </FadeIn>
+        <LessonSection>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {alphabet.map((item, index) => (
               <SignCard
