@@ -46,13 +46,6 @@ const values = [
 export default function AboutPage() {
   return (
     <div className="relative overflow-hidden">
-      {/* Decorative background blobs */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute -top-20 left-1/4 size-72 rounded-full bg-mint/30 blur-3xl" />
-        <div className="absolute top-40 -right-24 size-80 rounded-full bg-mint-deep/15 blur-3xl" />
-        <div className="absolute bottom-1/4 left-1/2 size-56 rounded-full bg-mint-deep/15 blur-3xl" />
-      </div>
-
       {/* Hero */}
       <section className="relative pt-16 pb-12 sm:pt-24 sm:pb-16">
         <Container>
@@ -105,18 +98,13 @@ export default function AboutPage() {
       </section>
 
       {/* FAQ */}
-      <section className="relative py-12 sm:py-16">
+      <section className="relative py-8 sm:py-12">
         <Container>
           <div className="mx-auto max-w-2xl text-center">
             <FadeIn>
               <h2 className="text-3xl font-bold tracking-tight text-balance sm:text-4xl">
                 Pertanyaan yang Sering Ditanyakan
               </h2>
-            </FadeIn>
-            <FadeIn delay={0.15}>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                Masih penasaran dengan Wicoro? Kami siap menjawab.
-              </p>
             </FadeIn>
           </div>
           <FadeIn delay={0.2}>
@@ -126,7 +114,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-14 sm:py-20">
+      <section className="relative pt-8 pb-20 sm:pt-12 sm:pb-28">
         <Container>
           <FadeIn>
             <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-primary via-mint-deep to-[#cf6f95] p-10 text-center text-white shadow-xl shadow-primary/25 sm:p-16">

@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { ChevronDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -69,12 +68,21 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 flex justify-center px-4 pt-4 pb-2">
       <div
         className={cn(
-          "flex w-full max-w-3xl items-center justify-between gap-4 rounded-2xl px-4 py-2.5 transition-all duration-500",
+          "relative w-full max-w-3xl rounded-2xl px-4 py-2.5 transition-all duration-500",
           scrolled
-            ? "bg-background/80 shadow-lg shadow-black/8 backdrop-blur-md border border-border/50"
-            : "bg-background/60 backdrop-blur-sm border border-transparent"
+            ? "shadow-lg shadow-black/8 backdrop-blur-md border border-border/60"
+            : "backdrop-blur-sm border border-transparent"
         )}
       >
+        <div
+          aria-hidden="true"
+          className={cn(
+            "pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-r from-mint via-peach to-coral transition-opacity duration-500",
+            scrolled ? "opacity-90" : "opacity-40"
+          )}
+        />
+
+        <div className="relative flex items-center justify-between gap-4">
         {/* Logo */}
         <Link href="/#home" aria-label="Wicoro home" className="inline-flex items-center gap-2 shrink-0">
           <Image
@@ -113,18 +121,17 @@ export function SiteHeader() {
                       <span className="absolute inset-0 rounded-xl bg-primary/10" />
                     )}
                     <span className="relative">{item.label}</span>
-                    <ChevronDown className={cn("relative size-3.5 transition-transform duration-200", dropdownOpen && "rotate-180")} />
                   </button>
 
                   {/* Dropdown */}
                   {dropdownOpen && (
                     <div className="absolute top-full left-0 pt-2 w-56">
-                      <div className="rounded-2xl border bg-background/95 backdrop-blur-md shadow-xl py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                      <div className="rounded-xl border bg-background/95 backdrop-blur-md shadow-xl p-1 animate-in fade-in slide-in-from-top-2 duration-200">
                         {item.dropdown.map((subItem) => (
                           <Link
                             key={subItem.href}
                             href={subItem.href}
-                            className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-colors"
+                            className="block rounded-lg px-4 py-2.5 text-sm text-muted-foreground hover:text-[#cf6f95] hover:bg-coral-light transition-colors"
                           >
                             {subItem.label}
                           </Link>
@@ -158,6 +165,7 @@ export function SiteHeader() {
         </nav>
 
         {/* CTA — hidden, navigation via bottom nav on mobile */}
+        </div>
       </div>
     </header>
   )

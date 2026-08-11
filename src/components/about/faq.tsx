@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import { Plus } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -48,7 +48,7 @@ export function Faq() {
               "overflow-hidden rounded-2xl border bg-card transition-all duration-300",
               isOpen
                 ? "border-mint-deep/30 shadow-lg shadow-mint-deep/10"
-                : "border-border/70 hover:border-mint-deep/25"
+                : "border-border/70 hover:border-mint-deep/30 hover:bg-mint/40"
             )}
           >
             <button
@@ -59,14 +59,14 @@ export function Faq() {
             >
               <span className="text-sm font-semibold sm:text-base">{item.question}</span>
               <motion.span
-                animate={{ rotate: isOpen ? 45 : 0 }}
+                animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
                 className={cn(
                   "flex size-7 shrink-0 items-center justify-center rounded-full transition-colors duration-300",
                   isOpen ? "bg-primary text-primary-foreground" : "bg-mint text-mint-deep"
                 )}
               >
-                <Plus className="size-4" aria-hidden="true" />
+                <ChevronDown className="size-4" aria-hidden="true" />
               </motion.span>
             </button>
             <AnimatePresence initial={false}>

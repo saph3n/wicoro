@@ -146,12 +146,6 @@ export function Materials() {
               Materi yang Akan Kamu Pelajari
             </h2>
           </FadeIn>
-          <FadeIn delay={0.3}>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              Jelajahi berbagai materi BISINDO yang dirancang secara bertahap, mulai dari
-              dasar hingga percakapan sehari-hari.
-            </p>
-          </FadeIn>
         </div>
 
         {/* Desktop: zigzag learning journey */}
