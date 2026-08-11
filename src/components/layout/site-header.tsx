@@ -23,7 +23,7 @@ const navItems = [
       { label: "Kuis Interaktif", href: "/belajar/materi-6" },
     ]
   },
-  { label: "Kontak", href: "/#contact" },
+  { label: "Kontak", href: "/kontak" },
 ]
 
 export function SiteHeader() {
@@ -41,6 +41,8 @@ export function SiteHeader() {
   useEffect(() => {
     if (pathname.startsWith("/belajar")) {
       setActive("/belajar")
+    } else if (pathname === "/kontak") {
+      setActive("/kontak")
     } else {
       setActive(pathname === "/about" ? "/about" : "#home")
     }
