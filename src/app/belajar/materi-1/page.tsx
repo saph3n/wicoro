@@ -1,7 +1,5 @@
-import { Fingerprint, Hand, LetterText } from "lucide-react"
-
 import { Container } from "@/components/common/container"
-import { LessonHero } from "@/components/belajar/lesson-hero"
+import { FadeIn } from "@/components/common/fade-in"
 import { LessonNav } from "@/components/belajar/lesson-nav"
 import { LessonSection } from "@/components/belajar/lesson-section"
 import { SignCard } from "@/components/belajar/sign-card"
@@ -42,45 +40,34 @@ export default function Materi1() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <Container>
-        <LessonHero
-          index="1"
-          title="Huruf & Alfabet"
-          description="Kenali huruf dan alfabet dalam Bahasa Isyarat Indonesia (BISINDO). Setiap huruf punya bentuk tangan khas — pelajari satu per satu dan biasakan sebelum lanjut ke kata."
-          icon={LetterText}
-        />
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-coral-light px-6 pt-10 pb-8 sm:px-12 sm:pt-14 sm:pb-10">
+          <FadeIn>
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-1.5 text-sm font-semibold shadow-sm">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#cf6f95] opacity-75" />
+                <span className="relative inline-flex size-2 rounded-full bg-[#cf6f95]" />
+              </span>
+              Mulai Perjalanan · Materi 1 dari 6
+            </div>
 
-        <LessonSection
-          eyebrow="Fondasi"
-          title="Kenapa Alfabet Penting?"
-          description="Alfabet adalah pijakan pertama dalam berisyarat. Dengan menguasai abjad, kamu bisa mengeja nama, kata baru, atau istilah yang belum punya isyarat khusus."
-        >
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="group relative h-full overflow-hidden rounded-3xl border bg-card p-7 shadow-md shadow-black/8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-              <div className="pointer-events-none absolute -top-10 -right-10 size-28 rounded-full bg-mint/25 blur-2xl" />
-              <div className="relative">
-                <div className="inline-flex rounded-2xl bg-mint text-mint-deep p-3">
-                  <Fingerprint className="size-5" aria-hidden="true" />
-                </div>
-                <h3 className="mt-4 text-lg font-semibold">Eja nama dengan abjad</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Nama diri, merek, dan nama tempat biasanya diisyaratkan dengan mengeja huruf satu per satu.
-                </p>
-              </div>
-            </div>
-            <div className="group relative h-full overflow-hidden rounded-3xl border bg-card p-7 shadow-md shadow-black/8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-              <div className="pointer-events-none absolute -top-10 -right-10 size-28 rounded-full bg-coral-light/40 blur-2xl" />
-              <div className="relative">
-                <div className="inline-flex rounded-2xl bg-coral-light text-[#cf6f95] p-3">
-                  <Hand className="size-5" aria-hidden="true" />
-                </div>
-                <h3 className="mt-4 text-lg font-semibold">Tingkatkan keluwesan tangan</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Berlatih alfabet melatih otot jari dan membuat gerakan tanganmu makin luwes untuk isyarat lain.
-                </p>
-              </div>
-            </div>
-          </div>
-        </LessonSection>
+            <h1 className="mt-5 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
+              Huruf &{" "}
+              <span className="bg-gradient-to-r from-primary via-mint-deep to-[#cf6f95] bg-clip-text text-transparent">
+                Alfabet
+              </span>
+            </h1>
+
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+              Selamat datang di langkah pertamamu! Di sini kamu akan bertemu{" "}
+              <span className="font-semibold text-foreground">
+                26 bentuk tangan BISINDO
+              </span>{" "}
+              — dari A sampai Z — satu per satu, pelan dan pasti. Pahami tiap
+              huruf, dan kamu sedang membangun jembatan pertamamu menuju
+              percakapan isyarat yang sesungguhnya.
+            </p>
+          </FadeIn>
+        </div>
 
         <LessonSection
           eyebrow="Alfabet A–Z"
