@@ -103,8 +103,6 @@ const accents = ["mint", "coral", "peach"] as const
 function QuizCard({ index, q }: { index: number; q: (typeof questions)[number] }) {
   return (
     <div className="group relative overflow-hidden rounded-3xl border bg-card p-7 shadow-md shadow-black/8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-      <div className="pointer-events-none absolute -top-10 -right-10 size-28 rounded-full bg-mint/25 blur-2xl" />
-
       <div className="relative">
         <div className="flex items-center gap-3">
           <span className="flex size-10 shrink-0 items-center justify-center rounded-2xl bg-mint text-mint-deep font-bold">

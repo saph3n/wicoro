@@ -20,8 +20,6 @@ interface SignCardProps {
 export function SignCard({ sign, name, description, accent = "mint" }: SignCardProps) {
   return (
     <div className="group relative h-full overflow-hidden rounded-3xl border bg-card p-6 shadow-md shadow-black/8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-mint-deep/20">
-      {/* Decorative blob */}
-      <div className="pointer-events-none absolute -top-10 -right-10 size-28 rounded-full bg-mint/25 blur-2xl transition-transform duration-500 group-hover:scale-150" />
 
       <div className="relative">
         <div className="flex items-center gap-4">
