@@ -6,11 +6,11 @@ import { SignCard } from "@/components/belajar/sign-card"
 import { TipCard } from "@/components/belajar/tip-card"
 
 const alphabet = [
-  { sign: "A", name: "Huruf A", description: "Keempat jari mengepal rapat, ibu jari lurus menempel di samping telapak." },
-  { sign: "B", name: "Huruf B", description: "Telapak menghadap ke depan, empat jari rapat dan tegak, ibu jari menekuk di telapak." },
-  { sign: "C", name: "Huruf C", description: "Empat jari merapat melengkung dan ibu jari membuka, membentuk bentuk huruf C." },
-  { sign: "D", name: "Huruf D", description: "Telunjuk lurus ke atas, tiga jari lainnya menekuk dan menempel di ibu jari." },
-  { sign: "E", name: "Huruf E", description: "Lima ujung jari saling menyentuh ke depan, membentuk bundaran kecil." },
+  { sign: "A", name: "Huruf A", description: "Keempat jari mengepal rapat, ibu jari lurus menempel di samping telapak.", image: "/Huruf A.png" },
+  { sign: "B", name: "Huruf B", description: "Telapak menghadap ke depan, empat jari rapat dan tegak, ibu jari menekuk di telapak.", image: "/Huruf B.png" },
+  { sign: "C", name: "Huruf C", description: "Empat jari merapat melengkung dan ibu jari membuka, membentuk bentuk huruf C.", image: "/Huruf C.png" },
+  { sign: "D", name: "Huruf D", description: "Telunjuk lurus ke atas, tiga jari lainnya menekuk dan menempel di ibu jari.", image: "/Huruf D.png" },
+  { sign: "E", name: "Huruf E", description: "Lima ujung jari saling menyentuh ke depan, membentuk bundaran kecil.", image: "/Huruf E.png" },
   { sign: "F", name: "Huruf F", description: "Ibu jari dan telunjuk membentuk lingkaran kecil, tiga jari lain berdiri tegak." },
   { sign: "G", name: "Huruf G", description: "Telunjuk dan ibu jari membuka sejajar ke depan, tiga jari lain mengepal." },
   { sign: "H", name: "Huruf H", description: "Telunjuk dan jari tengah rapat menyamping, ibu jari menahan di tengah, dua jari lain menekuk." },
@@ -56,13 +56,14 @@ export default function Materi1() {
         </FadeIn>
         <LessonSection>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {alphabet.map((item, index) => (
+            {alphabet.map((item) => (
               <SignCard
                 key={item.sign}
                 sign={item.sign}
                 name={item.name}
                 description={item.description}
-                accent={accents[index % accents.length]}
+                accent="coral"
+                image={"image" in item ? (item.image as string) : undefined}
               />
             ))}
           </div>

@@ -1,4 +1,4 @@
-import { Hand } from "lucide-react"
+import Image from "next/image"
 
 import { cn } from "@/lib/utils"
 
@@ -15,14 +15,35 @@ interface SignCardProps {
   name: string
   description: string
   accent?: Accent
+  image?: string
 }
 
-export function SignCard({ sign, name, description, accent = "mint" }: SignCardProps) {
+export function SignCard({ sign, name, description, accent = "coral", image }: SignCardProps) {
   return (
-    <div className="group relative h-full overflow-hidden rounded-3xl border bg-card p-6 shadow-md shadow-black/8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-mint-deep/20">
+    <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border bg-card p-6 shadow-md shadow-black/8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-mint-deep/20">
+      {image ? (
+        <div className="relative mb-5 overflow-hidden rounded-2xl bg-muted/30 border">
+          <div className="relative aspect-4/3 w-full">
+            <Image
+              src={image}
+              alt={`Bentuk tangan ${name}`}
+              fill
+              className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+          <div
+            className={cn(
+              "absolute top-3 left-3 flex size-10 items-center justify-center rounded-xl text-lg font-bold shadow-md",
+              accentStyles[accent]
+            )}
+          >
+            {sign}
+          </div>
+        </div>
+      ) : null}
 
-      <div className="relative">
-        <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4">
+        {!image && (
           <div
             className={cn(
               "flex size-14 shrink-0 items-center justify-center rounded-2xl text-2xl font-bold shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3",
@@ -31,19 +52,16 @@ export function SignCard({ sign, name, description, accent = "mint" }: SignCardP
           >
             {sign}
           </div>
-          <div>
-            <h3 className="text-lg font-semibold transition-colors duration-300 group-hover:text-primary">
-              {name}
-            </h3>
-            <p className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
-              <Hand className="size-3.5" aria-hidden="true" />
-              Bentuk tangan
-            </p>
-          </div>
+        )}
+        <div>
+          <h3 className="text-lg font-semibold transition-colors duration-300 group-hover:text-primary">
+            {name}
+          </h3>
         </div>
-
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{description}</p>
       </div>
+
+      <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{description}</p>
     </div>
   )
 }
+
