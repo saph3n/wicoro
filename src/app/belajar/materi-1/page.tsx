@@ -3,14 +3,14 @@ import { FadeIn } from "@/components/common/fade-in"
 import { LessonNav } from "@/components/belajar/lesson-nav"
 import { LessonSection } from "@/components/belajar/lesson-section"
 import { SignCard } from "@/components/belajar/sign-card"
-import { TipCard } from "@/components/belajar/tip-card"
+import { WordSpellingPractice } from "@/components/belajar/word-spelling-practice"
 
 const alphabet = [
   { sign: "A", name: "Huruf A", description: "Kedua jari telunjuk saling bersentuhan di ujung atas membentuk segitiga, dengan kedua ibu jari bersentuhan mendatar di bawah.", image: "/Huruf A.png" },
   { sign: "B", name: "Huruf B", description: "Jari telunjuk tangan kiri berdiri tegak, disentuh mendatar oleh tiga jari (telunjuk, tengah, manis) tangan kanan.", image: "/Huruf B.png" },
   { sign: "C", name: "Huruf C", description: "Ibu jari dan empat jari melengkung terbuka membentuk kelengkungan huruf C.", image: "/Huruf C.png" },
   { sign: "D", name: "Huruf D", description: "Jari telunjuk tangan kiri tegak, disatukan dengan lengkungan ibu jari dan telunjuk tangan kanan membentuk huruf D.", image: "/Huruf D.png" },
-  { sign: "E", name: "Huruf E", description: "Satu tangan dengan jari-jari merapat membengkok melengkung ke depan.", image: "/Huruf E.png" },
+  { sign: "E", name: "Huruf E", description: "Satu tangan dengan jari-jari merapat membengkok melengkung ke depan.", image: "/E.png" },
   { sign: "F", name: "Huruf F", description: "Dua jari tangan atas (telunjuk dan tengah) terentang mendatar, disentuh di bawahnya oleh jari telunjuk tangan bawah.", image: "/F.png" },
   { sign: "G", name: "Huruf G", description: "Kedua tangan mengepal dan disatukan/ditumpuk secara mendatar.", image: "/G.png" },
   { sign: "H", name: "Huruf H", description: "Jari telunjuk kedua tangan berdiri tegak sejajar, dihubungkan oleh jari telunjuk tangan satunya melintang di tengah.", image: "/H.png" },
@@ -33,8 +33,6 @@ const alphabet = [
   { sign: "Y", name: "Huruf Y", description: "Jari telunjuk tangan kiri tegak lurus, disentuh di pangkalnya oleh telunjuk dan ibu jari tangan kanan.", image: "/Y.png" },
   { sign: "Z", name: "Huruf Z", description: "Lengan tangan ditekuk dengan telapak tangan merapat mendatar melengkung ke depan membentuk siluet Z.", image: "/Z.png" },
 ]
-
-const accents = ["mint", "coral", "peach"] as const
 
 export default function Materi1() {
   return (
@@ -69,25 +67,7 @@ export default function Materi1() {
           </div>
         </LessonSection>
 
-        <LessonSection
-          eyebrow="Tips"
-          title="Cara Berlatih yang Efektif"
-        >
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <TipCard
-              title="Latihan di depan cermin"
-              description="Cermati bentuk tanganmu. Pastikan setiap huruf terbentuk dengan jelas dan tidak tertukar satu sama lain."
-            />
-            <TipCard
-              title="Eja kata favoritmu"
-              description="Eja nama, makanan, atau kota kesukaanmu huruf demi huruf. Menjadikannya permainan membuat hafalan lebih cepat."
-            />
-            <TipCard
-              title="Mulai pelan, lalu cepat"
-              description="Kecepatan datang setelah akurat. Latih perlahan sampai bentuk tangan terbiasa, barulah tambah tempo."
-            />
-          </div>
-        </LessonSection>
+        <WordSpellingPractice />
 
         <LessonNav current={0} />
       </Container>
