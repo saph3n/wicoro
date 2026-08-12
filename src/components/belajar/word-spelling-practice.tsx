@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { Type, Sparkles, X, ArrowRight, Keyboard, RefreshCw } from "lucide-react"
+import { Type, X, ArrowRight, Keyboard } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const ALPHABET_DATA: Record<
@@ -142,10 +142,10 @@ const ALPHABET_DATA: Record<
   },
 }
 
-const PRESET_WORDS = ["sifa", "wicoro", "belajar", "kita", "bisa", "teman"]
+const PRESET_WORDS = ["aku", "teman", "wicoro"]
 
 export function WordSpellingPractice() {
-  const [inputWord, setInputWord] = useState("sifa")
+  const [inputWord, setInputWord] = useState("aku")
 
   const parsedWords = useMemo(() => {
     if (!inputWord.trim()) return []
@@ -182,17 +182,13 @@ export function WordSpellingPractice() {
         <h2 className="text-2xl font-bold tracking-tight text-balance sm:text-3xl">
           Berlatih Menggabungkan Huruf
         </h2>
-        <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
-          Ketik kata pilihanmu atau klik contoh kata di bawah ini untuk melihat bagaimana huruf-huruf digabungkan menjadi isyarat tangan.
-        </p>
       </div>
 
       {/* Control Box */}
       <div className="mt-6 rounded-3xl border bg-card/80 p-5 shadow-lg shadow-black/5 backdrop-blur-sm sm:p-7">
         {/* Preset Buttons */}
         <div className="mb-5 flex flex-wrap items-center gap-2">
-          <span className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground mr-1">
-            <Sparkles className="size-3.5 text-amber-500" />
+          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mr-1">
             Contoh Kata:
           </span>
           {PRESET_WORDS.map((preset) => {
@@ -224,7 +220,7 @@ export function WordSpellingPractice() {
             type="text"
             value={inputWord}
             onChange={(e) => setInputWord(e.target.value)}
-            placeholder="Ketik kata di sini... (misal: sifa)"
+            placeholder="Ketik kata di sini... (misal: aku)"
             className="w-full rounded-2xl border bg-background/90 py-3.5 pl-12 pr-12 text-base font-semibold transition-all duration-200 placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/10 sm:text-lg"
           />
           {inputWord && (
@@ -249,15 +245,6 @@ export function WordSpellingPractice() {
                 : "Masukkan huruf A-Z"}
             </span>
           </div>
-          {inputWord && (
-            <button
-              type="button"
-              onClick={() => setInputWord("sifa")}
-              className="flex items-center gap-1 hover:text-primary transition-colors cursor-pointer"
-            >
-              <RefreshCw className="size-3" /> Reset ke &quot;sifa&quot;
-            </button>
-          )}
         </div>
       </div>
 
@@ -281,9 +268,6 @@ export function WordSpellingPractice() {
                   {/* Word Header */}
                   <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b pb-4">
                     <div className="flex items-center gap-3">
-                      <span className="flex size-8 items-center justify-center rounded-xl bg-coral-light font-bold text-[#cf6f95] text-sm">
-                        {wordIdx + 1}
-                      </span>
                       <div>
                         <h3 className="text-xl font-bold tracking-tight text-foreground uppercase">
                           Kata: &quot;{wordGroup.originalWord}&quot;
@@ -292,10 +276,6 @@ export function WordSpellingPractice() {
                           Rangkaian {wordGroup.letters.length} huruf isyarat
                         </p>
                       </div>
-                    </div>
-                    <div className="flex items-center gap-1.5 rounded-full bg-mint px-3 py-1 text-xs font-semibold text-mint-deep">
-                      <Sparkles className="size-3.5" />
-                      <span>Hasil Penggabungan</span>
                     </div>
                   </div>
 
@@ -331,16 +311,6 @@ export function WordSpellingPractice() {
                                 className="object-contain p-1 transition-transform duration-300 group-hover:scale-110"
                               />
                             </div>
-
-                            {/* Letter Name & Desc */}
-                            <div className="mt-3 text-center">
-                              <p className="text-xs font-bold text-foreground">
-                                {item.name}
-                              </p>
-                              <p className="mt-1 line-clamp-2 text-[11px] leading-tight text-muted-foreground">
-                                {item.description}
-                              </p>
-                            </div>
                           </div>
 
                           {/* Arrow Connector between letters */}
@@ -373,14 +343,14 @@ export function WordSpellingPractice() {
               </div>
               <h4 className="text-lg font-bold text-foreground">Belum ada kata yang dimasukkan</h4>
               <p className="mt-1 max-w-md text-sm text-muted-foreground">
-                Ketik kata pada kolom di atas atau klik salah satu tombol contoh seperti &quot;sifa&quot; untuk menampilkan bentuk isyaratnya.
+                Ketik kata pada kolom di atas atau klik salah satu tombol contoh seperti &quot;aku&quot; untuk menampilkan bentuk isyaratnya.
               </p>
               <button
                 type="button"
-                onClick={() => setInputWord("sifa")}
+                onClick={() => setInputWord("aku")}
                 className="mt-4 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow hover:bg-primary/90 transition-colors cursor-pointer"
               >
-                Tampilkan Contoh &quot;sifa&quot;
+                Tampilkan Contoh &quot;aku&quot;
               </button>
             </motion.div>
           )}

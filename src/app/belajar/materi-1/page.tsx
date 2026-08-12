@@ -10,7 +10,7 @@ const alphabet = [
   { sign: "B", name: "Huruf B", description: "Jari telunjuk tangan kiri berdiri tegak, disentuh mendatar oleh tiga jari (telunjuk, tengah, manis) tangan kanan.", image: "/Huruf B.png" },
   { sign: "C", name: "Huruf C", description: "Ibu jari dan empat jari melengkung terbuka membentuk kelengkungan huruf C.", image: "/Huruf C.png" },
   { sign: "D", name: "Huruf D", description: "Jari telunjuk tangan kiri tegak, disatukan dengan lengkungan ibu jari dan telunjuk tangan kanan membentuk huruf D.", image: "/Huruf D.png" },
-  { sign: "E", name: "Huruf E", description: "Satu tangan dengan jari-jari merapat membengkok melengkung ke depan.", image: "/E.png" },
+  { sign: "E", name: "Huruf E", description: "Satu tangan dengan jari-jari merapat membengkok melengkung ke depan.", image: "/Huruf E.png" },
   { sign: "F", name: "Huruf F", description: "Dua jari tangan atas (telunjuk dan tengah) terentang mendatar, disentuh di bawahnya oleh jari telunjuk tangan bawah.", image: "/F.png" },
   { sign: "G", name: "Huruf G", description: "Kedua tangan mengepal dan disatukan/ditumpuk secara mendatar.", image: "/G.png" },
   { sign: "H", name: "Huruf H", description: "Jari telunjuk kedua tangan berdiri tegak sejajar, dihubungkan oleh jari telunjuk tangan satunya melintang di tengah.", image: "/H.png" },
@@ -51,6 +51,29 @@ export default function Materi1() {
               Huruf & Alfabet
             </span>
           </h1>
+
+          {/* Decorative Line */}
+          <div className="mt-6 flex items-center gap-3" aria-hidden="true">
+            <span className="h-px w-16 bg-gradient-to-r from-primary to-transparent sm:w-24" />
+            <span className="h-2 w-2 rotate-45 bg-[#cf6f95]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-mint-deep" />
+            <svg
+              className="h-4 w-40 text-primary sm:w-56"
+              viewBox="0 0 200 16"
+              fill="none"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M0 12 C 30 2, 60 2, 90 10 S 150 14, 200 4"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                className="text-primary/70"
+              />
+              <circle cx="200" cy="4" r="3" className="fill-[#cf6f95]" />
+              <circle cx="90" cy="10" r="2.5" className="fill-mint-deep" />
+            </svg>
+          </div>
         </FadeIn>
         <LessonSection>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
