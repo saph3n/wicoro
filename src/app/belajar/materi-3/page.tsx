@@ -8,8 +8,8 @@ import { SignCard } from "@/components/belajar/sign-card"
 import { TipCard } from "@/components/belajar/tip-card"
 
 const greetings = [
-  { sign: "Halo", name: "Halo / Hai", description: "Telapak terbuka di samping kepala, lalu digerakkan sedikit seperti melambai. Ekspresikan dengan senyum." },
-  { sign: "Apa\nkabar?", name: "Apa Kabar?", description: "Telunjuk dan jari tengah menunjuk ke depan, lalu digerakkan naik-turun sambil menaikkan alis sebagai tanda tanya." },
+  { sign: "Halo", name: "Halo / Hai", description: "Telapak terbuka di samping kepala, lalu digerakkan sedikit seperti melambai. Ekspresikan dengan senyum.", image: "/Hai.png" },
+  { sign: "Apa\nkabar?", name: "Apa Kabar?", description: "Telunjuk dan jari tengah menunjuk ke depan, lalu digerakkan naik-turun sambil menaikkan alis sebagai tanda tanya.", image: "/Apa Kabar.png" },
   { sign: "Pagi", name: "Selamat Pagi", description: "Tangan mengepal di depan dada, lalu ibu jari diluruskan ke atas dan digerakkan kecil ke atas. Kombinasikan dengan 'halo' untuk salam pembuka." },
   { sign: "Siang", name: "Selamat Siang", description: "Ibu jari menempel di telapak dan digerakkan dari dada ke samping, melambangkan matahari berada di tengah hari." },
   { sign: "Sore", name: "Selamat Sore", description: "Gerakan seperti matahari mulai turun: telapak terbuka digerakkan ke bawah di depan tubuh." },
@@ -35,19 +35,17 @@ export default function Materi3() {
           icon={Hand}
         />
 
-        <LessonSection
-          eyebrow="Sapaan & Basa-basi"
-          title="Salam yang Sering Dipakai"
-          description="Salam dalam isyarat selalu dibarengi ekspresi wajah. Jangan lupa menatap lawan bicara dan tersenyum saat memberi salam."
-        >
+        <LessonSection>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {greetings.map((item, index) => (
               <SignCard
                 key={item.name}
-                sign={item.sign.replace("\n", " ")}
+                sign={String(index + 1)}
                 name={item.name}
                 description={item.description}
-                accent={accents[index % accents.length]}
+                accent="coral"
+                image={item.image}
+                isCircle
               />
             ))}
           </div>

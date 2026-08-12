@@ -16,9 +16,10 @@ interface SignCardProps {
   description: string
   accent?: Accent
   image?: string
+  isCircle?: boolean
 }
 
-export function SignCard({ sign, name, description, accent = "coral", image }: SignCardProps) {
+export function SignCard({ sign, name, description, accent = "coral", image, isCircle }: SignCardProps) {
   return (
     <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border bg-card p-6 shadow-md shadow-black/8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-mint-deep/20">
       {image ? (
@@ -33,7 +34,8 @@ export function SignCard({ sign, name, description, accent = "coral", image }: S
           </div>
           <div
             className={cn(
-              "absolute top-3 left-3 flex size-10 items-center justify-center rounded-xl text-lg font-bold shadow-md",
+              "absolute top-3 left-3 flex size-10 items-center justify-center text-lg font-bold shadow-md",
+              isCircle ? "rounded-full" : "rounded-xl",
               accentStyles[accent]
             )}
           >
@@ -46,7 +48,8 @@ export function SignCard({ sign, name, description, accent = "coral", image }: S
         {!image && (
           <div
             className={cn(
-              "flex size-14 shrink-0 items-center justify-center rounded-2xl text-2xl font-bold shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3",
+              "flex size-14 shrink-0 items-center justify-center text-2xl font-bold shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3",
+              isCircle ? "rounded-full" : "rounded-2xl",
               accentStyles[accent]
             )}
           >
