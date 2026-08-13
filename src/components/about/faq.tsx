@@ -30,7 +30,7 @@ const faqs = [
   {
     question: "Apakah Wicoro juga untuk teman Tuli?",
     answer:
-      "Tentu. Wicoro terbuka untuk siapa saja — komunitas Tuli, keluarga, tenaga pendidik, hingga siapapun yang ingin berkomunikasi lebih inklusif.",
+      "Tentu. Wicoro terbuka untuk siapa saja seperti komunitas Tuli, keluarga, tenaga pendidik, hingga siapapun yang ingin berkomunikasi lebih inklusif.",
   },
 ]
 

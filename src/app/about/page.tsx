@@ -136,7 +136,7 @@ export default function AboutPage() {
                   komunikasi yang lebih inklusif.
                 </p>
                 <Link
-                  href="/#learn"
+                  href="/belajar/materi-1"
                   className="mt-8 inline-flex h-12 items-center gap-2 rounded-full bg-white px-7 text-base font-semibold text-primary shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
                 >
                   <BookOpen className="size-5" aria-hidden="true" />
