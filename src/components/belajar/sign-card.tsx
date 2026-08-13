@@ -31,14 +31,6 @@ export function SignCard({ sign, name, description, accent = "coral", image }: S
               className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
             />
           </div>
-          <div
-            className={cn(
-              "absolute top-3 left-3 flex size-10 items-center justify-center rounded-xl text-lg font-bold shadow-md",
-              accentStyles[accent]
-            )}
-          >
-            {sign}
-          </div>
         </div>
       ) : null}
 
@@ -64,4 +56,3 @@ export function SignCard({ sign, name, description, accent = "coral", image }: S
     </div>
   )
 }
-
