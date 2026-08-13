@@ -1,4 +1,4 @@
-import { MessagesSquare, MessageCircle, User, Users } from "lucide-react"
+import { BrainCircuit, CircleCheck, CircleX, RotateCcw, Trophy } from "lucide-react"
 
 import { Container } from "@/components/common/container"
 import { LessonHero } from "@/components/belajar/lesson-hero"
@@ -7,75 +7,139 @@ import { LessonSection } from "@/components/belajar/lesson-section"
 import { SignCard } from "@/components/belajar/sign-card"
 import { TipCard } from "@/components/belajar/tip-card"
 
-const vocab = [
-  { sign: "Saya", name: "Saya", description: "Telunjuk menunjuk ke arah dada sendiri." },
-  { sign: "Kamu", name: "Kamu", description: "Telunjuk menunjuk ke arah lawan bicara." },
-  { sign: "Nama", name: "Nama", description: "Telunjuk dan jari tengah menyilang di depan dada, lalu diputar sedikit." },
-  { sign: "Siapa", name: "Siapa", description: "Telunjuk digerakkan kecil ke samping di depan wajah sambil menaikkan alis sebagai tanda tanya." },
-  { sign: "Senang", name: "Senang", description: "Telapak terbuka menempel di dada, digerakkan naik di depan wajah sambil tersenyum." },
-  { sign: "Kenal", name: "Kenalan", description: "Kedua telunjuk saling mendekat di depan dada, seperti dua orang yang baru bertemu." },
-  { sign: "Dari", name: "Dari", description: "Telunjuk menunjuk ke belakang bahu, lalu digerakkan ke depan — menandakan titik asal." },
-  { sign: "Sampai", name: "Sampai / Jumpa", description: "Telunjuk menunjuk ke depan, lalu digerakkan turun seperti isyarat berakhir atau bertemu." },
-]
-
-const dialog1 = [
-  { who: "Saya", line: "Halo! Saya Rina. Siapa nama kamu?" },
-  { who: "Kamu", line: "Halo Rina, saya Budi. Senang bertemu kamu." },
-  { who: "Saya", line: "Senang bertemu kamu juga, Budi. Kamu dari mana?" },
-  { who: "Kamu", line: "Saya dari Bandung. Kalau kamu?" },
-  { who: "Saya", line: "Saya dari Jakarta. Sampai jumpa, Budi!" },
-  { who: "Kamu", line: "Sampai jumpa, Rina!" },
-]
-
-const dialog2 = [
-  { who: "Saya", line: "Permisi, apa kabar?" },
-  { who: "Kamu", line: "Kabar baik! Kamu?" },
-  { who: "Saya", line: "Baik juga. Senang sekali bisa bertemu hari ini." },
-  { who: "Kamu", line: "Saya juga senang. Sampai jumpa lagi ya!" },
+const questions = [
+  {
+    question: "Bentuk tangan huruf apa yang dibuat dengan telunjuk lurus ke atas dan ibu jari menyamping membentuk sudut?",
+    options: ["Huruf T", "Huruf L", "Huruf V"],
+    answer: 1,
+    note: "Luruskan telunjuk ke atas dan ibu jari ke samping — itulah bentuk huruf L.",
+  },
+  {
+    question: "Untuk mengisyaratkan angka 7, jari mana yang diluruskan bersama ibu jari?",
+    options: ["Jari manis", "Jari tengah", "Kelingking"],
+    answer: 0,
+    note: "Angka 7 dibentuk dengan ibu jari dan jari manis yang lurus ke bawah.",
+  },
+  {
+    question: "Gerakan isyarat 'Terima kasih' diawali dari posisi mana?",
+    options: [
+      "Telapak terbuka di dekat dagu, lalu digerakkan ke depan",
+      "Telunjuk menunjuk ke dada",
+      "Kedua tangan mengepal di depan dada",
+    ],
+    answer: 0,
+    note: "Telapak di dekat dagu lalu menjauh ke depan seperti melepas ciuman.",
+  },
+  {
+    question: "Dalam bahasa isyarat, ekspresi wajah berfungsi sebagai?",
+    options: ["Hiasan saja", "Nada bicara dan intonasi", "Pengganti kata benda"],
+    answer: 1,
+    note: "Wajah membawa intonasi — gerakan tangan membawa kata.",
+  },
+  {
+    question: "Saat memberi salam dalam isyarat, hal paling penting adalah?",
+    options: [
+      "Bergerak secepat mungkin",
+      "Menatap lawan bicara dan tersenyum",
+      "Menutup mata",
+    ],
+    answer: 1,
+    note: "Kontak mata dan senyum adalah bentuk penghormatan dalam berkomunikasi.",
+  },
+  {
+    question: "Isyarat angka 25 dibentuk dengan cara?",
+    options: [
+      "Lima lalu dua",
+      "Dua lalu lima",
+      "Lima belas lalu sepuluh",
+    ],
+    answer: 1,
+    note: "Bilangan besar digabungkan dari digit penyusunnya secara berurutan: dua lalu lima.",
+  },
+  {
+    question: "Ekspresi 'kaget' dalam isyarat ditandai dengan?",
+    options: [
+      "Alis turun dan bibir mengerucut",
+      "Alis terangkat dan mata terbuka lebar",
+      "Kepala menunduk",
+    ],
+    answer: 1,
+    note: "Kaget dibawa oleh alis yang naik, mata membelalak, dan mulut sedikit terbuka.",
+  },
+  {
+    question: "Huruf C dalam alfabet BISINDO dibentuk dengan?",
+    options: [
+      "Empat jari mengepal",
+      "Empat jari rapat dan tegak",
+      "Jari-jari melengkung membentuk huruf C",
+    ],
+    answer: 2,
+    note: "Lengkungkan jari bersama ibu jari persis seperti bentuk huruf C.",
+  },
+  {
+    question: "Salam 'Selamat Malam' diisyaratkan dengan gerakan?",
+    options: [
+      "Kedua tangan membentuk atap di atas kepala lalu diturunkan",
+      "Telunjuk menunjuk ke tanah",
+      "Telapak digerakkan ke samping",
+    ],
+    answer: 0,
+    note: "Atap segitiga di atas kepala melambangkan malam, lalu diturunkan perlahan.",
+  },
+  {
+    question: "Hal pertama yang dilakukan untuk membuka percakapan yang baik adalah?",
+    options: [
+      "Langsung bertanya hal pribadi",
+      "Memberi salam hangat",
+      "Berpaling dari lawan bicara",
+    ],
+    answer: 1,
+    note: "Percakapan yang hangat selalu dimulai dari salam yang tulus.",
+  },
 ]
 
 const accents = ["mint", "coral", "peach"] as const
 
-function DialogCard({
-  title,
-  subtitle,
-          lines,
-        }: {
-  title: string
-  subtitle: string
-  lines: { who: string; line: string }[]
-}) {
+function QuizCard({ index, q }: { index: number; q: (typeof questions)[number] }) {
   return (
     <div className="group relative overflow-hidden rounded-3xl border bg-card p-7 shadow-md shadow-black/8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
       <div className="relative">
         <div className="flex items-center gap-3">
-          <span className="flex size-10 items-center justify-center rounded-2xl bg-mint text-mint-deep">
-            <MessageCircle className="size-5" aria-hidden="true" />
+          <span className="flex size-10 shrink-0 items-center justify-center rounded-2xl bg-mint text-mint-deep font-bold">
+            {index + 1}
           </span>
-          <div>
-            <h3 className="text-lg font-semibold">{title}</h3>
-            <p className="text-xs font-medium text-muted-foreground">{subtitle}</p>
-          </div>
+          <p className="text-lg font-semibold">{q.question}</p>
         </div>
 
-        <ol className="mt-5 space-y-3">
-          {lines.map((item, i) => (
-            <li key={i} className="flex gap-3">
-              <span
-                className={`mt-0.5 inline-flex h-6 shrink-0 items-center rounded-full px-2.5 text-xs font-bold ${
-                  item.who === "Saya" ? "bg-coral-light text-[#cf6f95]" : "bg-mint text-mint-deep"
+        <div className="mt-5 space-y-2.5">
+          {q.options.map((option, i) => {
+            const isAnswer = i === q.answer
+            return (
+              <div
+                key={option}
+                className={`flex items-center gap-3 rounded-2xl border px-4 py-3 text-sm transition-all duration-300 ${
+                  isAnswer
+                    ? "border-mint-deep/50 bg-mint/15 font-semibold text-mint-deep"
+                    : "border-border text-muted-foreground"
                 }`}
               >
-                {item.who}
-              </span>
-              <span className="text-sm leading-relaxed text-muted-foreground">{item.line}</span>
-            </li>
-          ))}
-        </ol>
+                {isAnswer ? (
+                  <CircleCheck className="size-4.5 shrink-0" aria-hidden="true" />
+                ) : (
+                  <CircleX className="size-4.5 shrink-0 opacity-40" aria-hidden="true" />
+                )}
+                {option}
+                {isAnswer && (
+                  <span className="ml-auto inline-flex rounded-full bg-mint-deep/20 px-2.5 py-0.5 text-xs font-bold">
+                    Jawaban
+                  </span>
+                )}
+              </div>
+            )
+          })}
+        </div>
 
-        <p className="mt-5 rounded-2xl bg-amber-50 px-4 py-3 text-xs leading-relaxed text-amber-900/80 border border-amber-200/60">
-          💡 Berlatih bersama teman: salah satu menjadi &quot;Saya&quot; dan yang lain menjadi &quot;Kamu&quot;, lalu bertukar peran.
-        </p>
+        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">💡 {q.note}</p>
       </div>
     </div>
   )
@@ -87,18 +151,57 @@ export default function Materi5() {
       <Container>
         <LessonHero
           index="5"
-          title="Percakapan"
-          description="Waktunya merangkai semua yang sudah kamu pelajari menjadi percakapan nyata. Latih perkenalan, tanya jawab, dan cara berpamitan dalam BISINDO."
-          icon={MessagesSquare}
+          title="Kuis Interaktif"
+          description="Uji pemahamanmu dengan sepuluh soal dari seluruh materi. Pilih jawaban, cocokkan dengan kunci, dan lihat seberapa jauh kemampuan isyaratmu berkembang."
+          icon={BrainCircuit}
         />
 
         <LessonSection
-          eyebrow="Kosakata"
-          title="Kosakata Pendukung Percakapan"
-          description="Beberapa kata kunci yang paling sering muncul saat berbicara dengan orang baru."
+          eyebrow="Aturan Main"
+          title="Cara Mengerjakan"
+          description="Baca soal, tentukan jawabanmu, lalu cocokkan dengan pilihan bertanda 'Jawaban'. Targetkan minimal 8 dari 10 benar sebelum lanjut berlatih."
+        >
+          <div className="grid gap-5 sm:grid-cols-3">
+            <TipCard
+              icon={BrainCircuit}
+              title="Kerjakan tanpa melihat kunci"
+              description="Jawab dulu dari ingatan, baru buka pembahasannya. Itu cara paling efektif menguji pemahamanmu."
+            />
+            <TipCard
+              icon={RotateCcw}
+              title="Ulangi sampai lancar"
+              description="Kurang dari 8 benar? Tenang, ulangi lagi sampai semua soal terasa mudah."
+            />
+            <TipCard
+              icon={Trophy}
+              title="Raih skor sempurna"
+              description="10 benar berarti kamu siap lanjut ke percakapan dan praktik nyata. Selamat!"
+            />
+          </div>
+        </LessonSection>
+
+        <LessonSection
+          eyebrow="Soal"
+          title="10 Soal Latihan"
+          description="Setiap soal memiliki satu jawaban benar dan pembahasan singkat di bagian bawah."
+        >
+          <div className="grid gap-6 lg:grid-cols-2">
+            {questions.map((q, index) => (
+              <QuizCard key={q.question} index={index} q={q} />
+            ))}
+          </div>
+        </LessonSection>
+
+        <LessonSection
+          eyebrow="Evaluasi"
+          title="Hasil Belajarmu"
         >
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {vocab.map((item, index) => (
+            {[
+              { sign: "8–10", name: "Hebat!", description: "Pemahamanmu sudah kuat. Lanjutkan ke percakapan dan praktik nyata bersama teman." },
+              { sign: "5–7", name: "Bagus, terus berlatih", description: "Sudah mengenal banyak isyarat. Ulangi materi yang masih keliru lalu coba lagi." },
+              { sign: "0–4", name: "Mari ulang dari awal", description: "Tidak apa-apa! Pelajari kembali alfabet dan salam, lalu kembali ke kuis ini." },
+            ].map((item, index) => (
               <SignCard
                 key={item.name}
                 sign={item.sign}
@@ -107,48 +210,6 @@ export default function Materi5() {
                 accent={accents[index % accents.length]}
               />
             ))}
-          </div>
-        </LessonSection>
-
-        <LessonSection
-          eyebrow="Praktik"
-          title="Contoh Percakapan Sederhana"
-          description="Perhatikan alurnya: selalu diawali salam, lalu tanya kabar atau perkenalan, dan ditutup dengan salam perpisahan."
-        >
-          <div className="grid gap-6 lg:grid-cols-2">
-            <DialogCard
-              title="Perkenalan Diri"
-              subtitle="Berlatih menyebut nama dan asal"
-              lines={dialog1}
-            />
-            <DialogCard
-              title="Tanya Kabar & Berpamitan"
-              subtitle="Menutup percakapan dengan hangat"
-              lines={dialog2}
-            />
-          </div>
-        </LessonSection>
-
-        <LessonSection
-          eyebrow="Tips"
-          title="Rahasia Percakapan yang Lancar"
-        >
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <TipCard
-              icon={Users}
-              title="Latihan dengan pasangan"
-              description="Bahasa isyarat baru terasa hidup saat dipakai bercakap. Cari teman untuk berlatih dialog secara bergantian."
-            />
-            <TipCard
-              icon={User}
-              title="Tidak perlu takut salah"
-              description="Salah isyarat itu wajar. Minta lawan bicara mengulang atau perbaiki, dan jadikan sebagai bagian dari belajar."
-            />
-            <TipCard
-              icon={MessageCircle}
-              title="Baca ekspresi lawan bicara"
-              description="Perhatikan wajahnya untuk tahu apakah pesanmu diterima. Anggukan dan senyum adalah umpan balik terbaik."
-            />
           </div>
         </LessonSection>
 

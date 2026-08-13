@@ -35,17 +35,20 @@ export default function Materi3() {
           icon={Hand}
         />
 
-        <LessonSection>
+        <LessonSection
+          eyebrow="Sapaan & Basa-basi"
+          title="Salam yang Sering Dipakai"
+          description="Salam dalam isyarat selalu dibarengi ekspresi wajah. Jangan lupa menatap lawan bicara dan tersenyum saat memberi salam."
+        >
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {greetings.map((item, index) => (
               <SignCard
                 key={item.name}
-                sign={String(index + 1)}
+                sign={item.sign.replace("\n", " ")}
                 name={item.name}
                 description={item.description}
-                accent="coral"
+                accent={accents[index % accents.length]}
                 image={item.image}
-                isCircle
               />
             ))}
           </div>

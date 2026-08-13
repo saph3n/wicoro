@@ -18,8 +18,7 @@ const navItems = [
       { label: "Angka", href: "/belajar/materi-2" },
       { label: "Salam Sehari-hari", href: "/belajar/materi-3" },
       { label: "Ekspresi Dasar", href: "/belajar/materi-4" },
-      { label: "Percakapan", href: "/belajar/materi-5" },
-      { label: "Kuis Interaktif", href: "/belajar/materi-6" },
+      { label: "Kuis Interaktif", href: "/belajar/materi-5" },
     ]
   },
   { label: "Kontak", href: "/kontak" },

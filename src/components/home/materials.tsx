@@ -1,6 +1,6 @@
 "use client"
 
-import { BrainCircuit, Hand, Hash, LetterText, MessagesSquare, Smile } from "lucide-react"
+import { BrainCircuit, Hand, Hash, LetterText, Smile } from "lucide-react"
 import { motion } from "framer-motion"
 
 import { cn } from "@/lib/utils"
@@ -33,12 +33,6 @@ const materials = [
       "Tampilkan perasaan dan reaksi lewat ekspresi wajah serta gerakan isyarat yang tepat.",
   },
   {
-    icon: MessagesSquare,
-    title: "Percakapan",
-    description:
-      "Rangkai isyarat menjadi percakapan sederhana untuk interaksi yang lebih bermakna.",
-  },
-  {
     icon: BrainCircuit,
     title: "Kuis Interaktif",
     description:
@@ -65,12 +59,11 @@ const LINE_SHADOW = { filter: "drop-shadow(0 2px 4px rgba(87, 181, 133, 0.35))" 
 // Wavy horizontal journey line passing through each milestone's icon center
 // (y = 50 for odd columns, y = 75 for even columns in a 0-100 viewBox).
 const DESKTOP_PATH = [
-  "M 8.33 50",
-  "C 16.67 50, 16.67 75, 25 75",
-  "C 33.33 75, 33.33 50, 41.67 50",
-  "C 50 50, 50 75, 58.33 75",
-  "C 66.67 75, 66.67 50, 75 50",
-  "C 83.33 50, 83.33 75, 91.67 75",
+  "M 10 50",
+  "C 20 50, 20 75, 30 75",
+  "C 40 75, 40 50, 50 50",
+  "C 60 50, 60 75, 70 75",
+  "C 80 75, 80 50, 90 50",
 ].join(" ")
 
 const MOBILE_PATH = "M 50 0 C 57 22, 43 44, 50 66 C 57 84, 46 92, 50 100"
@@ -174,7 +167,7 @@ export function Materials() {
             />
           </svg>
 
-          <div className="grid grid-cols-6 gap-6">
+          <div className="grid grid-cols-5 gap-6">
             {materials.map((item, index) => {
               const even = index % 2 === 1
               return (

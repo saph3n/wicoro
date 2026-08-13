@@ -8,18 +8,18 @@ import { SignCard } from "@/components/belajar/sign-card"
 import { TipCard } from "@/components/belajar/tip-card"
 
 const expressions = [
-  { sign: "Senang", name: "Senang", description: "Telapak terbuka menempel di dada, digerakkan naik di depan wajah sambil tersenyum lebar dan mata berbinar." },
-  { sign: "Sedih", name: "Sedih", description: "Telunjuk menyentuh pipi di bawah mata sambil bibir mengerucut ke bawah dan alis turun." },
-  { sign: "Marah", name: "Marah", description: "Telapak terbuka di depan wajah digerakkan kuat ke bawah, alis mengerut dan rahang mengeras." },
-  { sign: "Takut", name: "Takut", description: "Kedua tangan mengepal di depan dada dengan jari sedikit gemetar, mata membelalak dan badan sedikit mundur." },
-  { sign: "Kaget", name: "Kaget", description: "Telunjuk menunjuk ke depan sambil kedua alis terangkat tinggi dan mulut sedikit terbuka." },
-  { sign: "Bingung", name: "Bingung", description: "Jari telunjuk dan tengah menekuk di depan wajah, kepala sedikit miring dengan ekspresi ragu." },
-  { sign: "Malu", name: "Malu", description: "Telapak terbuka menutupi pipi, senyum kecil sambil memalingkan pandangan sebentar." },
-  { sign: "Bosan", name: "Bosan", description: "Telapak terbuka menyangga dagu, pandangan sedikit kosong dengan bibir datar." },
-  { sign: "Capek", name: "Capek", description: "Kedua tangan mengepal menyentuh bahu sambil menghela napas dan menurunkan bahu." },
-  { sign: "Semangat", name: "Semangat", description: "Kedua tangan mengepal ditekuk di depan dada seperti pose penuh energi, wajah cerah dan mata menyala." },
-  { sign: "Suka", name: "Suka", description: "Telapak terbuka menempel di dada lalu digerakkan ke depan sambil tersenyum tulus." },
-  { sign: "Tidak\nsuka", name: "Tidak Suka", description: "Telapak terbuka digerakkan menjauh ke samping sambil muka mengerut, seperti menolak sesuatu." },
+  { sign: "Senang", name: "Senang", description: "Telapak terbuka menempel di dada, digerakkan naik di depan wajah sambil tersenyum lebar dan mata berbinar.", image: "/senang.png" },
+  { sign: "Sedih", name: "Sedih", description: "Telunjuk menyentuh pipi di bawah mata sambil bibir mengerucut ke bawah dan alis turun.", image: "/sedih.png" },
+  { sign: "Marah", name: "Marah", description: "Telapak terbuka di depan wajah digerakkan kuat ke bawah, alis mengerut dan rahang mengeras.", image: "/marah.png" },
+  { sign: "Takut", name: "Takut", description: "Kedua tangan mengepal di depan dada dengan jari sedikit gemetar, mata membelalak dan badan sedikit mundur.", image: "/takut.png" },
+  { sign: "Kaget", name: "Kaget", description: "Telunjuk menunjuk ke depan sambil kedua alis terangkat tinggi dan mulut sedikit terbuka.", image: "/kaget.png" },
+  { sign: "Bingung", name: "Bingung", description: "Jari telunjuk dan tengah menekuk di depan wajah, kepala sedikit miring dengan ekspresi ragu.", image: "/bingung.png" },
+  { sign: "Malu", name: "Malu", description: "Telapak terbuka menutupi pipi, senyum kecil sambil memalingkan pandangan sebentar.", image: "/malu.png" },
+  { sign: "Bosan", name: "Bosan", description: "Telapak terbuka menyangga dagu, pandangan sedikit kosong dengan bibir datar.", image: "/bosan.png" },
+  { sign: "Capek", name: "Capek", description: "Kedua tangan mengepal menyentuh bahu sambil menghela napas dan menurunkan bahu.", image: "/capek.png" },
+  { sign: "Semangat", name: "Semangat", description: "Kedua tangan mengepal ditekuk di depan dada seperti pose penuh energi, wajah cerah dan mata menyala.", image: "/semangat.png" },
+  { sign: "Suka", name: "Suka", description: "Telapak terbuka menempel di dada lalu digerakkan ke depan sambil tersenyum tulus.", image: "/suka.png" },
+  { sign: "Tidak\nsuka", name: "Tidak Suka", description: "Telapak terbuka digerakkan menjauh ke samping sambil muka mengerut, seperti menolak sesuatu.", image: "/tidak%20suka.png" },
 ]
 
 const accents = ["mint", "coral", "peach"] as const
@@ -48,6 +48,7 @@ export default function Materi4() {
                 name={item.name}
                 description={item.description}
                 accent={accents[index % accents.length]}
+                image={item.image}
               />
             ))}
           </div>
