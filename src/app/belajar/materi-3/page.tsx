@@ -8,18 +8,18 @@ import { SignCard } from "@/components/belajar/sign-card"
 import { TipCard } from "@/components/belajar/tip-card"
 
 const greetings = [
-  { sign: "Halo", name: "Halo / Hai", description: "Telapak terbuka di samping kepala, lalu digerakkan sedikit seperti melambai. Ekspresikan dengan senyum.", image: "/Hai.png" },
-  { sign: "Apa\nkabar?", name: "Apa Kabar?", description: "Telunjuk dan jari tengah menunjuk ke depan, lalu digerakkan naik-turun sambil menaikkan alis sebagai tanda tanya.", image: "/Apa Kabar.png" },
-  { sign: "Pagi", name: "Selamat Pagi", description: "Tangan mengepal di depan dada, lalu ibu jari diluruskan ke atas dan digerakkan kecil ke atas. Kombinasikan dengan 'halo' untuk salam pembuka." },
-  { sign: "Siang", name: "Selamat Siang", description: "Ibu jari menempel di telapak dan digerakkan dari dada ke samping, melambangkan matahari berada di tengah hari." },
-  { sign: "Sore", name: "Selamat Sore", description: "Gerakan seperti matahari mulai turun: telapak terbuka digerakkan ke bawah di depan tubuh." },
-  { sign: "Malam", name: "Selamat Malam", description: "Kedua tangan membentuk atap segitiga di atas kepala, seperti rumah di malam hari, lalu diturunkan perlahan." },
-  { sign: "Terima\nkasih", name: "Terima Kasih", description: "Telapak terbuka di dekat dagu, lalu digerakkan menjauh ke depan seperti melepas ciuman. Ekspresi tulus dan tersenyum." },
-  { sign: "Sama-\nsama", name: "Sama-sama", description: "Kedua telapak terbuka menghadap ke atas di depan dada, lalu digerakkan keluar berbarengan." },
-  { sign: "Maaf", name: "Maaf", description: "Tangan mengepal di depan dada, lalu digerakkan memutar kecil ke arah luar seperti meminta maaf dengan tulus." },
-  { sign: "Permisi", name: "Permisi", description: "Telapak terbuka di samping wajah, lalu digerakkan ke depan pelan untuk meminta izin lewat atau memanggil perhatian." },
-  { sign: "Sampai\njumpa", name: "Sampai Jumpa", description: "Telapak terbuka digerakkan ke samping sambil melambai, sering diakhiri dengan senyum atau anggukan." },
-  { sign: "Aku\nsenang", name: "Senang Bertemu", description: "Telapak terbuka menempel di dada, lalu digerakkan ke depan sambil tersenyum — tanda senang berkenalan." },
+  { sign: "Halo", name: "Halo / Hai", description: "Telapak terbuka di samping kepala, lalu digerakkan sedikit seperti melambai. Ekspresikan dengan senyum.", image: "/Hai.png?v=3" },
+  { sign: "Apa\nkabar?", name: "Apa Kabar?", description: "Telunjuk dan jari tengah menunjuk ke depan, lalu digerakkan naik-turun sambil menaikkan alis sebagai tanda tanya.", image: "/Apa Kabar.png?v=4" },
+  { sign: "Pagi", name: "Selamat Pagi", description: "Tangan mengepal di depan dada, lalu ibu jari diluruskan ke atas dan digerakkan kecil ke atas. Kombinasikan dengan 'halo' untuk salam pembuka.", image: "/Selamat Pagi.png?v=3" },
+  { sign: "Siang", name: "Selamat Siang", description: "Ibu jari menempel di telapak dan digerakkan dari dada ke samping, melambangkan matahari berada di tengah hari.", image: "/Selamat Siang.png?v=3" },
+  { sign: "Sore", name: "Selamat Sore", description: "Gerakan seperti matahari mulai turun: telapak terbuka digerakkan ke bawah di depan tubuh.", image: "/Selamat Sore.png?v=3" },
+  { sign: "Malam", name: "Selamat Malam", description: "Kedua tangan membentuk atap segitiga di atas kepala, seperti rumah di malam hari, lalu diturunkan perlahan.", image: "/Selamat Malam.png?v=4" },
+  { sign: "Terima\nkasih", name: "Terima Kasih", description: "Telapak terbuka di dekat dagu, lalu digerakkan menjauh ke depan seperti melepas ciuman. Ekspresi tulus dan tersenyum.", image: "/Terima Kasih.png?v=3" },
+  { sign: "Sama-\nsama", name: "Sama-sama", description: "Kedua telapak terbuka menghadap ke atas di depan dada, lalu digerakkan keluar berbarengan.", image: "/Sama Sama.png?v=3" },
+  { sign: "Maaf", name: "Maaf", description: "Tangan mengepal di depan dada, lalu digerakkan memutar kecil ke arah luar seperti meminta maaf dengan tulus.", image: "/Maaf.png?v=3" },
+  { sign: "Permisi", name: "Permisi", description: "Telapak terbuka di samping wajah, lalu digerakkan ke depan pelan untuk meminta izin lewat atau memanggil perhatian.", image: "/Permisi.png?v=3" },
+  { sign: "Sampai\njumpa", name: "Sampai Jumpa", description: "Telapak terbuka digerakkan ke samping sambil melambai, sering diakhiri dengan senyum atau anggukan.", image: "/Sampai Jumpa.png?v=3" },
+  { sign: "Aku\nsenang", name: "Senang Bertemu", description: "Telapak terbuka menempel di dada, lalu digerakkan ke depan sambil tersenyum — tanda senang berkenalan.", image: "/Senang Bertemu.png?v=4" },
 ]
 
 const accents = ["mint", "coral", "peach"] as const
