@@ -71,7 +71,7 @@ export default function AboutPage() {
       <Marquee />
 
       {/* Values */}
-      <section className="relative py-8 sm:py-12">
+      <section className="relative pt-16 pb-12 sm:pt-24 sm:pb-16">
         <Container>
           <div className="mx-auto max-w-2xl text-center">
             <FadeIn>

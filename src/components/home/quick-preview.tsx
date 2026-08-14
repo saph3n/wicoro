@@ -162,7 +162,7 @@ export function QuickPreview() {
         </div>
 
         {/* Category Pills */}
-        <FadeIn delay={0.1} className="mt-8 flex flex-wrap items-center justify-center gap-2">
+        <FadeIn delay={0.1} className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
           {previewCategories.map((cat) => {
             const isActive = activeCategory === cat.id
             return (
@@ -170,9 +170,9 @@ export function QuickPreview() {
                 key={cat.id}
                 onClick={() => handleCategoryChange(cat.id)}
                 className={cn(
-                  "relative rounded-full px-4 py-2 text-xs font-bold tracking-wide transition-all duration-300 sm:text-sm",
+                  "relative rounded-full px-4 py-2 text-xs font-bold tracking-wide transition-all duration-300 sm:text-sm cursor-pointer",
                   isActive
-                    ? "bg-primary text-white shadow-lg shadow-primary/25 scale-105"
+                    ? "bg-primary text-white shadow-md shadow-primary/25"
                     : "bg-white/80 border border-border/80 text-muted-foreground hover:bg-white hover:text-foreground hover:border-primary/40"
                 )}
               >
