@@ -1,8 +1,8 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
-import { motion } from "framer-motion"
-import { Heart, Sparkles, Hand } from "lucide-react"
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 
 import { cn } from "@/lib/utils"
 
@@ -11,78 +11,140 @@ interface HeroIllustrationProps {
 }
 
 export function HeroIllustration({ className }: HeroIllustrationProps) {
-  return (
-    <div className={cn("relative flex items-center justify-center py-4", className)}>
-      {/* Center Image Container */}
-      <div className="relative z-10 w-full max-w-lg">
-        {/* Main Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.92, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative"
-        >
-          <Image
-            src="/bicara.png"
-            alt="Dua orang berkomunikasi menggunakan Bahasa Isyarat Indonesia"
-            width={640}
-            height={520}
-            className="h-auto w-full drop-shadow-xl transition-transform duration-500 hover:scale-[1.02]"
-            priority
-          />
-        </motion.div>
+  // Mouse position values for 3D tilt
+  const x = useMotionValue(0)
+  const y = useMotionValue(0)
 
-        {/* Floating Glassmorphism Badge 1 — Top Left: "Hai / Salam" */}
+  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 })
+  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 })
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["6deg", "-6deg"])
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-6deg", "6deg"])
+
+  const [activeBadge, setActiveBadge] = useState<string | null>(null)
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const width = rect.width
+    const height = rect.height
+
+    const mouseX = e.clientX - rect.left
+    const mouseY = e.clientY - rect.top
+
+    const xPct = mouseX / width - 0.5
+    const yPct = mouseY / height - 0.5
+
+    x.set(xPct)
+    y.set(yPct)
+  }
+
+  const handleMouseLeave = () => {
+    x.set(0)
+    y.set(0)
+  }
+
+  return (
+    <div className={cn("relative flex items-center justify-center pt-0 pb-0", className)}>
+      <div
+        className="relative z-10 w-full max-w-[465px] cursor-pointer [perspective:1000px]"
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
+        {/* Soft glowing ambient ring pulsing in background */}
         <motion.div
-          className="absolute -top-4 -left-4 sm:-left-8 z-20"
-          initial={{ opacity: 0, y: 20, scale: 0.8 }}
-          animate={{ opacity: 1, y: [0, -10, 0], scale: 1 }}
+          animate={{ scale: [1, 1.08, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute inset-0 -m-4 rounded-full bg-gradient-to-tr from-primary/20 via-mint/30 to-coral-light/20 blur-3xl pointer-events-none"
+        />
+
+        {/* Clean Compact 3D Card with Continuous Tilting Left & Right Animation */}
+        <motion.div
+          style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+          initial={{ opacity: 0, scale: 0.92, y: 15 }}
+          animate={{ opacity: 1, scale: 1, rotate: [-3, 3, -3], y: [0, -6, 0] }}
           transition={{
-            opacity: { duration: 0.6, delay: 0.3 },
+            opacity: { duration: 0.6, ease: "easeOut" },
+            scale: { duration: 0.6, ease: "easeOut" },
+            rotate: { duration: 5, repeat: Infinity, ease: "easeInOut" },
             y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
           }}
+          whileHover={{ scale: 1.03 }}
+          className="group relative overflow-hidden rounded-[2rem] border-2 border-white bg-gradient-to-b from-white via-white to-emerald-50/40 p-2.5 shadow-2xl shadow-primary/10 backdrop-blur-md transition-all duration-300"
         >
-          <div className="flex items-center gap-3 rounded-2xl border border-white/80 bg-white/80 p-3 shadow-lg shadow-black/5 backdrop-blur-md transition-transform duration-300 hover:scale-105">
-            <div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-mint-deep text-white shadow-md shadow-primary/20">
-              <Hand className="size-5" />
-            </div>
-            <div className="pr-1">
-              <div>
-                <span className="text-xs font-bold text-foreground">👋 Isyarat &ldquo;Hai&rdquo;</span>
-              </div>
-              <p className="text-[11px] text-primary font-medium">Mudah dipelajari</p>
-            </div>
+          {/* Shine Sweep Effect on Hover */}
+          <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-1000 group-hover:translate-x-full pointer-events-none z-20" />
+
+          {/* Main Showcase Image */}
+          <div className="relative overflow-hidden rounded-[1.4rem] border border-white/80 bg-white shadow-inner">
+            <Image
+              src="/bicara.png"
+              alt="Dua orang berkomunikasi menggunakan Bahasa Isyarat Indonesia"
+              width={580}
+              height={470}
+              className="h-auto w-full rounded-[1.4rem] object-cover transition-transform duration-700 group-hover:scale-105"
+              priority
+            />
           </div>
         </motion.div>
 
-        {/* Floating Glassmorphism Badge 2 — Right Center: "Aku Cinta Kamu" */}
+        {/* Floating Glass Badge 1 (Top Left) */}
         <motion.div
-          className="absolute top-1/2 -right-4 sm:-right-8 z-20 -translate-y-1/2"
-          initial={{ opacity: 0, x: 20, scale: 0.8 }}
-          animate={{ opacity: 1, x: 0, y: [0, 12, 0], scale: 1 }}
-          transition={{
-            opacity: { duration: 0.6, delay: 0.5 },
-            y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 },
-          }}
+          className="absolute -top-3 left-1 sm:-left-3 z-30"
+          animate={{ y: [0, -6, 0], rotate: [0, -2, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          whileHover={{ scale: 1.08, rotate: 1 }}
+          onClick={() => setActiveBadge("hai")}
         >
-          <div className="flex items-center gap-2.5 rounded-2xl border border-white/80 bg-white/85 p-3 shadow-lg shadow-black/5 backdrop-blur-md transition-transform duration-300 hover:scale-105">
-            <div className="flex size-9 items-center justify-center rounded-xl bg-coral text-white shadow-md shadow-coral/30">
-              <Heart className="size-4 fill-white" />
+          <div className={cn(
+            "flex items-center gap-2 rounded-2xl border-2 bg-white/95 px-3 py-1.5 shadow-xl backdrop-blur-md transition-all duration-300 cursor-pointer",
+            activeBadge === "hai" ? "border-primary shadow-primary/20 scale-105" : "border-white/90 hover:border-primary/40"
+          )}>
+            <div className="relative size-8 overflow-hidden rounded-xl border border-primary/20 bg-emerald-50 p-0.5 shrink-0 shadow-inner">
+              <Image
+                src="/Hai.png"
+                alt="Isyarat Hai"
+                fill
+                className="object-contain p-0.5"
+              />
             </div>
             <div>
-              <p className="text-xs font-bold text-foreground">🤟 Ekspresi Hangat</p>
-              <p className="text-[11px] text-[#cf6f95] font-medium">Bikin Komunikasi Dekat</p>
+              <div className="flex items-center gap-1">
+                <span className="text-[11px] font-bold text-foreground">👋 Isyarat &ldquo;Hai&rdquo;</span>
+                <span className="size-1.5 rounded-full bg-primary animate-ping" />
+              </div>
+              <span className="block text-[9px] font-bold text-primary">Mudah Dipelajari</span>
             </div>
           </div>
         </motion.div>
 
-        {/* Decorative Sparkles */}
+        {/* Floating Glass Badge 2 (Bottom Right) */}
         <motion.div
-          className="absolute top-2 right-6 z-20 text-coral"
-          animate={{ rotate: [0, 15, -15, 0], scale: [1, 1.2, 1] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -bottom-3 right-1 sm:-right-3 z-30"
+          animate={{ y: [0, 6, 0], rotate: [0, 2, 0] }}
+          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          whileHover={{ scale: 1.08, rotate: -1 }}
+          onClick={() => setActiveBadge("senang")}
         >
-          <Sparkles className="size-6 drop-shadow" />
+          <div className={cn(
+            "flex items-center gap-2 rounded-2xl border-2 bg-white/95 px-3 py-1.5 shadow-xl backdrop-blur-md transition-all duration-300 cursor-pointer",
+            activeBadge === "senang" ? "border-[#cf6f95] shadow-pink-200 scale-105" : "border-white/90 hover:border-pink-300"
+          )}>
+            <div className="relative size-8 overflow-hidden rounded-xl border border-pink-200 bg-pink-50 p-0.5 shrink-0 shadow-inner">
+              <Image
+                src="/senang.png"
+                alt="Ekspresi Senang"
+                fill
+                className="object-contain p-0.5"
+              />
+            </div>
+            <div>
+              <div className="flex items-center gap-1">
+                <span className="text-[11px] font-bold text-foreground">🤟 Ekspresi Senang</span>
+                <span className="size-1.5 rounded-full bg-[#cf6f95] animate-ping" />
+              </div>
+              <span className="block text-[9px] font-bold text-[#cf6f95]">100% Interaktif</span>
+            </div>
+          </div>
         </motion.div>
       </div>
     </div>

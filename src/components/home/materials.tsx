@@ -62,8 +62,6 @@ const MOBILE_LINE_FADE = {
 
 const LINE_SHADOW = { filter: "drop-shadow(0 2px 4px rgba(87, 181, 133, 0.35))" }
 
-// Wavy horizontal journey line passing through each milestone's icon center
-// (y = 50 for odd columns, y = 75 for even columns in a 0-100 viewBox).
 const DESKTOP_PATH = [
   "M 10 50",
   "C 20 50, 20 75, 30 75",
