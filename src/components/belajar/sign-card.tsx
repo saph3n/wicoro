@@ -28,11 +28,11 @@ export function SignCard({ sign, name, description, accent = "coral", image }: S
         </h3>
         <span
           className={cn(
-            "flex size-8 shrink-0 items-center justify-center rounded-xl text-sm font-extrabold shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6",
+            "flex h-8 min-w-8 shrink-0 items-center justify-center rounded-xl px-2.5 text-xs font-extrabold shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3",
             accentStyles[accent]
           )}
         >
-          {sign.length > 2 ? sign.slice(0, 2) : sign}
+          {sign}
         </span>
       </div>
 
