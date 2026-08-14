@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Wicoro — Belajar Bahasa Isyarat Indonesia",
+  title: "Wicoro",
   description:
     "Wicoro adalah platform interaktif untuk belajar Bahasa Isyarat Indonesia (BISINDO) dengan cara yang mudah, seru, dan menyenangkan.",
 }

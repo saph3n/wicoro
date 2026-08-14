@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { BrainCircuit, Hand, Hash, LetterText, Smile } from "lucide-react"
 import { motion } from "framer-motion"
 
@@ -13,30 +14,35 @@ const materials = [
     title: "Huruf & Alfabet",
     description:
       "Kenali huruf dan alfabet BISINDO sebagai fondasi untuk merangkai kata dan kalimat.",
+    href: "/belajar/materi-1",
   },
   {
     icon: Hash,
     title: "Angka",
     description:
       "Pelajari isyarat angka dari bilangan satuan hingga bilangan besar untuk kebutuhan sehari-hari.",
+    href: "/belajar/materi-2",
   },
   {
     icon: Hand,
     title: "Salam Sehari-hari",
     description:
       "Sapa orang lain dengan percaya diri memakai isyarat salam yang umum digunakan.",
+    href: "/belajar/materi-3",
   },
   {
     icon: Smile,
     title: "Ekspresi Dasar",
     description:
       "Tampilkan perasaan dan reaksi lewat ekspresi wajah serta gerakan isyarat yang tepat.",
+    href: "/belajar/materi-4",
   },
   {
     icon: BrainCircuit,
     title: "Kuis Interaktif",
     description:
       "Uji pemahamanmu dengan kuis seru yang mengasah ingatan dan kemampuan berisyarat.",
+    href: "/belajar/materi-5",
   },
 ]
 
@@ -171,28 +177,29 @@ export function Materials() {
             {materials.map((item, index) => {
               const even = index % 2 === 1
               return (
-                <FadeIn
-                  key={item.title}
-                  delay={0.4 + index * 0.1}
-                  className="group flex flex-col items-center text-center cursor-pointer"
-                >
-                  <div
-                    className={cn(
-                      "relative flex h-32 w-full items-center justify-center transition-transform duration-300 group-hover:-translate-y-2",
-                      even && "items-end"
-                    )}
+                <FadeIn key={item.title} delay={0.4 + index * 0.1}>
+                  <Link
+                    href={item.href}
+                    className="group flex flex-col items-center text-center cursor-pointer"
                   >
-                    <MilestoneIcon item={item} index={index} />
-                  </div>
-                  <div className="mt-4 transition-transform duration-300 group-hover:-translate-y-2 group-hover:scale-105">
-                    <StepChip index={index} />
-                    <h3 className="mt-3 whitespace-nowrap text-[16px] font-semibold transition-colors duration-300 group-hover:text-primary">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
-                      {item.description}
-                    </p>
-                  </div>
+                    <div
+                      className={cn(
+                        "relative flex h-32 w-full items-center justify-center transition-transform duration-300 group-hover:-translate-y-2",
+                        even && "items-end"
+                      )}
+                    >
+                      <MilestoneIcon item={item} index={index} />
+                    </div>
+                    <div className="mt-4 transition-transform duration-300 group-hover:-translate-y-2 group-hover:scale-105">
+                      <StepChip index={index} />
+                      <h3 className="mt-3 whitespace-nowrap text-[16px] font-semibold transition-colors duration-300 group-hover:text-primary">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+                        {item.description}
+                      </p>
+                    </div>
+                  </Link>
                 </FadeIn>
               )
             })}
@@ -227,23 +234,24 @@ export function Materials() {
 
           <div className="space-y-10">
             {materials.map((item, index) => (
-              <FadeIn
-                key={item.title}
-                delay={0.3 + index * 0.08}
-                className="group relative flex gap-5 cursor-pointer"
-              >
-                <div className="relative z-10 shrink-0 transition-transform duration-300 group-hover:-translate-y-1">
-                  <MilestoneIcon item={item} index={index} small />
-                </div>
-                <div className="flex-1 pt-2 transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-105">
-                  <StepChip index={index} />
-                  <h3 className="mt-2 text-lg font-semibold transition-colors duration-300 group-hover:text-primary">
-                    {item.title}
-                  </h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
-                    {item.description}
-                  </p>
-                </div>
+              <FadeIn key={item.title} delay={0.3 + index * 0.08}>
+                <Link
+                  href={item.href}
+                  className="group relative flex gap-5 cursor-pointer"
+                >
+                  <div className="relative z-10 shrink-0 transition-transform duration-300 group-hover:-translate-y-1">
+                    <MilestoneIcon item={item} index={index} small />
+                  </div>
+                  <div className="flex-1 pt-2 transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-105">
+                    <StepChip index={index} />
+                    <h3 className="mt-2 text-lg font-semibold transition-colors duration-300 group-hover:text-primary">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+                      {item.description}
+                    </p>
+                  </div>
+                </Link>
               </FadeIn>
             ))}
           </div>

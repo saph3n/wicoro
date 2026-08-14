@@ -71,10 +71,11 @@ const DIGIT_DATA: Record<string, { name: string; description: string; emoji: str
 
 const PRESET_NUMBERS = ["17", "25", "100", "2025"]
 
-const accentClasses = [
-  "bg-mint text-mint-deep",
-  "bg-coral-light text-[#cf6f95]",
-  "bg-peach text-primary",
+const accentGradients = [
+  "from-[#268a5e] to-[#45ad7b] text-white",
+  "from-[#e0658d] to-[#f08aa8] text-white",
+  "from-[#2ba06d] to-[#7cc8a0] text-white",
+  "from-[#c04d73] to-[#e0658d] text-white",
 ] as const
 
 export function NumberPractice() {
@@ -95,7 +96,7 @@ export function NumberPractice() {
     <section className="pt-8 sm:pt-10">
       {/* Header */}
       <div className="flex flex-col gap-2">
-        <p className="text-sm font-semibold text-primary">✦ Kuis Interaktif</p>
+        <p className="text-sm font-semibold text-[#268a5e]">✦ Kuis Interaktif</p>
         <h2 className="text-2xl font-bold tracking-tight text-balance sm:text-3xl">
           Coba Gabungkan Angkanya!
         </h2>
@@ -119,9 +120,9 @@ export function NumberPractice() {
                 type="button"
                 onClick={() => setInputNumber(preset)}
                 className={cn(
-                  "rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200 cursor-pointer",
+                  "rounded-full px-4 py-1.5 text-xs font-bold transition-all duration-200 cursor-pointer",
                   isActive
-                    ? "bg-primary text-primary-foreground font-semibold shadow-sm shadow-primary/30 scale-105"
+                    ? "bg-gradient-to-r from-[#268a5e] via-[#2ba06d] to-[#57b585] text-white shadow-md shadow-[#268a5e]/30 scale-105"
                     : "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
                 )}
               >
@@ -141,6 +142,7 @@ export function NumberPractice() {
             inputMode="numeric"
             value={inputNumber}
             onChange={handleInput}
+            maxLength={25}
             placeholder="Ketik angka di sini... (misal: 17)"
             className="w-full rounded-2xl border bg-background/90 py-3.5 pl-12 pr-12 text-base font-semibold transition-all duration-200 placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/10 sm:text-lg"
           />
@@ -162,15 +164,15 @@ export function NumberPractice() {
             <Hash className="size-3.5 text-primary" />
             <span>
               {parsedDigits.length > 0
-                ? `${parsedDigits.length} digit terdeteksi`
-                : "Masukkan angka 0–9"}
+                ? `${parsedDigits.length} / 25 digit terdeteksi`
+                : "Masukkan angka 0–9 (maks. 25 digit)"}
             </span>
           </div>
         </div>
       </div>
 
       {/* Visual Digit Cards */}
-      <div className="mt-8">
+      <div className="mt-8 overflow-hidden">
         <AnimatePresence mode="wait">
           {parsedDigits.length > 0 ? (
             <motion.div
@@ -180,10 +182,10 @@ export function NumberPractice() {
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.25 }}
             >
-              <div className="rounded-3xl border bg-card p-6 shadow-md shadow-black/5">
+              <div className="rounded-3xl border bg-card p-6 shadow-md shadow-black/5 overflow-hidden">
                 <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b pb-4">
-                  <div>
-                    <h3 className="text-xl font-bold tracking-tight text-foreground">
+                  <div className="max-w-full overflow-hidden">
+                    <h3 className="text-xl font-bold tracking-tight text-foreground break-all max-w-full">
                       Angka: &quot;{inputNumber.trim()}&quot;
                     </h3>
                     <p className="text-xs text-muted-foreground">
@@ -196,7 +198,7 @@ export function NumberPractice() {
                 <div className="flex flex-wrap items-stretch justify-start gap-4 sm:gap-6">
                   {parsedDigits.map((digit, idx) => {
                     const data = DIGIT_DATA[digit]
-                    const accentClass = accentClasses[idx % accentClasses.length]
+                    const accentGradient = accentGradients[idx % accentGradients.length]
                     return (
                       <motion.div
                         key={`${digit}-${idx}`}
@@ -206,13 +208,13 @@ export function NumberPractice() {
                         className="flex items-center gap-4"
                       >
                         {/* Single Digit Card */}
-                        <div className="group relative flex w-36 flex-col overflow-hidden rounded-2xl border bg-background p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-md sm:w-44">
+                        <div className="group relative flex w-36 flex-col overflow-hidden rounded-2xl border border-white/80 bg-white p-4 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl sm:w-44">
                           {/* Badge Row */}
                           <div className="mb-3 flex items-center justify-between">
                             <span
                               className={cn(
-                                "flex size-8 items-center justify-center rounded-lg text-base font-bold shadow-sm",
-                                accentClass
+                                "flex size-8 items-center justify-center rounded-xl text-sm font-extrabold shadow-sm bg-gradient-to-br",
+                                accentGradient
                               )}
                             >
                               {digit}
@@ -260,7 +262,7 @@ export function NumberPractice() {
                   <div className="mt-6 rounded-2xl border border-primary/20 bg-primary/5 px-5 py-4">
                     <p className="text-sm font-medium text-primary">
                       💡 Cara baca:{" "}
-                      <span className="font-bold">
+                      <span className="font-bold break-all">
                         {parsedDigits.map((d) => DIGIT_DATA[d].name).join(" → ")}
                       </span>
                     </p>

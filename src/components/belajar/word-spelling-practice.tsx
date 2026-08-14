@@ -220,6 +220,7 @@ export function WordSpellingPractice() {
             type="text"
             value={inputWord}
             onChange={(e) => setInputWord(e.target.value)}
+            maxLength={30}
             placeholder="Ketik kata di sini... (misal: aku)"
             className="w-full rounded-2xl border bg-background/90 py-3.5 pl-12 pr-12 text-base font-semibold transition-all duration-200 placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/10 sm:text-lg"
           />
@@ -241,15 +242,15 @@ export function WordSpellingPractice() {
             <Type className="size-3.5 text-primary" />
             <span>
               {totalLettersCount > 0
-                ? `${totalLettersCount} huruf terdeteksi`
-                : "Masukkan huruf A-Z"}
+                ? `${totalLettersCount} / 30 huruf terdeteksi`
+                : "Masukkan huruf A-Z (maks. 30 huruf)"}
             </span>
           </div>
         </div>
       </div>
 
       {/* Visual Sequence Display */}
-      <div className="mt-8">
+      <div className="mt-8 overflow-hidden">
         <AnimatePresence mode="wait">
           {parsedWords.length > 0 && totalLettersCount > 0 ? (
             <motion.div
@@ -258,18 +259,18 @@ export function WordSpellingPractice() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.25 }}
-              className="space-y-8"
+              className="space-y-8 overflow-hidden"
             >
               {parsedWords.map((wordGroup, wordIdx) => (
                 <div
                   key={`${wordGroup.originalWord}-${wordIdx}`}
-                  className="rounded-3xl border bg-card p-6 shadow-md shadow-black/5"
+                  className="rounded-3xl border bg-card p-6 shadow-md shadow-black/5 overflow-hidden"
                 >
                   {/* Word Header */}
                   <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b pb-4">
-                    <div className="flex items-center gap-3">
-                      <div>
-                        <h3 className="text-xl font-bold tracking-tight text-foreground uppercase">
+                    <div className="flex items-center gap-3 max-w-full overflow-hidden">
+                      <div className="max-w-full overflow-hidden">
+                        <h3 className="text-xl font-bold tracking-tight text-foreground uppercase break-all max-w-full">
                           Kata: &quot;{wordGroup.originalWord}&quot;
                         </h3>
                         <p className="text-xs text-muted-foreground">
