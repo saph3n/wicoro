@@ -69,10 +69,10 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 flex justify-center px-4 pt-4 pb-2">
       <div
         className={cn(
-          "relative w-full max-w-3xl rounded-2xl px-4 py-2.5 transition-all duration-500",
+          "relative w-full max-w-3xl rounded-2xl px-4 py-2.5 transition-all duration-500 border-0",
           scrolled
-            ? "shadow-lg shadow-black/8 backdrop-blur-md border border-border/60"
-            : "backdrop-blur-sm border border-transparent"
+            ? "shadow-lg shadow-black/8 backdrop-blur-md"
+            : "backdrop-blur-sm"
         )}
       >
         <div

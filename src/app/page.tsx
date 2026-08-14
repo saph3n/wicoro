@@ -22,13 +22,7 @@ export default function Home() {
       <section id="home" className="relative overflow-hidden pt-4 pb-8 sm:pt-6 sm:pb-12">
         <Container className="relative grid items-center gap-10 py-6 lg:grid-cols-2 lg:gap-12 lg:py-12">
           <FadeIn className="max-w-xl">
-            {/* Top Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-1.5 text-xs font-bold tracking-wide text-primary shadow-sm backdrop-blur-sm">
-              <Sparkles className="size-3.5 text-primary animate-pulse" />
-              <span>Platform Belajar BISINDO Interaktif</span>
-            </div>
-
-            <h1 className="mt-4 text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl leading-[1.15]">
+            <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl leading-[1.15]">
               Belajar Bahasa Isyarat,{" "}
               <span className="bg-gradient-to-r from-[#1b6b47] via-[#268a5e] to-[#d65780] bg-clip-text text-transparent">
                 Terhubung Tanpa Kata
@@ -42,7 +36,7 @@ export default function Home() {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3.5">
-              <Button asChild className="h-12 rounded-full px-8 text-base shadow-xl shadow-primary/30 transition-all hover:scale-105 hover:shadow-primary/40">
+              <Button asChild className="h-12 rounded-full px-8 text-base border-0 shadow-xl shadow-primary/30 transition-all hover:scale-105 hover:shadow-primary/40">
                 <Link href="/belajar/materi-1">
                   Mulai Belajar
                   <ArrowRight className="size-4" aria-hidden="true" />
