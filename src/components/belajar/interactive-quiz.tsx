@@ -282,6 +282,26 @@ const questions: Question[] = [
     answerIndex: 1,
     note: "Percakapan yang hangat selalu dimulai dari salam yang tulus.",
   },
+  {
+    type: "gambar-ke-teks",
+    category: "Salam",
+    image: "/Terima Kasih.png",
+    imageAlt: "Isyarat terima kasih",
+    question: "Isyarat sapaan apakah yang sedang ditunjukkan pada gambar ini?",
+    options: ["Terima Kasih", "Selamat Pagi", "Maaf"],
+    answerIndex: 0,
+    note: "Telapak terbuka di dekat dagu lalu digerakkan menjauh ke depan adalah isyarat Terima Kasih.",
+  },
+  {
+    type: "gambar-ke-teks",
+    category: "Salam",
+    image: "/Hai.png",
+    imageAlt: "Isyarat halo / hai",
+    question: "Sapaan pembuka apa yang diisyaratkan dengan melambai terbuka di samping kepala?",
+    options: ["Halo / Hai", "Selamat Malam", "Permisi"],
+    answerIndex: 0,
+    note: "Telapak terbuka di samping kepala yang melambai kecil adalah sapaan Halo / Hai.",
+  },
 ]
 
 const categoryStyles: Record<Category, string> = {
@@ -354,8 +374,8 @@ const MODE_OPTIONS: { id: Mode; title: string; description: string; icon: Lucide
   { id: "semua", title: "Campuran", description: "Semua kategori diacak jadi satu ronde yang seru.", icon: Layers },
   { id: "Huruf", title: "Huruf & Alfabet", description: "Tebak bentuk isyarat huruf alfabet BISINDO.", icon: LetterText },
   { id: "Angka", title: "Angka & Bilangan", description: "Kenali isyarat angka dan pola bilangannya.", icon: Hash },
-  { id: "Ekspresi", title: "Ekspresi Dasar", description: "Tebak perasaan dari ekspresi wajah.", icon: Smile },
   { id: "Salam", title: "Salam Sehari-hari", description: "Isyarat sapaan, terima kasih, dan basa-basi.", icon: Hand },
+  { id: "Ekspresi", title: "Ekspresi Dasar", description: "Tebak perasaan dari ekspresi wajah.", icon: Smile },
 ]
 
 const MODE_ACCENTS: Record<Mode, string> = {

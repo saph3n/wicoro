@@ -1,8 +1,12 @@
+import { Lightbulb, Sparkles, Type } from "lucide-react"
+
 import { Container } from "@/components/common/container"
-import { FadeIn } from "@/components/common/fade-in"
+import { FloatingElements } from "@/components/belajar/floating-elements"
+import { LessonHero } from "@/components/belajar/lesson-hero"
 import { LessonNav } from "@/components/belajar/lesson-nav"
 import { LessonSection } from "@/components/belajar/lesson-section"
 import { SignCard } from "@/components/belajar/sign-card"
+import { TipCard } from "@/components/belajar/tip-card"
 import { WordSpellingPractice } from "@/components/belajar/word-spelling-practice"
 
 const alphabet = [
@@ -34,56 +38,33 @@ const alphabet = [
   { sign: "Z", name: "Huruf Z", description: "Lengan tangan ditekuk dengan telapak tangan merapat mendatar melengkung ke depan membentuk siluet Z.", image: "/Z.png" },
 ]
 
+const accents = ["mint", "coral", "peach"] as const
+
 export default function Materi1() {
   return (
     <div className="relative min-h-screen overflow-hidden">
+      <FloatingElements />
       <Container>
-        <FadeIn className="pt-10 pb-2 sm:pt-14">
-          <div className="inline-flex items-center gap-2 rounded-full bg-coral-light px-4 py-1.5 text-sm font-semibold text-[#cf6f95]">
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#cf6f95] opacity-75" />
-              <span className="relative inline-flex size-2 rounded-full bg-[#cf6f95]" />
-            </span>
-            Materi 1
-          </div>
-          <h1 className="mt-4 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
-            <span className="bg-gradient-to-r from-primary via-mint-deep to-[#cf6f95] bg-clip-text text-transparent">
-              Huruf & Alfabet
-            </span>
-          </h1>
+        <LessonHero
+          index="1"
+          title="Huruf & Alfabet"
+          description="Pelajari bentuk tangan dasar untuk 26 huruf alfabet A–Z dalam BISINDO, pondasi utama untuk mengeja kata dan nama."
+          icon={Type}
+        />
 
-          {/* Decorative Line */}
-          <div className="mt-6 flex items-center gap-3" aria-hidden="true">
-            <span className="h-px w-16 bg-gradient-to-r from-primary to-transparent sm:w-24" />
-            <span className="h-2 w-2 rotate-45 bg-[#cf6f95]" />
-            <span className="h-1.5 w-1.5 rounded-full bg-mint-deep" />
-            <svg
-              className="h-4 w-40 text-primary sm:w-56"
-              viewBox="0 0 200 16"
-              fill="none"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M0 12 C 30 2, 60 2, 90 10 S 150 14, 200 4"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                className="text-primary/70"
-              />
-              <circle cx="200" cy="4" r="3" className="fill-[#cf6f95]" />
-              <circle cx="90" cy="10" r="2.5" className="fill-mint-deep" />
-            </svg>
-          </div>
-        </FadeIn>
-        <LessonSection>
+        <LessonSection
+          eyebrow="Bentuk Tangan"
+          title="Alfabet BISINDO (A–Z)"
+          description="Setiap huruf memiliki bentuk atau posisi tangan yang khas. Perhatikan detail jari dan telapak tangan saat membentuk isyarat."
+        >
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {alphabet.map((item) => (
+            {alphabet.map((item, index) => (
               <SignCard
                 key={item.sign}
                 sign={item.sign}
                 name={item.name}
                 description={item.description}
-                accent="coral"
+                accent={accents[index % accents.length]}
                 image={"image" in item ? (item.image as string) : undefined}
               />
             ))}
@@ -91,6 +72,29 @@ export default function Materi1() {
         </LessonSection>
 
         <WordSpellingPractice />
+
+        <LessonSection
+          eyebrow="Tips"
+          title="Tips Mengeja Isyarat dengan Tepat"
+        >
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <TipCard
+              icon={Type}
+              title="Pertahankan Posisi Tangan"
+              description="Jaga posisi tangan tetap stabil di depan dada atau bahu agar lawan bicara mudah membaca gerakanmu."
+            />
+            <TipCard
+              icon={Sparkles}
+              title="Berikan Jeda antar Kata"
+              description="Saat mengeja kata demi kata, beri jeda singkat atau turunkan tangan sedikit untuk menandai pemisah kata."
+            />
+            <TipCard
+              icon={Lightbulb}
+              title="Gunakan Ekspresi Wajah"
+              description="Meskipun mengeja huruf, tetaplah tatap mata lawan bicara dan sertakan senyum ramah."
+            />
+          </div>
+        </LessonSection>
 
         <LessonNav current={0} />
       </Container>

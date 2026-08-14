@@ -54,14 +54,14 @@ export default function Home() {
             </div>
 
             {/* Quick Hero Stats Bar */}
-            <div className="mt-10 grid grid-cols-3 gap-3 border-t border-border/60 pt-6">
+            <div className="mt-10 flex flex-wrap items-start justify-between gap-4 border-t border-border/60 pt-6 sm:gap-6">
               {heroStats.map(({ icon: Icon, label, value }) => (
                 <div key={label} className="flex flex-col">
                   <div className="flex items-center gap-1.5 text-primary">
                     <Icon className="size-4 shrink-0" />
-                    <span className="text-sm font-extrabold text-foreground sm:text-base">{value}</span>
+                    <span className="text-sm font-extrabold text-foreground sm:text-base whitespace-nowrap">{value}</span>
                   </div>
-                  <span className="mt-0.5 text-xs text-muted-foreground">{label}</span>
+                  <span className="mt-0.5 text-xs text-muted-foreground whitespace-nowrap">{label}</span>
                 </div>
               ))}
             </div>

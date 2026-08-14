@@ -50,7 +50,7 @@ export function HeroIllustration({ className }: HeroIllustrationProps) {
               <div>
                 <span className="text-xs font-bold text-foreground">👋 Isyarat &ldquo;Hai&rdquo;</span>
               </div>
-              <p className="text-[11px] text-muted-foreground">Mudah dipelajari</p>
+              <p className="text-[11px] text-primary font-medium">Mudah dipelajari</p>
             </div>
           </div>
         </motion.div>

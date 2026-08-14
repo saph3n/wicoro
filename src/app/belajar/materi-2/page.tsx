@@ -34,12 +34,14 @@ export default function Materi2() {
           index="2"
           title="Angka & Bilangan"
           description="Pelajari bentuk tangan untuk setiap angka 0–10 dan kuasai cara merangkai bilangan untuk percakapan sehari-hari."
-          chips={["🔢 Angka 0–10", "⚡ Kuis Interaktif", "💡 Tips Praktis"]}
+          icon={Hash}
         />
 
         {/* Grid 0–10 */}
         <LessonSection
+          eyebrow="Angka Dasar"
           title="Isyarat Angka 0–10"
+          description="Setiap angka 0 hingga 10 memiliki posisi jari dan telapak tangan yang khas. Kuasai angka dasar ini untuk menyebut jumlah, harga, dan waktu."
         >
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {digits.map((item, index) => (

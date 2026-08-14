@@ -100,9 +100,6 @@ export function NumberPractice() {
         <h2 className="text-2xl font-bold tracking-tight text-balance sm:text-3xl">
           Coba Gabungkan Angkanya!
         </h2>
-        <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
-          Ketik sembarang angka di bawah — lihat isyarat digit-per-digitnya secara berurutan. Angka berapapun bisa dicoba!
-        </p>
       </div>
 
       {/* Control Box */}
