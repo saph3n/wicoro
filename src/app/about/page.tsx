@@ -52,15 +52,12 @@ export default function AboutPage() {
           <div className="mx-auto max-w-3xl text-center">
             <HeroTitle />
 
-            <FadeIn delay={0.3}>
-              <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-                Semuanya berawal dari satu pertanyaan sederhana:{" "}
+            <FadeIn delay={0.2}>
+              <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
                 <span className="font-semibold text-foreground">
-                  &ldquo;Bagaimana jika semua orang bisa bercakap dengan
-                  bahasa isyarat?&rdquo;
+                  &ldquo;Berakar dari kata wicara yang berarti tutur atau berbicara&rdquo;
                 </span>{" "}
-                Dari sana, Wicoro tumbuh menjadi rumah belajar yang hangat
-                bagi siapa saja yang ingin memahami Bahasa Isyarat Indonesia (BISINDO).
+                Wicoro membuktikan bahwa percakapan dapat lahir tanpa suara. Melalui pembelajaran Bahasa Isyarat Indonesia (BISINDO) yang aplikatif, kami membuka ruang bagi siapa saja untuk saling terhubung secara setara.
               </p>
             </FadeIn>
           </div>
