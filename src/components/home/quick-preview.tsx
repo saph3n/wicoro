@@ -33,7 +33,7 @@ const signItems: SignItem[] = [
     name: "Hai / Halo",
     category: "salam",
     description: "Lambaikan telapak tangan terbuka dengan lembut di samping bahu. Merupakan isyarat ramah paling umum untuk menyapa.",
-    image: "/Hai.png",
+    image: "/Hai.png?v=2",
     link: "/belajar/materi-3",
     tag: "Salam Utama",
   },

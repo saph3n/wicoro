@@ -75,7 +75,7 @@ export function HeroIllustration({ className }: HeroIllustrationProps) {
           <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-1000 group-hover:translate-x-full pointer-events-none z-20" />
 
           {/* Main Showcase Image */}
-          <div className="relative overflow-hidden rounded-[1.4rem] border border-white/80 bg-white shadow-inner">
+          <div className="relative overflow-hidden rounded-[1.4rem] border border-white/80 bg-white">
             <Image
               src="/bicara.png"
               alt="Dua orang berkomunikasi menggunakan Bahasa Isyarat Indonesia"
@@ -89,31 +89,27 @@ export function HeroIllustration({ className }: HeroIllustrationProps) {
 
         {/* Floating Glass Badge 1 (Top Left) */}
         <motion.div
-          className="absolute -top-3 left-1 sm:-left-3 z-30"
+          className="absolute -top-6 sm:-top-8 left-1 sm:-left-5 z-30"
           animate={{ y: [0, -6, 0], rotate: [0, -2, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           whileHover={{ scale: 1.08, rotate: 1 }}
           onClick={() => setActiveBadge("hai")}
         >
           <div className={cn(
-            "flex items-center gap-2 rounded-2xl border-2 bg-white/95 px-3 py-1.5 shadow-xl backdrop-blur-md transition-all duration-300 cursor-pointer",
-            activeBadge === "hai" ? "border-primary shadow-primary/20 scale-105" : "border-white/90 hover:border-primary/40"
+            "inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#0e3a24] to-[#2e9c64] pl-1.5 pr-4 py-1.5 shadow-lg backdrop-blur-md transition-all duration-300 cursor-pointer text-white",
+            activeBadge === "hai" ? "scale-105 ring-2 ring-[#a3e635]" : ""
           )}>
-            <div className="relative size-8 overflow-hidden rounded-xl border border-primary/20 bg-emerald-50 p-0.5 shrink-0 shadow-inner">
+            <div className="relative size-8 overflow-hidden rounded-full bg-white p-0.5 shrink-0 shadow-xs">
               <Image
-                src="/Hai.png"
+                src="/Hai.png?v=2"
                 alt="Isyarat Hai"
                 fill
                 className="object-contain p-0.5"
               />
             </div>
-            <div>
-              <div className="flex items-center gap-1">
-                <span className="text-[11px] font-bold text-foreground">👋 Isyarat &ldquo;Hai&rdquo;</span>
-                <span className="size-1.5 rounded-full bg-primary animate-ping" />
-              </div>
-              <span className="block text-[9px] font-bold text-primary">Mudah Dipelajari</span>
-            </div>
+            <span className="text-xs font-bold tracking-wide text-white leading-none whitespace-nowrap">
+              👋 Isyarat &ldquo;Hai&rdquo;
+            </span>
           </div>
         </motion.div>
 
@@ -126,10 +122,10 @@ export function HeroIllustration({ className }: HeroIllustrationProps) {
           onClick={() => setActiveBadge("senang")}
         >
           <div className={cn(
-            "flex items-center gap-2 rounded-2xl border-2 bg-white/95 px-3 py-1.5 shadow-xl backdrop-blur-md transition-all duration-300 cursor-pointer",
-            activeBadge === "senang" ? "border-[#cf6f95] shadow-pink-200 scale-105" : "border-white/90 hover:border-pink-300"
+            "inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#701a3c] to-[#cf6f95] pl-1.5 pr-4 py-1.5 shadow-lg backdrop-blur-md transition-all duration-300 cursor-pointer text-white",
+            activeBadge === "senang" ? "scale-105 ring-2 ring-pink-300" : ""
           )}>
-            <div className="relative size-8 overflow-hidden rounded-xl border border-pink-200 bg-pink-50 p-0.5 shrink-0 shadow-inner">
+            <div className="relative size-8 overflow-hidden rounded-full bg-white p-0.5 shrink-0 shadow-xs">
               <Image
                 src="/senang.png"
                 alt="Ekspresi Senang"
@@ -137,13 +133,9 @@ export function HeroIllustration({ className }: HeroIllustrationProps) {
                 className="object-contain p-0.5"
               />
             </div>
-            <div>
-              <div className="flex items-center gap-1">
-                <span className="text-[11px] font-bold text-foreground">🤟 Ekspresi Senang</span>
-                <span className="size-1.5 rounded-full bg-[#cf6f95] animate-ping" />
-              </div>
-              <span className="block text-[9px] font-bold text-[#cf6f95]">100% Interaktif</span>
-            </div>
+            <span className="text-xs font-bold tracking-wide text-white leading-none whitespace-nowrap">
+              🤟 Ekspresi Senang
+            </span>
           </div>
         </motion.div>
       </div>
