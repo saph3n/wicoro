@@ -37,7 +37,7 @@ const statsCards = [
 
 export function TrustStatsBanner() {
   return (
-    <section className="relative pt-6 pb-12 sm:pt-8 sm:pb-16">
+    <section className="relative pt-4 pb-8 sm:pt-6 sm:pb-10">
       <Container className="relative">
         <FadeIn delay={0.1}>
           {/* Main Dark Emerald Container with Top Center Notch Curve */}
