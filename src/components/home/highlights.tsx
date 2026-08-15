@@ -55,7 +55,7 @@ export function Highlights() {
   }
 
   return (
-    <section id="kenapa" className="relative pt-10 pb-16 sm:pt-12 sm:pb-20 overflow-hidden bg-slate-50/60" aria-label="Keunggulan Wicoro">
+    <section id="kenapa" className="relative pt-10 pb-8 sm:pt-12 sm:pb-10 overflow-hidden bg-slate-50/60" aria-label="Keunggulan Wicoro">
       <Container className="relative">
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
           

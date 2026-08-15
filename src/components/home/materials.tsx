@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { BrainCircuit, Hand, Hash, LetterText, Smile } from "lucide-react"
+import { BrainCircuit, Hand, Hash, LetterText, Smile, Sparkles } from "lucide-react"
 import { motion } from "framer-motion"
 
 import { cn } from "@/lib/utils"
@@ -99,8 +99,22 @@ function MilestoneIcon({
   index: number
   small?: boolean
 }) {
+  const isEven = index % 2 === 0
+
   return (
-    <div className="group relative inline-flex">
+    <motion.div
+      animate={{
+        y: isEven ? [0, -6, 0, 6, 0] : [0, 6, 0, -6, 0],
+        rotate: isEven ? [-4, 4, -4] : [4, -4, 4],
+      }}
+      transition={{
+        duration: 3.6 + (index % 3) * 0.5,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: index * 0.25,
+      }}
+      className="group relative inline-flex"
+    >
       <div
         className={cn(
           "absolute rounded-full border-2 border-mint-deep/30 opacity-0 transition-all duration-300 group-hover:scale-125 group-hover:opacity-100 group-hover:border-mint-deep/40",
@@ -109,9 +123,8 @@ function MilestoneIcon({
       />
       <div
         className={cn(
-          "relative flex items-center justify-center rounded-full bg-mint text-mint-deep shadow-md shadow-mint-deep/25 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-lg group-hover:shadow-mint-deep/30",
-          small ? "size-12" : "size-16",
-          index % 2 === 0 ? "-rotate-3" : "rotate-3"
+          "relative flex items-center justify-center rounded-full bg-mint text-mint-deep shadow-md shadow-mint-deep/25 transition-all duration-300 group-hover:scale-115 group-hover:shadow-lg group-hover:shadow-mint-deep/35",
+          small ? "size-12" : "size-16"
         )}
       >
         <item.icon
@@ -122,13 +135,13 @@ function MilestoneIcon({
           strokeWidth={2}
         />
       </div>
-    </div>
+    </motion.div>
   )
 }
 
 export function Materials() {
   return (
-    <section id="learn" className="relative pt-6 pb-20 sm:pt-8 sm:pb-28" aria-label="Materi yang Akan Kamu Pelajari">
+    <section id="learn" className="relative pt-6 pb-16 sm:pt-8 sm:pb-20" aria-label="Materi yang Akan Kamu Pelajari">
       {/* Decorative background blobs */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -left-16 top-16 size-48 rounded-full bg-mint/30 blur-3xl" />
@@ -137,11 +150,23 @@ export function Materials() {
       </div>
 
       <Container className="relative">
-        <div className="mx-auto max-w-2xl text-center">
-          <FadeIn delay={0.2}>
-            <h2 className="text-3xl font-bold tracking-tight text-balance sm:text-4xl">
-              Materi yang Akan Kamu Pelajari
+        <div className="relative mx-auto max-w-2xl text-center">
+          <FadeIn delay={0.1}>
+            <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl lg:text-[2.6rem] leading-[1.18]">
+              Materi yang Akan{" "}
+              <span className="relative inline-block">
+                <span className="bg-gradient-to-r from-[#123825] via-[#2e9c64] to-[#cf6f95] bg-clip-text text-transparent">
+                  Kamu Pelajari
+                </span>
+                <span className="absolute -bottom-1 left-0 h-1.5 w-full rounded-full bg-gradient-to-r from-[#123825] via-[#2e9c64] to-[#cf6f95] opacity-60" />
+              </span>
             </h2>
+          </FadeIn>
+
+          <FadeIn delay={0.15}>
+            <p className="mt-3.5 text-sm leading-relaxed text-muted-foreground sm:text-base max-w-xl mx-auto">
+              Pelajari alur pembelajaran bertahap dari alfabet dasar hingga ekspresi dasar dan ikuti kuis interaktifnya.
+            </p>
           </FadeIn>
         </div>
 
@@ -157,17 +182,28 @@ export function Materials() {
             <defs>
               <JourneyGradient id="journey-gradient-desktop" />
             </defs>
+            {/* Faint Background Track */}
+            <path
+              d={DESKTOP_PATH}
+              fill="none"
+              stroke="#57b585"
+              strokeWidth={3.5}
+              strokeOpacity={0.2}
+              strokeLinecap="round"
+              strokeDasharray="4 4"
+            />
+            {/* Active Drawing Line Path */}
             <motion.path
               d={DESKTOP_PATH}
               fill="none"
               stroke="url(#journey-gradient-desktop)"
-              strokeWidth={3}
+              strokeWidth={4.5}
               strokeLinecap="round"
               style={LINE_SHADOW}
               initial={{ pathLength: 0, opacity: 0 }}
               whileInView={{ pathLength: 1, opacity: 1 }}
-              transition={{ duration: 1.6, ease: "easeInOut" }}
-              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 2.2, ease: "easeInOut" }}
+              viewport={{ once: true, amount: 0.2 }}
             />
           </svg>
 
@@ -175,7 +211,7 @@ export function Materials() {
             {materials.map((item, index) => {
               const even = index % 2 === 1
               return (
-                <FadeIn key={item.title} delay={0.4 + index * 0.1}>
+                <FadeIn key={item.title} delay={0.3 + index * 0.1}>
                   <Link
                     href={item.href}
                     className="group flex flex-col items-center text-center cursor-pointer"
@@ -216,23 +252,34 @@ export function Materials() {
             <defs>
               <JourneyGradient id="journey-gradient-mobile" />
             </defs>
+            {/* Faint Background Track */}
+            <path
+              d={MOBILE_PATH}
+              fill="none"
+              stroke="#57b585"
+              strokeWidth={3.5}
+              strokeOpacity={0.2}
+              strokeLinecap="round"
+              strokeDasharray="4 4"
+            />
+            {/* Active Drawing Line Path */}
             <motion.path
               d={MOBILE_PATH}
               fill="none"
               stroke="url(#journey-gradient-mobile)"
-              strokeWidth={3}
+              strokeWidth={4.5}
               strokeLinecap="round"
               style={LINE_SHADOW}
               initial={{ pathLength: 0, opacity: 0 }}
               whileInView={{ pathLength: 1, opacity: 1 }}
-              transition={{ duration: 1.6, ease: "easeInOut" }}
+              transition={{ duration: 2.2, ease: "easeInOut" }}
               viewport={{ once: true, amount: 0.2 }}
             />
           </svg>
 
           <div className="space-y-10">
             {materials.map((item, index) => (
-              <FadeIn key={item.title} delay={0.3 + index * 0.08}>
+              <FadeIn key={item.title} delay={0.2 + index * 0.08}>
                 <Link
                   href={item.href}
                   className="group relative flex gap-5 cursor-pointer"
