@@ -22,14 +22,15 @@ import {
   Smile,
   Sparkles,
   Star,
-  TimerReset,
+  Target,
   Trophy,
   type LucideIcon,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { LessonSection } from "@/components/belajar/lesson-section"
 
 type Category = "Huruf" | "Angka" | "Ekspresi" | "Salam"
-type Mode = "semua" | Category
+export type Mode = "semua" | Category
 type Phase = "answering" | "feedback" | "timeout"
 
 interface BaseQuestion {
@@ -370,21 +371,67 @@ function getResult(score: number, total: number, livesLeft: number) {
   }
 }
 
-const MODE_OPTIONS: { id: Mode; title: string; description: string; icon: LucideIcon }[] = [
-  { id: "semua", title: "Campuran", description: "Semua kategori diacak jadi satu ronde yang seru.", icon: Layers },
-  { id: "Huruf", title: "Huruf & Alfabet", description: "Tebak bentuk isyarat huruf alfabet BISINDO.", icon: LetterText },
-  { id: "Angka", title: "Angka & Bilangan", description: "Kenali isyarat angka dan pola bilangannya.", icon: Hash },
-  { id: "Salam", title: "Salam Sehari-hari", description: "Isyarat sapaan, terima kasih, dan basa-basi.", icon: Hand },
-  { id: "Ekspresi", title: "Ekspresi Dasar", description: "Tebak perasaan dari ekspresi wajah.", icon: Smile },
+const MODE_OPTIONS: {
+  id: Mode
+  title: string
+  description: string
+  icon: LucideIcon
+  iconBg: string
+  badgeBg: string
+  badgeText: string
+  accentText: string
+}[] = [
+  {
+    id: "semua",
+    title: "Soal Campuran",
+    description: "Semua kategori diacak jadi satu ronde yang seru.",
+    icon: Layers,
+    iconBg: "bg-[#268a5e] text-white",
+    badgeBg: "bg-[#268a5e]/15",
+    badgeText: "text-[#268a5e]",
+    accentText: "group-hover:text-[#268a5e]",
+  },
+  {
+    id: "Huruf",
+    title: "Huruf & Alfabet",
+    description: "Tebak bentuk isyarat huruf alfabet BISINDO.",
+    icon: LetterText,
+    iconBg: "bg-[#cf6f95] text-white",
+    badgeBg: "bg-[#cf6f95]/15",
+    badgeText: "text-[#cf6f95]",
+    accentText: "group-hover:text-[#cf6f95]",
+  },
+  {
+    id: "Angka",
+    title: "Angka",
+    description: "Kenali isyarat angka dan pola bilangannya.",
+    icon: Hash,
+    iconBg: "bg-[#268a5e] text-white",
+    badgeBg: "bg-[#268a5e]/15",
+    badgeText: "text-[#268a5e]",
+    accentText: "group-hover:text-[#268a5e]",
+  },
+  {
+    id: "Salam",
+    title: "Salam Sehari-hari",
+    description: "Isyarat sapaan, terima kasih, dan basa-basi.",
+    icon: Hand,
+    iconBg: "bg-[#cf6f95] text-white",
+    badgeBg: "bg-[#cf6f95]/15",
+    badgeText: "text-[#cf6f95]",
+    accentText: "group-hover:text-[#cf6f95]",
+  },
+  {
+    id: "Ekspresi",
+    title: "Ekspresi Dasar",
+    description: "Tebak perasaan dari ekspresi wajah.",
+    icon: Smile,
+    iconBg: "bg-[#268a5e] text-white",
+    badgeBg: "bg-[#268a5e]/15",
+    badgeText: "text-[#268a5e]",
+    accentText: "group-hover:text-[#268a5e]",
+  },
 ]
-
-const MODE_ACCENTS: Record<Mode, string> = {
-  semua: "bg-mint text-mint-deep",
-  Huruf: "bg-mint text-mint-deep",
-  Angka: "bg-coral-light text-[#cf6f95]",
-  Ekspresi: "bg-peach text-primary",
-  Salam: "bg-primary/10 text-primary",
-}
 
 function ModeSelector({ onSelect }: { onSelect: (mode: Mode) => void }) {
   const countFor = (m: Mode) =>
@@ -392,59 +439,91 @@ function ModeSelector({ onSelect }: { onSelect: (mode: Mode) => void }) {
 
   return (
     <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
-      <div className="mb-6 text-center">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-coral-light px-4 py-1.5 text-sm font-bold text-[#cf6f95]">
-          <BrainCircuit className="size-4" aria-hidden="true" />
-          Pilih Quiz
-        </span>
-        <h3 className="mt-3 text-2xl font-bold tracking-tight text-balance sm:text-3xl">
-          Mau Quiz Apa Hari Ini?
-        </h3>
-        <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-          Pilih kategori yang ingin kamu latih. Tiap mode punya nyawa, timer, dan soal yang diacak ulang.
-        </p>
-      </div>
+      {/* Outer Dark Green Container (Moderate rounded-2xl) */}
+      <div className="rounded-2xl bg-[#294238] p-6 shadow-xl sm:p-8 lg:p-10">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
+          {/* Left Column: Heading & Description */}
+          <div className="lg:col-span-4 lg:pr-2">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3.5 py-1.5 text-xs font-bold text-white backdrop-blur-sm">
+              <BrainCircuit className="size-4" aria-hidden="true" />
+              Pilih Quiz
+            </span>
+            <h3 className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl leading-tight">
+              Mau Quiz Apa Hari Ini?
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-white/80 sm:text-base">
+              Pilih kategori yang ingin kamu latih. Tiap mode punya nyawa, timer, dan soal yang diacak ulang.
+            </p>
+          </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {MODE_OPTIONS.map((m, i) => {
-          const accent = MODE_ACCENTS[m.id]
-          const count = countFor(m.id)
-          return (
-            <motion.button
-              key={m.id}
-              type="button"
-              onClick={() => onSelect(m.id)}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.05 * i }}
-              className="group relative flex flex-col overflow-hidden rounded-3xl border bg-card p-6 text-left shadow-md shadow-black/8 transition-all duration-300 hover:-translate-y-2 hover:border-primary/40 hover:shadow-xl cursor-pointer"
-            >
-              <div className="flex items-center justify-between">
-                <span
-                  className={cn(
-                    "flex size-12 items-center justify-center rounded-2xl shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3",
-                    accent
-                  )}
-                >
-                  <m.icon className="size-6" strokeWidth={2} />
-                </span>
-                <span className={cn("rounded-full px-3 py-1 text-xs font-bold", accent)}>{count} soal</span>
-              </div>
-              <h4 className="mt-4 text-lg font-bold text-foreground">{m.title}</h4>
-              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{m.description}</p>
-              <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary opacity-0 transition-all duration-300 group-hover:opacity-100">
-                Mulai Quiz <ArrowRight className="size-4" aria-hidden="true" />
-              </span>
-            </motion.button>
-          )
-        })}
+          {/* Right Column: Cards Grid */}
+          <div className="lg:col-span-8">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-5 sm:gap-4">
+              {MODE_OPTIONS.map((m, i) => {
+                const count = countFor(m.id)
+                return (
+                  <motion.button
+                    key={m.id}
+                    type="button"
+                    onClick={() => onSelect(m.id)}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.05 * i }}
+                    className="group relative flex flex-col justify-between overflow-hidden rounded-xl bg-[#f5f1eb] p-3.5 sm:p-4 text-left shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl cursor-pointer border border-white/20"
+                  >
+                    {/* Top Row: Icon + Count Badge */}
+                    <div className={cn("flex items-center justify-between gap-1.5", m.id === "semua" ? "pr-1.5 sm:pr-2" : "pr-0")}>
+                      <div className={cn("flex size-9 sm:size-10 shrink-0 items-center justify-center rounded-xl shadow-xs transition-transform duration-300 group-hover:scale-105", m.iconBg)}>
+                        <m.icon className="size-4 sm:size-5" strokeWidth={2.2} />
+                      </div>
+                      <span className={cn("shrink-0 whitespace-nowrap rounded-full px-2 py-0.5 text-[9px] sm:text-[10px] font-extrabold tracking-tight", m.badgeBg, m.badgeText)}>
+                        {count} soal
+                      </span>
+                    </div>
+
+                    {/* Middle: Content */}
+                    <div className="mt-3 flex-1 flex flex-col justify-start">
+                      <div className="min-h-[2.5rem] flex items-start">
+                        <h4 className={cn("text-xs sm:text-sm font-extrabold leading-tight text-[#294238] transition-colors", m.accentText)}>
+                          {m.title}
+                        </h4>
+                      </div>
+                      <p className="mt-1 text-[11px] leading-snug text-[#294238]/70 line-clamp-2 hidden sm:block">
+                        {m.description}
+                      </p>
+                    </div>
+
+                    {/* Bottom: Action Link */}
+                    <div className={cn("mt-3.5 flex items-center justify-between text-[11px] font-extrabold text-[#294238] transition-colors", m.accentText)}>
+                      <span>Mulai Quiz</span>
+                      <ArrowRight className="size-3 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                    </div>
+                  </motion.button>
+                )
+              })}
+            </div>
+          </div>
+        </div>
       </div>
     </motion.div>
   )
 }
 
-export function InteractiveQuiz() {
+interface InteractiveQuizProps {
+  onModeChange?: (mode: Mode | null) => void
+  resetSignal?: number
+}
+
+export function InteractiveQuiz({ onModeChange, resetSignal }: InteractiveQuizProps) {
   const [mode, setMode] = useState<Mode | null>(null)
+
+  useEffect(() => {
+    if (resetSignal !== undefined && resetSignal > 0) {
+      setMode(null)
+      setFinished(false)
+      setPhase("answering")
+    }
+  }, [resetSignal])
   const [round, setRound] = useState(0)
   const [current, setCurrent] = useState(0)
   const [phase, setPhase] = useState<Phase>("answering")
@@ -575,8 +654,27 @@ export function InteractiveQuiz() {
     setTimeLeft(DEFAULT_TIME)
   }
 
+  // Sync with Browser Back Button (popstate)
+  useEffect(() => {
+    const handlePopState = () => {
+      if (mode !== null) {
+        setMode(null)
+        onModeChange?.(null)
+        setFinished(false)
+        setPhase("answering")
+      }
+    }
+
+    window.addEventListener("popstate", handlePopState)
+    return () => window.removeEventListener("popstate", handlePopState)
+  }, [mode, onModeChange])
+
   const handleSelectMode = (m: Mode) => {
+    if (typeof window !== "undefined" && mode === null) {
+      window.history.pushState({ quizActive: true, mode: m }, "")
+    }
     setMode(m)
+    onModeChange?.(m)
     setRound((r) => r + 1)
     setCurrent(0)
     setPhase("answering")
@@ -592,9 +690,14 @@ export function InteractiveQuiz() {
   }
 
   const handleChangeMode = () => {
-    setMode(null)
-    setFinished(false)
-    setPhase("answering")
+    if (typeof window !== "undefined" && window.history.state?.quizActive) {
+      window.history.back()
+    } else {
+      setMode(null)
+      onModeChange?.(null)
+      setFinished(false)
+      setPhase("answering")
+    }
   }
 
   const optionBase =
@@ -667,13 +770,151 @@ export function InteractiveQuiz() {
     )
   }
 
+  const selectedOption = MODE_OPTIONS.find((o) => o.id === mode) ?? MODE_OPTIONS[0]
+
   return (
-    <div className="pt-8 sm:pt-10">
+    <div className="pt-4 sm:pt-6">
       {mode === null ? (
-        <ModeSelector onSelect={handleSelectMode} />
+        <div className="space-y-10 sm:space-y-12">
+          <ModeSelector onSelect={handleSelectMode} />
+
+          <LessonSection
+            eyebrow="Evaluasi"
+            title="Klasifikasi Hasil Belajarmu"
+            description="Cek pencapaian skor kuis kamu untuk mengetahui tingkat penguasaan isyarat BISINDO."
+          >
+            <div className="grid gap-6 sm:grid-cols-3">
+              {/* Tier 1: 8-10 Benar */}
+              <div className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#268a5e]/30 bg-gradient-to-b from-[#294238] to-[#1d352b] p-6 text-white shadow-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-[#268a5e]/20">
+                <div className="flex items-center justify-between">
+                  <div className="flex size-11 items-center justify-center rounded-xl bg-[#b5f23d] text-[#1d352b] shadow-md transition-transform duration-300 group-hover:scale-110">
+                    <Trophy className="size-6" />
+                  </div>
+                  <span className="rounded-full bg-[#b5f23d] px-3 py-1 text-xs font-black text-[#1d352b] shadow-sm">
+                    8 – 10 Benar
+                  </span>
+                </div>
+
+                <div className="mt-5">
+                  <h4 className="text-lg font-black tracking-tight text-white flex items-center gap-2">
+                    <span>Hebat!</span>
+                    <Sparkles className="size-4 text-[#b5f23d]" />
+                  </h4>
+                  <p className="mt-2 text-xs leading-relaxed text-white/80">
+                    Pemahamanmu sudah sangat kuat. Kamu menguasai bentuk isyarat dengan presisi dan siap berlatih di kehidupan nyata!
+                  </p>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-white/10">
+                  <div className="flex items-center justify-between text-[11px] font-bold text-[#b5f23d]">
+                    <span>Tingkat Penguasaan</span>
+                    <span>90% – 100%</span>
+                  </div>
+                  <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-white/15">
+                    <div className="h-full w-full rounded-full bg-[#b5f23d]" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Tier 2: 5-7 Benar */}
+              <div className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#cf6f95]/30 bg-white p-6 text-foreground shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:border-[#cf6f95] hover:shadow-xl">
+                <div className="flex items-center justify-between">
+                  <div className="flex size-11 items-center justify-center rounded-xl bg-[#cf6f95] text-white shadow-md transition-transform duration-300 group-hover:scale-110">
+                    <Target className="size-6" />
+                  </div>
+                  <span className="rounded-full bg-[#cf6f95]/15 px-3 py-1 text-xs font-extrabold text-[#be185d]">
+                    5 – 7 Benar
+                  </span>
+                </div>
+
+                <div className="mt-5">
+                  <h4 className="text-lg font-extrabold tracking-tight text-foreground">
+                    Bagus, Terus Berlatih
+                  </h4>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                    Sudah mengenal banyak isyarat dengan baik. Ulangi beberapa materi yang masih keliru lalu coba kuis lagi!
+                  </p>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-border/50">
+                  <div className="flex items-center justify-between text-[11px] font-bold text-[#cf6f95]">
+                    <span>Tingkat Penguasaan</span>
+                    <span>50% – 70%</span>
+                  </div>
+                  <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-muted">
+                    <div className="h-full w-[65%] rounded-full bg-[#cf6f95]" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Tier 3: 0-4 Benar */}
+              <div className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-amber-500/25 bg-white p-6 text-foreground shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:border-amber-500/50 hover:shadow-xl">
+                <div className="flex items-center justify-between">
+                  <div className="flex size-11 items-center justify-center rounded-xl bg-amber-500 text-white shadow-md transition-transform duration-300 group-hover:scale-110">
+                    <RotateCcw className="size-6" />
+                  </div>
+                  <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-extrabold text-amber-800">
+                    0 – 4 Benar
+                  </span>
+                </div>
+
+                <div className="mt-5">
+                  <h4 className="text-lg font-extrabold tracking-tight text-foreground">
+                    Mari Ulang Dari Awal
+                  </h4>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                    Tidak apa-apa! Pelajari kembali modul huruf, angka, dan ekspresi dasar, lalu kembali buktikan kemajuanmu.
+                  </p>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-border/50">
+                  <div className="flex items-center justify-between text-[11px] font-bold text-amber-700">
+                    <span>Tingkat Penguasaan</span>
+                    <span>0% – 40%</span>
+                  </div>
+                  <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-muted">
+                    <div className="h-full w-[35%] rounded-full bg-amber-500" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </LessonSection>
+        </div>
       ) : (
-        <>
-      <AnimatePresence mode="wait">
+        <div className="space-y-6">
+          {/* Header Banner Mode Kuis Aktif - Sleek & Modern */}
+          <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-border/60">
+            <div className="flex items-center gap-3">
+              <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#268a5e] text-white shadow-xs">
+                <selectedOption.icon className="size-5" strokeWidth={2.2} />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#268a5e]">
+                    Mode Kuis Aktif
+                  </span>
+                  <span className="text-xs text-muted-foreground">•</span>
+                  <span className="text-xs font-semibold text-muted-foreground">
+                    {deck.length} Soal
+                  </span>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-foreground">
+                  Kuis {selectedOption.title}
+                </h2>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={handleChangeMode}
+              className="inline-flex items-center gap-1.5 rounded-full border border-border/80 bg-white px-3.5 py-1.5 text-xs font-bold text-foreground shadow-xs transition-all hover:border-[#268a5e] hover:text-[#268a5e] hover:bg-[#268a5e]/5 cursor-pointer"
+            >
+              <RotateCcw className="size-3.5" aria-hidden="true" />
+              <span>Ganti Mode</span>
+            </button>
+          </div>
+
+          <AnimatePresence mode="wait">
         {finished ? (
           <motion.div
             key="result"
@@ -1014,13 +1255,7 @@ export function InteractiveQuiz() {
         </p>
       )}
 
-      {!finished && (
-        <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
-          <TimerReset className="size-4 text-primary/70" aria-hidden="true" />
-          Skor terbaik tidak tersimpan otomatis — tantang dirimu untuk mengalahkan rekor sebelumnya!
-        </p>
-      )}
-        </>
+        </div>
       )}
     </div>
   )

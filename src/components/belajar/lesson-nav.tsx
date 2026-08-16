@@ -11,9 +11,10 @@ const lessons = [
 
 interface LessonNavProps {
   current: number
+  onPrevClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void
 }
 
-export function LessonNav({ current }: LessonNavProps) {
+export function LessonNav({ current, onPrevClick }: LessonNavProps) {
   const prev = lessons[current - 1]
   const next = lessons[current + 1]
 
@@ -23,7 +24,8 @@ export function LessonNav({ current }: LessonNavProps) {
         {prev ? (
           <Link
             href={prev.href}
-            className="group inline-flex items-center gap-3 rounded-2xl border bg-card px-4 py-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-mint-deep/40 hover:shadow-md"
+            onClick={onPrevClick}
+            className="group inline-flex items-center gap-3 rounded-2xl border bg-card px-4 py-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-mint-deep/40 hover:shadow-md cursor-pointer"
           >
             <span className="flex size-9 items-center justify-center rounded-xl bg-mint text-mint-deep transition-transform duration-300 group-hover:-translate-x-0.5">
               <ArrowLeft className="size-4" aria-hidden="true" />

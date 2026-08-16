@@ -23,7 +23,7 @@ export function LessonSection({ eyebrow, title, description, children }: LessonS
             </h2>
           )}
           {description && (
-            <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
+            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
               {description}
             </p>
           )}
