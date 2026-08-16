@@ -134,40 +134,49 @@ export default function AboutPage() {
                       className="space-y-4"
                     >
                       {activeTab === "filosofi" && (
-                        <>
+                        <div className="space-y-3">
                           <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
                             Tutur Kata dalam Kesunyian
                           </h3>
                           <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
-                            Kata <strong className="text-primary font-bold">Wicoro</strong> terinspirasi dari <span className="italic font-medium text-foreground">wicara</span>. Kami percaya bahwa bahasa isyarat bukan sekadar pengganti kata, melainkan ragam tutur visual penuh ekspresi dan makna yang setara.
+                            Kata <strong className="text-primary font-bold">Wicoro</strong> terinspirasi dari <span className="italic font-medium text-foreground">wicara</span>. Kami percaya bahwa Bahasa Isyarat Indonesia (BISINDO) bukan sekadar pengganti kata, melainkan ragam tutur visual yang penuh ekspresi, emosi, dan nilai kebahasaan yang setara.
                           </p>
-                        </>
+                          <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
+                            Setiap gerak jemari dan mimik wajah adalah bentuk wicara tanpa suara yang menghubungkan hati, membangun pemahaman yang lebih dalam antara Teman Tuli dan Teman Dengar di seluruh Indonesia.
+                          </p>
+                        </div>
                       )}
                       {activeTab === "visi" && (
-                        <>
+                        <div className="space-y-3">
                           <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
                             Komunikasi Inklusif Tanpa Sekat
                           </h3>
                           <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
-                            Mewujudkan masyarakat Indonesia di mana setiap orang—baik Tuli maupun pendengar—dapat berinteraksi secara natural, hangat, dan tanpa hambatan bahasa.
+                            Mewujudkan masyarakat Indonesia di mana setiap orang—baik Tuli maupun pendengar—dapat berinteraksi secara natural, hangat, dan tanpa hambatan bahasa di ruang publik, pendidikan, maupun pekerjaan.
                           </p>
-                        </>
+                          <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
+                            Kami bercita-cita agar BISINDO dapat dipelajari dengan mudah oleh semua kalangan, menjadikan komunikasi tanpa sekat sebagai bagian alami dari budaya inklusif bangsa.
+                          </p>
+                        </div>
                       )}
                       {activeTab === "misi" && (
-                        <>
+                        <div className="space-y-3">
                           <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
                             Pembelajaran Visual Menyenangkan
                           </h3>
                           <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
-                            Menyediakan materi BISINDO berkualitas tinggi secara gratis, memanfaatkan pendekatan visual interaktif yang menyenangkan dan mudah diakses dari mana saja.
+                            Menyediakan materi BISINDO berkualitas tinggi secara gratis, memanfaatkan pendekatan visual interaktif yang menyenangkan, intuitif, dan mudah diakses dari mana saja.
                           </p>
-                        </>
+                          <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
+                            Kami merancang modul latihan terstruktur dari abjad hingga kalimat sehari-hari untuk mendampingi langkah awalmu belajar bahasa isyarat secara mandiri dan efektif.
+                          </p>
+                        </div>
                       )}
                     </motion.div>
                   </AnimatePresence>
                 </div>
 
-                <div className="mt-10 pt-6 border-t border-border/80 flex items-center justify-between text-xs text-muted-foreground">
+                <div className="mt-6 pt-5 border-t border-border/80 flex items-center justify-between text-xs text-muted-foreground">
                   <span className="flex items-center gap-2 text-primary font-semibold">
                     <CheckCircle2 className="size-4 text-mint-deep" /> 100% Aksesibel & Gratis
                   </span>
@@ -368,15 +377,34 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                {/* Right Column - Wicoro Logo Restored */}
-                <div className="lg:col-span-5 flex justify-center items-center">
-                  <Image
-                    src="/Frame 1.png"
-                    alt="Wicoro Logo"
-                    width={340}
-                    height={340}
-                    className="object-contain size-64 sm:size-72 lg:size-80 transition-transform duration-500 hover:scale-105 drop-shadow-2xl"
-                  />
+                {/* Right Column - Wicoro Logo Floating Animation */}
+                <div className="lg:col-span-5 flex justify-center items-center relative">
+                  {/* Glowing Aura Behind Logo */}
+                  <div className="absolute size-64 sm:size-72 lg:size-80 rounded-full bg-[#57b585]/25 blur-3xl animate-pulse" />
+
+                  <motion.div
+                    animate={{
+                      y: [0, -14, 0],
+                      rotate: [0, 2, -2, 0],
+                      scale: [1, 1.03, 1],
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="relative z-10 cursor-pointer"
+                    whileHover={{ scale: 1.08, rotate: 4 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Image
+                      src="/Frame 1.png"
+                      alt="Wicoro Logo"
+                      width={340}
+                      height={340}
+                      className="object-contain size-64 sm:size-72 lg:size-80 drop-shadow-[0_20px_50px_rgba(87,181,133,0.35)] transition-all duration-300"
+                    />
+                  </motion.div>
                 </div>
               </div>
             </div>
