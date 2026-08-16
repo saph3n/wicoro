@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const lessons = [
   { href: "/belajar/materi-1", label: "Huruf & Alfabet", chip: "Materi 1" },
-  { href: "/belajar/materi-2", label: "Angka", chip: "Materi 2" },
+  { href: "/belajar/materi-2", label: "Angka & Bilangan", chip: "Materi 2" },
   { href: "/belajar/materi-3", label: "Salam Sehari-hari", chip: "Materi 3" },
   { href: "/belajar/materi-4", label: "Ekspresi Dasar", chip: "Materi 4" },
   { href: "/belajar/materi-5", label: "Kuis Interaktif", chip: "Materi 5" },

@@ -254,17 +254,6 @@ export function NumberPractice() {
                   })}
                 </div>
 
-                {/* Combined reading hint */}
-                {parsedDigits.length > 1 && (
-                  <div className="mt-6 rounded-2xl border border-primary/20 bg-primary/5 px-5 py-4">
-                    <p className="text-sm font-medium text-primary">
-                      💡 Cara baca:{" "}
-                      <span className="font-bold break-all">
-                        {parsedDigits.map((d) => DIGIT_DATA[d].name).join(" → ")}
-                      </span>
-                    </p>
-                  </div>
-                )}
               </div>
             </motion.div>
           ) : (
