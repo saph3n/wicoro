@@ -15,7 +15,7 @@ const navItems = [
     href: "/#learn",
     dropdown: [
       { label: "Huruf & Alfabet", href: "/belajar/materi-1" },
-      { label: "Angka", href: "/belajar/materi-2" },
+      { label: "Angka & Bilangan", href: "/belajar/materi-2" },
       { label: "Salam Sehari-hari", href: "/belajar/materi-3" },
       { label: "Ekspresi Dasar", href: "/belajar/materi-4" },
       { label: "Kuis Interaktif", href: "/belajar/materi-5" },

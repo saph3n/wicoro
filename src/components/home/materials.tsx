@@ -18,7 +18,7 @@ const materials = [
   },
   {
     icon: Hash,
-    title: "Angka",
+    title: "Angka & Bilangan",
     description:
       "Pelajari isyarat angka dari bilangan satuan hingga bilangan besar untuk kebutuhan sehari-hari.",
     href: "/belajar/materi-2",

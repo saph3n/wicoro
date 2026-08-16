@@ -403,7 +403,7 @@ const MODE_OPTIONS: {
   },
   {
     id: "Angka",
-    title: "Angka",
+    title: "Angka & Bilangan",
     description: "Kenali isyarat angka dan pola bilangannya.",
     icon: Hash,
     iconBg: "bg-[#268a5e] text-white",
