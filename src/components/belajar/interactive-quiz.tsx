@@ -106,7 +106,7 @@ const questions: Question[] = [
     question: "Ekspresi wajah apa yang ditunjukkan pada gambar ini?",
     options: ["Sedih", "Senang", "Marah"],
     answerIndex: 1,
-    note: "Telapak terbuka menempel di dada lalu naik ke depan wajah sambil tersenyum lebar — itulah senang.",
+    note: "Telapak terbuka menempel di dada lalu naik ke depan wajah sambil tersenyum lebar, itulah senang.",
   },
   {
     type: "teks-ke-gambar",
@@ -151,7 +151,7 @@ const questions: Question[] = [
     imageAlt: "Isyarat angka 2",
     question: "Tuliskan angka yang sedang diisyaratkan pada gambar!",
     answer: "2",
-    note: "Telunjuk dan jari tengah lurus membuka, dua jari lainnya menekuk di telapak — itulah angka 2.",
+    note: "Telunjuk dan jari tengah lurus membuka, dua jari lainnya menekuk di telapak, itulah angka 2.",
     time: 20,
   },
   {
@@ -171,7 +171,7 @@ const questions: Question[] = [
     imageAlt: "Ekspresi marah",
     question: "Tuliskan nama ekspresi yang ditunjukkan pada gambar!",
     answer: "marah",
-    note: "Telapak terbuka digerakkan kuat ke bawah dengan alis mengerut — itulah marah.",
+    note: "Telapak terbuka digerakkan kuat ke bawah dengan alis mengerut, itulah marah.",
     time: 20,
   },
   {
@@ -201,7 +201,7 @@ const questions: Question[] = [
     question: "Bentuk tangan huruf apa yang dibuat dengan telunjuk lurus ke atas dan ibu jari menyamping membentuk sudut?",
     options: ["Huruf T", "Huruf L", "Huruf V"],
     answerIndex: 1,
-    note: "Luruskan telunjuk ke atas dan ibu jari ke samping — itulah bentuk huruf L.",
+    note: "Luruskan telunjuk ke atas dan ibu jari ke samping, itulah bentuk huruf L.",
   },
   {
     type: "teks",
@@ -229,7 +229,7 @@ const questions: Question[] = [
     question: "Dalam bahasa isyarat, ekspresi wajah berfungsi sebagai?",
     options: ["Hiasan saja", "Nada bicara dan intonasi", "Pengganti kata benda"],
     answerIndex: 1,
-    note: "Wajah membawa intonasi — gerakan tangan membawa kata.",
+    note: "Wajah membawa intonasi, sedangkan gerakan tangan membawa kata.",
   },
   {
     type: "teks",
@@ -1250,7 +1250,7 @@ export function InteractiveQuiz({ onModeChange, resetSignal }: InteractiveQuizPr
       {!finished && (
         <p className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
           <Sparkles className="size-4 text-primary/70" aria-hidden="true" />
-          Soal dan pilihan jawaban diacak setiap ronde. Jawab sebelum waktu habis — salah jawab atau kehabisan waktu
+          Soal dan pilihan jawaban diacak setiap ronde. Jawab sebelum waktu habis. Salah jawab atau kehabisan waktu
           mengurangi nyawamu.
         </p>
       )}

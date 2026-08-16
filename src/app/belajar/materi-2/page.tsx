@@ -66,7 +66,7 @@ export default function Materi2() {
             <TipCard
               icon={Timer}
               title="Jam dan waktu"
-              description="Saat menyebut jam, tanggal, atau durasi — misalnya pukul tujuh pagi atau lima belas menit."
+              description="Saat menyebut jam, tanggal, atau durasi, misalnya pukul tujuh pagi atau lima belas menit."
             />
             <TipCard
               icon={Hash}

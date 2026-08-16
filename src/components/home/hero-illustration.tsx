@@ -127,7 +127,7 @@ export function HeroIllustration({ className }: HeroIllustrationProps) {
           )}>
             <div className="relative size-8 overflow-hidden rounded-full bg-white p-0.5 shrink-0 shadow-xs">
               <Image
-                src="/senang.png"
+                src="/senang%20(1).png"
                 alt="Ekspresi Senang"
                 fill
                 className="object-contain p-0.5"

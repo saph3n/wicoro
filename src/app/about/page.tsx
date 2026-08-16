@@ -152,7 +152,7 @@ export default function AboutPage() {
                             Komunikasi Inklusif Tanpa Sekat
                           </h3>
                           <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
-                            Mewujudkan masyarakat Indonesia di mana setiap orang—baik Tuli maupun pendengar—dapat berinteraksi secara natural, hangat, dan tanpa hambatan bahasa di ruang publik, pendidikan, maupun pekerjaan.
+                            Mewujudkan masyarakat Indonesia di mana setiap orang, baik Teman Tuli maupun Dengar, dapat berinteraksi secara natural, hangat, dan tanpa hambatan bahasa di ruang publik, pendidikan, maupun pekerjaan.
                           </p>
                           <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
                             Kami bercita-cita agar BISINDO dapat dipelajari dengan mudah oleh semua kalangan, menjadikan komunikasi tanpa sekat sebagai bagian alami dari budaya inklusif bangsa.

@@ -114,7 +114,7 @@ const signItems: SignItem[] = [
     name: "Senang / Gembira",
     category: "ekspresi",
     description: "Tampilkan senyuman ceria disertai gerakan tangan melambangkan perasaan bahagia yang meluap.",
-    image: "/senang.png",
+    image: "/senang%20(1).png",
     link: "/belajar/materi-4",
     tag: "Perasaan",
   },
@@ -123,7 +123,7 @@ const signItems: SignItem[] = [
     name: "Semangat!",
     category: "ekspresi",
     description: "Kepalan tangan diangkat mantap disertai binar mata penuh antusiasme dan energi positif.",
-    image: "/semangat.png",
+    image: "/semangat%20(1).png",
     link: "/belajar/materi-4",
     tag: "Perasaan",
   },
@@ -269,7 +269,7 @@ export function QuickPreview() {
                   className="grid gap-6 sm:grid-cols-2 sm:items-center"
                 >
                   {/* Image Display Frame */}
-                  <div className="relative flex aspect-square w-full items-center justify-center rounded-2xl bg-white p-5 border border-slate-200/70 shadow-md shadow-slate-900/5 group">
+                  <div className="relative flex aspect-square w-full items-center justify-center rounded-2xl bg-gradient-to-br from-mint/15 via-peach/20 to-coral-light/15 p-5 border border-emerald-500/20 shadow-md shadow-emerald-900/5 group">
                     {/* Corner Tag */}
                     <span className="absolute top-3 left-3 rounded-full bg-emerald-100/90 border border-emerald-300 px-3 py-1 text-[10px] font-extrabold tracking-wide text-emerald-900 shadow-2xs">
                       {currentItem.tag}

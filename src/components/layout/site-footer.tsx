@@ -7,7 +7,7 @@ import { Container } from "@/components/common/container"
 
 const contactLinks = [
   { label: "halo@wicoro.id", href: "mailto:halo@wicoro.id", Icon: Mail },
-  { label: "+62 812-3456-7890", href: "tel:+6281234567890", Icon: Phone },
+  { label: "08xxxxxxx", href: "tel:08xxxxxxx", Icon: Phone },
   { label: "Semarang, Indonesia", href: "/kontak", Icon: MapPin },
 ]
 

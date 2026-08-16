@@ -19,8 +19,8 @@ const contactMethods = [
   {
     icon: Phone,
     title: "Telepon / WhatsApp",
-    value: "+62 812-3456-7890",
-    href: "tel:+6281234567890",
+    value: "08xxxxxxx",
+    href: "tel:08xxxxxxx",
   },
   {
     icon: MapPin,

@@ -19,7 +19,7 @@ const greetings = [
   { sign: "Maaf", name: "Maaf", description: "Tangan mengepal di depan dada, lalu digerakkan memutar kecil ke arah luar seperti meminta maaf dengan tulus.", image: "/Maaf.png?v=3" },
   { sign: "Permisi", name: "Permisi", description: "Telapak terbuka di samping wajah, lalu digerakkan ke depan pelan untuk meminta izin lewat atau memanggil perhatian.", image: "/Permisi.png?v=3" },
   { sign: "Sampai\njumpa", name: "Sampai Jumpa", description: "Telapak terbuka digerakkan ke samping sambil melambai, sering diakhiri dengan senyum atau anggukan.", image: "/Sampai Jumpa.png?v=3" },
-  { sign: "Aku\nsenang", name: "Senang Bertemu", description: "Telapak terbuka menempel di dada, lalu digerakkan ke depan sambil tersenyum — tanda senang berkenalan.", image: "/Senang Bertemu.png?v=4" },
+  { sign: "Aku\nsenang", name: "Senang Bertemu", description: "Telapak terbuka menempel di dada, lalu digerakkan ke depan sambil tersenyum, tanda senang berkenalan.", image: "/Senang Bertemu.png?v=4" },
 ]
 
 const accents = ["mint", "coral", "peach"] as const
