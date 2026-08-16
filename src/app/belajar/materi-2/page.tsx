@@ -7,7 +7,6 @@ import { LessonSection } from "@/components/belajar/lesson-section"
 import { SignCard } from "@/components/belajar/sign-card"
 import { TipCard } from "@/components/belajar/tip-card"
 import { NumberPractice } from "@/components/belajar/number-practice"
-import { FloatingElements } from "@/components/belajar/floating-elements"
 
 const digits = [
   { sign: "0", name: "Nol", description: "Kelima jari membentuk lingkaran seperti huruf O, telapak menghadap ke depan.", image: "/12.png" },
@@ -28,7 +27,6 @@ const accents = ["mint", "coral", "peach"] as const
 export default function Materi2() {
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <FloatingElements />
       <Container>
         <LessonHero
           index="2"
