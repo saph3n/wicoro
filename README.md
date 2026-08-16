@@ -1,36 +1,14 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Wicoro: Platform Edukasi dan Pembelajaran Bahasa Isyarat Indonesia (BISINDO) Berbasis Web Inklusif
 
-## Getting Started
+## Instansi
+Universitas Diponegoro
 
-First, run the development server:
+## Anggota Tim
+- Ketua       : Vennanda Az Zahra Putri
+  - Anggota 1: Sandriya Rindy Cahyani
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Deskripsi Karya
+Komunikasi merupakan hak mendasar setiap individu, namun kesenjangan akses informasi dan interaksi sosial masih kerap dialami oleh komunitas Tuli akibat minimnya media pembelajaran bahasa isyarat yang mudah diakses oleh masyarakat umum. Terinspirasi dari kata *wicara* (berbicara), **Wicoro** hadir sebagai platform pembelajaran Bahasa Isyarat Indonesia (BISINDO) interaktif yang dirancang untuk meruntuhkan batasan komunikasi verbal. Platform ini bertujuan menyediakan modul belajar yang terstruktur, fleksibel, dan ramah pengguna guna membangun empati serta literasi isyarat di kalangan masyarakat luas. Selaras dengan subtema Humanity OS, Wicoro menempatkan teknologi bukan sekadar sebagai alat digitalisasi, melainkan sebagai sistem operasi kemanusiaan yang memberdayakan, memfasilitasi kesetaraan, dan menciptakan ruang sosial yang inklusif tanpa hambatan komunikasi.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tautan / Link Deploy Website
+https://wicoro.vercel.app
