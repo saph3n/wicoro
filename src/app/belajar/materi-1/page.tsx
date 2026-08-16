@@ -1,7 +1,6 @@
 import { Lightbulb, Sparkles, Type } from "lucide-react"
 
 import { Container } from "@/components/common/container"
-import { FloatingElements } from "@/components/belajar/floating-elements"
 import { LessonHero } from "@/components/belajar/lesson-hero"
 import { LessonNav } from "@/components/belajar/lesson-nav"
 import { LessonSection } from "@/components/belajar/lesson-section"
@@ -43,7 +42,6 @@ const accents = ["mint", "coral", "peach"] as const
 export default function Materi1() {
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <FloatingElements />
       <Container>
         <LessonHero
           index="1"
